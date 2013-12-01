@@ -16,7 +16,7 @@
                     <p:panelGrid columns="2" rendered="#{estadoCivilController.selected != null}">
 
                         <p:outputLabel value="#{bundle.CreateEstadoCivilLabel_tpEstadoCivil}" for="tpEstadoCivil" />
-                        <p:inputText id="tpEstadoCivil" value="#{estadoCivilController.selected.tpEstadoCivil}" title="#{bundle.CreateEstadoCivilTitle_tpEstadoCivil}" />
+                        <p:inputText style="text-transform: uppercase" id="tpEstadoCivil" value="#{estadoCivilController.selected.tpEstadoCivil}" title="#{bundle.CreateEstadoCivilTitle_tpEstadoCivil}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{estadoCivilController.saveNew}" value="#{bundle.Save}" update="display,:EstadoCivilListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,EstadoCivilCreateDialog);"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="EstadoCivilCreateDialog.hide()"/>

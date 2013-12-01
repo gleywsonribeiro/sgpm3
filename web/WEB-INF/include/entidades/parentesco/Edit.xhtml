@@ -19,7 +19,7 @@
                         <h:outputText id="id" value="#{parentescoController.selected.id}" />
 
                         <p:outputLabel value="#{bundle.EditParentescoLabel_tpParentesco}" for="tpParentesco" />
-                        <p:inputText id="tpParentesco" value="#{parentescoController.selected.tpParentesco}" title="#{bundle.EditParentescoTitle_tpParentesco}" />
+                        <p:inputText style="text-transform: uppercase" id="tpParentesco" value="#{parentescoController.selected.tpParentesco}" title="#{bundle.EditParentescoTitle_tpParentesco}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{parentescoController.save}" value="#{bundle.Save}" update="display,:ParentescoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,ParentescoEditDialog);"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="ParentescoEditDialog.hide()"/>

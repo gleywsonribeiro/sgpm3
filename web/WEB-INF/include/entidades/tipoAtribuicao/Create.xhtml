@@ -16,7 +16,7 @@
                     <p:panelGrid columns="2" rendered="#{tipoAtribuicaoController.selected != null}">
 
                         <p:outputLabel value="#{bundle.CreateTipoAtribuicaoLabel_tpAtribuicao}" for="tpAtribuicao" />
-                        <p:inputText id="tpAtribuicao" value="#{tipoAtribuicaoController.selected.tpAtribuicao}" title="#{bundle.CreateTipoAtribuicaoTitle_tpAtribuicao}" />
+                        <p:inputText style="text-transform: uppercase" id="tpAtribuicao" value="#{tipoAtribuicaoController.selected.tpAtribuicao}" title="#{bundle.CreateTipoAtribuicaoTitle_tpAtribuicao}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{tipoAtribuicaoController.saveNew}" value="#{bundle.Save}" update="display,:TipoAtribuicaoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,TipoAtribuicaoCreateDialog);"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="TipoAtribuicaoCreateDialog.hide()"/>

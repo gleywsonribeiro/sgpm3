@@ -19,7 +19,7 @@
                         <h:outputText id="id" value="#{escolaridadeController.selected.id}" />
 
                         <p:outputLabel value="#{bundle.EditEscolaridadeLabel_tpEscolaridade}" for="tpEscolaridade" />
-                        <p:inputText id="tpEscolaridade" value="#{escolaridadeController.selected.tpEscolaridade}" title="#{bundle.EditEscolaridadeTitle_tpEscolaridade}" />
+                        <p:inputText style="text-transform: uppercase" id="tpEscolaridade" value="#{escolaridadeController.selected.tpEscolaridade}" title="#{bundle.EditEscolaridadeTitle_tpEscolaridade}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{escolaridadeController.save}" value="#{bundle.Save}" update="display,:EscolaridadeListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,EscolaridadeEditDialog);"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="EscolaridadeEditDialog.hide()"/>

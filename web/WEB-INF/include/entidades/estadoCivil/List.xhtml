@@ -21,13 +21,13 @@
                 <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                 <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                <p:column sortBy="#{item.id}" filterBy="#{item.id}">
+                <p:column sortBy="#{item.id}">
                     <f:facet name="header">
                         <h:outputText value="#{bundle.ListEstadoCivilTitle_id}"/>
                     </f:facet>
                     <h:outputText value="#{item.id}"/>
                 </p:column>
-                <p:column sortBy="#{item.tpEstadoCivil}" filterBy="#{item.tpEstadoCivil}">
+                <p:column sortBy="#{item.tpEstadoCivil}">
                     <f:facet name="header">
                         <h:outputText value="#{bundle.ListEstadoCivilTitle_tpEstadoCivil}"/>
                     </f:facet>

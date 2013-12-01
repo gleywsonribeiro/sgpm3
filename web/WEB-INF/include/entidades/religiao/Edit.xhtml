@@ -19,7 +19,7 @@
                         <h:outputText id="id" value="#{religiaoController.selected.id}" />
 
                         <p:outputLabel value="#{bundle.EditReligiaoLabel_tpReligiao}" for="tpReligiao" />
-                        <p:inputText id="tpReligiao" value="#{religiaoController.selected.tpReligiao}" title="#{bundle.EditReligiaoTitle_tpReligiao}" />
+                        <p:inputText style="text-transform: uppercase" id="tpReligiao" value="#{religiaoController.selected.tpReligiao}" title="#{bundle.EditReligiaoTitle_tpReligiao}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{religiaoController.save}" value="#{bundle.Save}" update="display,:ReligiaoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,ReligiaoEditDialog);"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="ReligiaoEditDialog.hide()"/>

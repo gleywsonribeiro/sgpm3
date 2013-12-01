@@ -17,6 +17,9 @@
 
                         <h:outputText value="#{bundle.ViewSangueLabel_id}"/>
                         <h:outputText value="#{sangueController.selected.id}" title="#{bundle.ViewSangueTitle_id}"/>
+                    
+                        <h:outputText value="Tipo de Sangue"/>
+                        <h:outputText id="tpsangue" value="#{sangueController.selected.tpSangue}" />
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="SangueViewDialog.hide()"/>
                 </h:panelGroup>

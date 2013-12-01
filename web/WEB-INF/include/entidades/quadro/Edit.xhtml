@@ -19,7 +19,7 @@
                         <h:outputText id="id" value="#{quadroController.selected.id}" />
 
                         <p:outputLabel value="#{bundle.EditQuadroLabel_tpQuadro}" for="tpQuadro" />
-                        <p:inputText id="tpQuadro" value="#{quadroController.selected.tpQuadro}" title="#{bundle.EditQuadroTitle_tpQuadro}" />
+                        <p:inputText style="text-transform: uppercase" id="tpQuadro" value="#{quadroController.selected.tpQuadro}" title="#{bundle.EditQuadroTitle_tpQuadro}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{quadroController.save}" value="#{bundle.Save}" update="display,:QuadroListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,QuadroEditDialog);"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="QuadroEditDialog.hide()"/>

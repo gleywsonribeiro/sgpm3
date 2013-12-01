@@ -19,7 +19,7 @@
                         <h:outputText id="id" value="#{tipoAtribuicaoController.selected.id}" />
 
                         <p:outputLabel value="#{bundle.EditTipoAtribuicaoLabel_tpAtribuicao}" for="tpAtribuicao" />
-                        <p:inputText id="tpAtribuicao" value="#{tipoAtribuicaoController.selected.tpAtribuicao}" title="#{bundle.EditTipoAtribuicaoTitle_tpAtribuicao}" />
+                        <p:inputText style="text-transform: uppercase" id="tpAtribuicao" value="#{tipoAtribuicaoController.selected.tpAtribuicao}" title="#{bundle.EditTipoAtribuicaoTitle_tpAtribuicao}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{tipoAtribuicaoController.save}" value="#{bundle.Save}" update="display,:TipoAtribuicaoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,TipoAtribuicaoEditDialog);"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="TipoAtribuicaoEditDialog.hide()"/>

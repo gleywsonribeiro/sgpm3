@@ -21,11 +21,17 @@
                 <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                 <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                <p:column sortBy="#{item.id}" filterBy="#{item.id}">
+                <p:column sortBy="#{item.id}">
                     <f:facet name="header">
                         <h:outputText value="#{bundle.ListSangueTitle_id}"/>
                     </f:facet>
                     <h:outputText value="#{item.id}"/>
+                </p:column>
+                <p:column sortBy="#{item.tpSangue}">
+                    <f:facet name="header">
+                        <h:outputText value="Tipo Sanguíneo"/>
+                    </f:facet>
+                    <h:outputText value="#{item.tpSangue}"/>
                 </p:column>
                 <f:facet name="footer">
                     <div class="footer-section">

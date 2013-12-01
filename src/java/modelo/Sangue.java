@@ -37,6 +37,14 @@ public class Sangue implements Serializable {
         this.id = id;
     }
 
+    public String getTpSangue() {
+        return tpSangue;
+    }
+
+    public void setTpSangue(String tpSangue) {
+        this.tpSangue = tpSangue;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;

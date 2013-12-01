@@ -16,7 +16,7 @@
                     <p:panelGrid columns="2" rendered="#{religiaoController.selected != null}">
 
                         <p:outputLabel value="#{bundle.CreateReligiaoLabel_tpReligiao}" for="tpReligiao" />
-                        <p:inputText id="tpReligiao" value="#{religiaoController.selected.tpReligiao}" title="#{bundle.CreateReligiaoTitle_tpReligiao}" />
+                        <p:inputText style="text-transform: uppercase" id="tpReligiao" value="#{religiaoController.selected.tpReligiao}" title="#{bundle.CreateReligiaoTitle_tpReligiao}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{religiaoController.saveNew}" value="#{bundle.Save}" update="display,:ReligiaoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,ReligiaoCreateDialog);"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="ReligiaoCreateDialog.hide()"/>

@@ -16,7 +16,7 @@
                     <p:panelGrid columns="2" rendered="#{quadroController.selected != null}">
 
                         <p:outputLabel value="#{bundle.CreateQuadroLabel_tpQuadro}" for="tpQuadro" />
-                        <p:inputText id="tpQuadro" value="#{quadroController.selected.tpQuadro}" title="#{bundle.CreateQuadroTitle_tpQuadro}" />
+                        <p:inputText style="text-transform: uppercase" id="tpQuadro" value="#{quadroController.selected.tpQuadro}" title="#{bundle.CreateQuadroTitle_tpQuadro}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{quadroController.saveNew}" value="#{bundle.Save}" update="display,:QuadroListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,QuadroCreateDialog);"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="QuadroCreateDialog.hide()"/>

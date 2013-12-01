@@ -19,7 +19,7 @@
                         <h:outputText id="id" value="#{estadoCivilController.selected.id}" />
 
                         <p:outputLabel value="#{bundle.EditEstadoCivilLabel_tpEstadoCivil}" for="tpEstadoCivil" />
-                        <p:inputText id="tpEstadoCivil" value="#{estadoCivilController.selected.tpEstadoCivil}" title="#{bundle.EditEstadoCivilTitle_tpEstadoCivil}" />
+                        <p:inputText style="text-transform: uppercase" id="tpEstadoCivil" value="#{estadoCivilController.selected.tpEstadoCivil}" title="#{bundle.EditEstadoCivilTitle_tpEstadoCivil}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{estadoCivilController.save}" value="#{bundle.Save}" update="display,:EstadoCivilListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,EstadoCivilEditDialog);"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="EstadoCivilEditDialog.hide()"/>
