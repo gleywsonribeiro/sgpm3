@@ -19,10 +19,10 @@
                         <h:outputText id="id" value="#{perfilController.selected.id}" />
 
                         <p:outputLabel value="#{bundle.EditPerfilLabel_nome}" for="nome" />
-                        <p:inputText id="nome" value="#{perfilController.selected.nome}" title="#{bundle.EditPerfilTitle_nome}" />
+                        <p:inputText style="text-transform: uppercase" id="nome" value="#{perfilController.selected.nome}" title="#{bundle.EditPerfilTitle_nome}" />
 
                         <p:outputLabel value="#{bundle.EditPerfilLabel_permissao}" for="permissao" />
-                        <p:inputText id="permissao" value="#{perfilController.selected.permissao}" title="#{bundle.EditPerfilTitle_permissao}" />
+                        <p:inputText style="text-transform: uppercase" id="permissao" value="#{perfilController.selected.permissao}" title="#{bundle.EditPerfilTitle_permissao}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{perfilController.save}" value="#{bundle.Save}" update="display,:PerfilListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PerfilEditDialog);"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="PerfilEditDialog.hide()"/>

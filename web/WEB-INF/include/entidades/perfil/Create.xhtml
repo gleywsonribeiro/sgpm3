@@ -16,10 +16,10 @@
                     <p:panelGrid columns="2" rendered="#{perfilController.selected != null}">
 
                         <p:outputLabel value="#{bundle.CreatePerfilLabel_nome}" for="nome" />
-                        <p:inputText id="nome" value="#{perfilController.selected.nome}" title="#{bundle.CreatePerfilTitle_nome}" />
+                        <p:inputText style="text-transform: uppercase" id="nome" value="#{perfilController.selected.nome}" title="#{bundle.CreatePerfilTitle_nome}" />
 
                         <p:outputLabel value="#{bundle.CreatePerfilLabel_permissao}" for="permissao" />
-                        <p:inputText id="permissao" value="#{perfilController.selected.permissao}" title="#{bundle.CreatePerfilTitle_permissao}" />
+                        <p:inputText style="text-transform: uppercase" id="permissao" value="#{perfilController.selected.permissao}" title="#{bundle.CreatePerfilTitle_permissao}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{perfilController.saveNew}" value="#{bundle.Save}" update="display,:PerfilListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PerfilCreateDialog);"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="PerfilCreateDialog.hide()"/>

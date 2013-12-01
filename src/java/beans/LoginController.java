@@ -41,19 +41,23 @@ public class LoginController extends AbstractController<Usuario> implements Seri
     }
 
     public String login() {
-        //List<Usuario> lista = facade.findAll();
+        List<Usuario> lista = facade.findAll();
 
-        /**
-         * for (Usuario user : lista) {
-         *
-         * if (user.getLogin().equals(usuario.getLogin()) &&
-         * user.getSenha().equals(usuario.getSenha())) { FacesContext context =
-         * FacesContext.getCurrentInstance(); HttpSession httpSession =
-         * (HttpSession) context.getExternalContext().getSession(false);
-         * this.usuario = user; httpSession.setAttribute("currentUser",
-         * usuario); return "index"; } }
-         *
-         */
+        for (Usuario user : lista) {
+
+            if (user.getLogin().equals(usuario.getLogin())
+                    && user.getSenha().equals(usuario.getSenha())) {
+                FacesContext context
+                        = FacesContext.getCurrentInstance();
+                HttpSession httpSession
+                        = (HttpSession) context.getExternalContext().getSession(false);
+                this.usuario = user;
+                httpSession.setAttribute("currentUser",
+                        usuario);
+                return "index";
+            }
+        }
+
         //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Bem vindo "+usuario.getLogin()));
         if (usuario.getLogin().equals("gleywson") && usuario.getSenha().equals("starcraft2")) {
             FacesContext context = FacesContext.getCurrentInstance();
@@ -84,17 +88,17 @@ public class LoginController extends AbstractController<Usuario> implements Seri
         String saudacao = "Bom dia";
         Calendar calendar = Calendar.getInstance();
         int hora = calendar.get(Calendar.HOUR_OF_DAY);
-   
-        if(hora >= 12) {
+
+        if (hora >= 12) {
             saudacao = "Boa tarde";
         }
-        if(hora >= 18) {
+        if (hora >= 18) {
             saudacao = "Boa noite";
         }
-        
+
         return saudacao;
     }
-    
+
     public Usuario getUsuario() {
         return usuario;
     }

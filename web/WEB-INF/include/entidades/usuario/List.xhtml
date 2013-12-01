@@ -21,29 +21,29 @@
                 <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                 <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                <p:column sortBy="#{item.id}" filterBy="#{item.id}">
+                <p:column sortBy="#{item.id}">
                     <f:facet name="header">
                         <h:outputText value="#{bundle.ListUsuarioTitle_id}"/>
                     </f:facet>
                     <h:outputText value="#{item.id}"/>
                 </p:column>
-                <p:column sortBy="#{item.login}" filterBy="#{item.login}">
+                <p:column sortBy="#{item.login}">
                     <f:facet name="header">
                         <h:outputText value="#{bundle.ListUsuarioTitle_login}"/>
                     </f:facet>
                     <h:outputText value="#{item.login}"/>
                 </p:column>
-                <p:column sortBy="#{item.senha}" filterBy="#{item.senha}">
+                <p:column sortBy="#{item.senha}">
                     <f:facet name="header">
                         <h:outputText value="#{bundle.ListUsuarioTitle_senha}"/>
                     </f:facet>
                     <h:outputText value="#{item.senha}"/>
                 </p:column>
-                <p:column sortBy="#{item.perfil.id}" filterBy="#{item.perfil.id}">
+                <p:column sortBy="#{item.perfil.nome}">
                     <f:facet name="header">
                         <h:outputText value="#{bundle.ListUsuarioTitle_perfil}"/>
                     </f:facet>
-                    <h:outputText value="#{item.perfil.id}"/>
+                    <h:outputText value="#{item.perfil.nome}"/>
                 </p:column>
                 <f:facet name="footer">
                     <div class="footer-section">
