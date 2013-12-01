@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:form id="MovimentacaoListForm">
+
+        <p:panel header="#{bundle.ListMovimentacaoTitle}">
+
+            <p:dataTable id="datalist" value="#{movimentacaoController.items}" var="item"
+                         selectionMode="single" selection="#{movimentacaoController.selected}"
+                         rowKey="#{item.id}"
+                         paginator="true"
+                         rows="10"
+                         rowsPerPageTemplate="10,20,30"
+                         >
+
+                <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                <p:column sortBy="#{item.id}" filterBy="#{item.id}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListMovimentacaoTitle_id}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.id}"/>
+                </p:column>
+                <p:column sortBy="#{item.dataApresentacao}" filterBy="#{item.dataApresentacao}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListMovimentacaoTitle_dataApresentacao}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.dataApresentacao}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                </p:column>
+                <p:column sortBy="#{item.publicacaoApresentacao}" filterBy="#{item.publicacaoApresentacao}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListMovimentacaoTitle_publicacaoApresentacao}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.publicacaoApresentacao}"/>
+                </p:column>
+                <p:column sortBy="#{item.dataTransferencia}" filterBy="#{item.dataTransferencia}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListMovimentacaoTitle_dataTransferencia}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.dataTransferencia}"/>
+                </p:column>
+                <p:column sortBy="#{item.publicacaoTransferencia}" filterBy="#{item.publicacaoTransferencia}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListMovimentacaoTitle_publicacaoTransferencia}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.publicacaoTransferencia}"/>
+                </p:column>
+                <p:column sortBy="#{item.pessoa.id}" filterBy="#{item.pessoa.id}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListMovimentacaoTitle_pessoa}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.pessoa.id}"/>
+                </p:column>
+                <p:column sortBy="#{item.unidade.id}" filterBy="#{item.unidade.id}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListMovimentacaoTitle_unidade}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.unidade.id}"/>
+                </p:column>
+                <f:facet name="footer">
+                    <div class="footer-section">
+                        <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{movimentacaoController.prepareCreate}" update=":MovimentacaoCreateForm" oncomplete="MovimentacaoCreateDialog.show()"/>
+                        <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":MovimentacaoViewForm" oncomplete="MovimentacaoViewDialog.show()" disabled="#{empty movimentacaoController.selected}"/>
+                        <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":MovimentacaoEditForm" oncomplete="MovimentacaoEditDialog.show()" disabled="#{empty movimentacaoController.selected}"/>
+                        <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{movimentacaoController.delete}" update=":growl,datalist" disabled="#{empty movimentacaoController.selected}"/>
+                    </div>
+                </f:facet>
+
+            </p:dataTable>
+
+        </p:panel>
+
+    </h:form>
+
+</ui:composition>

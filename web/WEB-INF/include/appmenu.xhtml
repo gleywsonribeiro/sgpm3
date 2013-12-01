@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <h:form id="menuForm">
+            <p:menubar>
+                <p:menuitem value="#{bundle.Home}" outcome="/index" icon="ui-icon-home"/>
+                <p:submenu label="#{bundle.Maintenance}" icon="ui-icon-person">
+                    <p:menuitem value="Atribuicao" outcome="/telas/atribuicao/index" />
+                    <p:menuitem value="Contato" outcome="/telas/contato/index" />
+                    <p:menuitem value="Curso" outcome="/telas/curso/index" />
+                    <p:menuitem value="Dependente" outcome="/telas/dependente/index" />
+                    <p:menuitem value="Deslocamento" outcome="/telas/deslocamento/index" />
+                    <p:menuitem value="DispensaLicenca" outcome="/telas/dispensaLicenca/index" />
+                    <p:menuitem value="Endereco" outcome="/telas/endereco/index" />                    
+                    <p:menuitem value="Graduacao" outcome="/telas/graduacao/index" />
+                    <p:menuitem value="Internacao" outcome="/telas/internacao/index" />
+                    <p:menuitem value="Movimentacao" outcome="/telas/movimentacao/index" />                    
+                    <p:menuitem value="Perfil" outcome="/telas/perfil/index" />
+                    <p:menuitem value="Pessoa" outcome="/telas/pessoa/index" />
+                    <p:menuitem value="Promocao" outcome="/telas/promocao/index" />
+                    <p:menuitem value="Punicao" outcome="/telas/punicao/index" />
+                    <p:menuitem value="SituacaoFuncional" outcome="/telas/situacaoFuncional/index" />                    
+                    <p:menuitem value="Unidade" outcome="/telas/unidade/index" />
+                    <p:menuitem value="Usuario" outcome="/telas/usuario/index" />
+                </p:submenu>
+                <p:menuitem value="Sistema" icon="ui-icon-gear"/>
+                <p:menuitem value="Corregedoria"/>
+                <p:submenu label="Configurações" icon="ui-icon-wrench">
+                    <p:submenu label="Tabelas" icon="ui-icon-contact">
+                        <p:menuitem value="Religiao" outcome="/telas/religiao/index"/>
+                        <p:menuitem value="Moradia" outcome="/telas/moradia/index" />
+                        <p:menuitem value="Quadro" outcome="/telas/quadro/index" />
+                        <p:menuitem value="Sangue" outcome="/telas/sangue/index" />
+                        <p:menuitem value="Escolaridade" outcome="/telas/escolaridade/index" />
+                        <p:menuitem value="EstadoCivil" outcome="/telas/estadoCivil/index" />
+                        <p:menuitem value="TipoAtribuicao" outcome="/telas/tipoAtribuicao/index" />
+                        <p:menuitem value="Parentesco" outcome="/telas/parentesco/index" />
+                    </p:submenu>
+                </p:submenu>
+                <p:menuitem value="Sair" action="#{loginController.logout()}" icon="ui-icon-power" />
+            </p:menubar> 
+        </h:form>
+    </ui:composition>
+
+</html>

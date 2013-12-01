@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PessoaViewDlg" widgetVar="PessoaViewDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.ViewPessoaTitle}">
+
+            <h:form id="PessoaViewForm">
+
+                <h:panelGroup id="display">
+                    <p:scrollPanel>
+                        <p:panelGrid columns="2" rendered="#{pessoaController.selected != null}">
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_id}"/>
+                            <h:outputText value="#{pessoaController.selected.id}" title="#{bundle.ViewPessoaTitle_id}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_nome}"/>
+                            <h:outputText value="#{pessoaController.selected.nome}" title="#{bundle.ViewPessoaTitle_nome}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_cpf}"/>
+                            <h:outputText value="#{pessoaController.selected.cpf}" title="#{bundle.ViewPessoaTitle_cpf}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_dataNascimento}"/>
+                            <h:outputText value="#{pessoaController.selected.dataNascimento}" title="#{bundle.ViewPessoaTitle_dataNascimento}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_nomeDeGuerra}"/>
+                            <h:outputText value="#{pessoaController.selected.nomeDeGuerra}" title="#{bundle.ViewPessoaTitle_nomeDeGuerra}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_nomePai}"/>
+                            <h:outputText value="#{pessoaController.selected.nomePai}" title="#{bundle.ViewPessoaTitle_nomePai}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_nomeMae}"/>
+                            <h:outputText value="#{pessoaController.selected.nomeMae}" title="#{bundle.ViewPessoaTitle_nomeMae}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_pisPasep}"/>
+                            <h:outputText value="#{pessoaController.selected.pisPasep}" title="#{bundle.ViewPessoaTitle_pisPasep}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_tipo}"/>
+                            <h:outputText value="#{pessoaController.selected.tipo}" title="#{bundle.ViewPessoaTitle_tipo}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_sexo}"/>
+                            <h:outputText value="#{pessoaController.selected.sexo}" title="#{bundle.ViewPessoaTitle_sexo}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_matricula}"/>
+                            <h:outputText value="#{pessoaController.selected.matricula}" title="#{bundle.ViewPessoaTitle_matricula}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_rgMilitar}"/>
+                            <h:outputText value="#{pessoaController.selected.rgMilitar}" title="#{bundle.ViewPessoaTitle_rgMilitar}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_rgCivil}"/>
+                            <h:outputText value="#{pessoaController.selected.rgCivil}" title="#{bundle.ViewPessoaTitle_rgCivil}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_altura}"/>
+                            <h:outputText value="#{pessoaController.selected.altura}" title="#{bundle.ViewPessoaTitle_altura}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_boca}"/>
+                            <h:outputText value="#{pessoaController.selected.boca}" title="#{bundle.ViewPessoaTitle_boca}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_cutis}"/>
+                            <h:outputText value="#{pessoaController.selected.cutis}" title="#{bundle.ViewPessoaTitle_cutis}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_nariz}"/>
+                            <h:outputText value="#{pessoaController.selected.nariz}" title="#{bundle.ViewPessoaTitle_nariz}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_rosto}"/>
+                            <h:outputText value="#{pessoaController.selected.rosto}" title="#{bundle.ViewPessoaTitle_rosto}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_vestuario}"/>
+                            <h:outputText value="#{pessoaController.selected.vestuario}" title="#{bundle.ViewPessoaTitle_vestuario}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_calcado}"/>
+                            <h:outputText value="#{pessoaController.selected.calcado}" title="#{bundle.ViewPessoaTitle_calcado}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_cobertura}"/>
+                            <h:outputText value="#{pessoaController.selected.cobertura}" title="#{bundle.ViewPessoaTitle_cobertura}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_habilidadeProfissional}"/>
+                            <h:outputText value="#{pessoaController.selected.habilidadeProfissional}" title="#{bundle.ViewPessoaTitle_habilidadeProfissional}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_habilidadeEsportiva}"/>
+                            <h:outputText value="#{pessoaController.selected.habilidadeEsportiva}" title="#{bundle.ViewPessoaTitle_habilidadeEsportiva}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_cabelo}"/>
+                            <h:outputText value="#{pessoaController.selected.cabelo}" title="#{bundle.ViewPessoaTitle_cabelo}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_barba}"/>
+                            <h:outputText value="#{pessoaController.selected.barba}" title="#{bundle.ViewPessoaTitle_barba}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_bigode}"/>
+                            <h:outputText value="#{pessoaController.selected.bigode}" title="#{bundle.ViewPessoaTitle_bigode}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_olho}"/>
+                            <h:outputText value="#{pessoaController.selected.olho}" title="#{bundle.ViewPessoaTitle_olho}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_tituloEleitor}"/>
+                            <h:outputText value="#{pessoaController.selected.tituloEleitor}" title="#{bundle.ViewPessoaTitle_tituloEleitor}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_habilitacao}"/>
+                            <h:outputText value="#{pessoaController.selected.habilitacao}" title="#{bundle.ViewPessoaTitle_habilitacao}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_informacaoBancaria}"/>
+                            <h:outputText value="#{pessoaController.selected.informacaoBancaria}" title="#{bundle.ViewPessoaTitle_informacaoBancaria}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_unidade}"/>
+                            <h:outputText value="#{pessoaController.selected.unidade.id}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_situacaoFuncional}"/>
+                            <h:outputText value="#{pessoaController.selected.situacaoFuncional.id}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_escolaridade}"/>
+                            <h:outputText value="#{pessoaController.selected.escolaridade.id}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_sangue}"/>
+                            <h:outputText value="#{pessoaController.selected.sangue.id}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_estadoCivil}"/>
+                            <h:outputText value="#{pessoaController.selected.estadoCivil.id}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_moradia}"/>
+                            <h:outputText value="#{pessoaController.selected.moradia.id}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_religiao}"/>
+                            <h:outputText value="#{pessoaController.selected.religiao.id}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_graduacao}"/>
+                            <h:outputText value="#{pessoaController.selected.graduacao.id}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_contato}"/>
+                            <h:outputText value="#{pessoaController.selected.contato.id}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_endereco}"/>
+                            <h:outputText value="#{pessoaController.selected.endereco.id}"/>
+
+                            <h:outputText value="#{bundle.ViewPessoaLabel_usuario}"/>
+                            <h:outputText value="#{pessoaController.selected.usuario.id}"/>
+                        </p:panelGrid>
+                    </p:scrollPanel>
+                    <p:commandButton value="#{bundle.Close}" onclick="PessoaViewDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

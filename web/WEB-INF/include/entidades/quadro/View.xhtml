@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="QuadroViewDlg" widgetVar="QuadroViewDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.ViewQuadroTitle}">
+
+            <h:form id="QuadroViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{quadroController.selected != null}">
+
+                        <h:outputText value="#{bundle.ViewQuadroLabel_id}"/>
+                        <h:outputText value="#{quadroController.selected.id}" title="#{bundle.ViewQuadroTitle_id}"/>
+
+                        <h:outputText value="#{bundle.ViewQuadroLabel_tpQuadro}"/>
+                        <h:outputText value="#{quadroController.selected.tpQuadro}" title="#{bundle.ViewQuadroTitle_tpQuadro}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="QuadroViewDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

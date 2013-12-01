@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="GraduacaoCreateDlg" widgetVar="GraduacaoCreateDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.CreateGraduacaoTitle}">
+
+            <h:form id="GraduacaoCreateForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{graduacaoController.selected != null}">
+
+                        <p:outputLabel value="#{bundle.CreateGraduacaoLabel_graduacao}" for="graduacao" />
+                        <p:inputText id="graduacao" value="#{graduacaoController.selected.graduacao}" title="#{bundle.CreateGraduacaoTitle_graduacao}" />
+
+                        <p:outputLabel value="#{bundle.CreateGraduacaoLabel_hierarquia}" for="hierarquia" />
+                        <p:inputText id="hierarquia" value="#{graduacaoController.selected.hierarquia}" title="#{bundle.CreateGraduacaoTitle_hierarquia}" />
+
+                        <p:outputLabel value="#{bundle.CreateGraduacaoLabel_quadro}" for="quadro" />
+                        <p:selectOneMenu id="quadro" value="#{graduacaoController.selected.quadro}"  converter="quadroConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{quadroController.items}"
+                                           var="quadroItem"
+                                           itemValue="#{quadroItem}"
+                                           itemLabel="#{quadroItem.id.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{graduacaoController.saveNew}" value="#{bundle.Save}" update="display,:GraduacaoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,GraduacaoCreateDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="GraduacaoCreateDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

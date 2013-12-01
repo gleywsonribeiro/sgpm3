@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InternacaoCreateDlg" widgetVar="InternacaoCreateDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.CreateInternacaoTitle}">
+
+            <h:form id="InternacaoCreateForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{internacaoController.selected != null}">
+
+                        <p:outputLabel value="#{bundle.CreateInternacaoLabel_dataBaixa}" for="dataBaixa" />
+                        <p:calendar id="dataBaixa" pattern="MM/dd/yyyy" value="#{internacaoController.selected.dataBaixa}" title="#{bundle.EditInternacaoTitle_dataBaixa}"  showOn="button"/>
+
+                        <p:outputLabel value="#{bundle.CreateInternacaoLabel_dataAlta}" for="dataAlta" />
+                        <p:calendar id="dataAlta" pattern="MM/dd/yyyy" value="#{internacaoController.selected.dataAlta}" title="#{bundle.EditInternacaoTitle_dataAlta}"  showOn="button"/>
+
+                        <p:outputLabel value="#{bundle.CreateInternacaoLabel_diagnostico}" for="diagnostico" />
+                        <p:inputText id="diagnostico" value="#{internacaoController.selected.diagnostico}" title="#{bundle.CreateInternacaoTitle_diagnostico}" />
+
+                        <p:outputLabel value="#{bundle.CreateInternacaoLabel_publicacao}" for="publicacao" />
+                        <p:inputText id="publicacao" value="#{internacaoController.selected.publicacao}" title="#{bundle.CreateInternacaoTitle_publicacao}" />
+
+                        <p:outputLabel value="#{bundle.CreateInternacaoLabel_pessoa}" for="pessoa" />
+                        <p:selectOneMenu id="pessoa" value="#{internacaoController.selected.pessoa}"  converter="pessoaConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{pessoaController.items}"
+                                           var="pessoaItem"
+                                           itemValue="#{pessoaItem}"
+                                           itemLabel="#{pessoaItem.id.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{internacaoController.saveNew}" value="#{bundle.Save}" update="display,:InternacaoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,InternacaoCreateDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="InternacaoCreateDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CursoViewDlg" widgetVar="CursoViewDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.ViewCursoTitle}">
+
+            <h:form id="CursoViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cursoController.selected != null}">
+
+                        <h:outputText value="#{bundle.ViewCursoLabel_id}"/>
+                        <h:outputText value="#{cursoController.selected.id}" title="#{bundle.ViewCursoTitle_id}"/>
+
+                        <h:outputText value="#{bundle.ViewCursoLabel_curso}"/>
+                        <h:outputText value="#{cursoController.selected.curso}" title="#{bundle.ViewCursoTitle_curso}"/>
+
+                        <h:outputText value="#{bundle.ViewCursoLabel_cursoCivil}"/>
+                        <h:outputText value="#{cursoController.selected.cursoCivil}" title="#{bundle.ViewCursoTitle_cursoCivil}"/>
+
+                        <h:outputText value="#{bundle.ViewCursoLabel_localCurso}"/>
+                        <h:outputText value="#{cursoController.selected.localCurso}" title="#{bundle.ViewCursoTitle_localCurso}"/>
+
+                        <h:outputText value="#{bundle.ViewCursoLabel_dataInicio}"/>
+                        <h:outputText value="#{cursoController.selected.dataInicio}" title="#{bundle.ViewCursoTitle_dataInicio}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+
+                        <h:outputText value="#{bundle.ViewCursoLabel_dataTermino}"/>
+                        <h:outputText value="#{cursoController.selected.dataTermino}" title="#{bundle.ViewCursoTitle_dataTermino}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+
+                        <h:outputText value="#{bundle.ViewCursoLabel_publicacao}"/>
+                        <h:outputText value="#{cursoController.selected.publicacao}" title="#{bundle.ViewCursoTitle_publicacao}"/>
+
+                        <h:outputText value="#{bundle.ViewCursoLabel_cargaHoraria}"/>
+                        <h:outputText value="#{cursoController.selected.cargaHoraria}" title="#{bundle.ViewCursoTitle_cargaHoraria}"/>
+
+                        <h:outputText value="#{bundle.ViewCursoLabel_entidadePromotora}"/>
+                        <h:outputText value="#{cursoController.selected.entidadePromotora}" title="#{bundle.ViewCursoTitle_entidadePromotora}"/>
+
+                        <h:outputText value="#{bundle.ViewCursoLabel_pessoa}"/>
+                        <h:outputText value="#{cursoController.selected.pessoa.id}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CursoViewDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DeslocamentoViewDlg" widgetVar="DeslocamentoViewDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.ViewDeslocamentoTitle}">
+
+            <h:form id="DeslocamentoViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{deslocamentoController.selected != null}">
+
+                        <h:outputText value="#{bundle.ViewDeslocamentoLabel_id}"/>
+                        <h:outputText value="#{deslocamentoController.selected.id}" title="#{bundle.ViewDeslocamentoTitle_id}"/>
+
+                        <h:outputText value="#{bundle.ViewDeslocamentoLabel_dataSeguimento}"/>
+                        <h:outputText value="#{deslocamentoController.selected.dataSeguimento}" title="#{bundle.ViewDeslocamentoTitle_dataSeguimento}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+
+                        <h:outputText value="#{bundle.ViewDeslocamentoLabel_dataRegresso}"/>
+                        <h:outputText value="#{deslocamentoController.selected.dataRegresso}" title="#{bundle.ViewDeslocamentoTitle_dataRegresso}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+
+                        <h:outputText value="#{bundle.ViewDeslocamentoLabel_localidade}"/>
+                        <h:outputText value="#{deslocamentoController.selected.localidade}" title="#{bundle.ViewDeslocamentoTitle_localidade}"/>
+
+                        <h:outputText value="#{bundle.ViewDeslocamentoLabel_carater}"/>
+                        <h:outputText value="#{deslocamentoController.selected.carater}" title="#{bundle.ViewDeslocamentoTitle_carater}"/>
+
+                        <h:outputText value="#{bundle.ViewDeslocamentoLabel_publicacao}"/>
+                        <h:outputText value="#{deslocamentoController.selected.publicacao}" title="#{bundle.ViewDeslocamentoTitle_publicacao}"/>
+
+                        <h:outputText value="#{bundle.ViewDeslocamentoLabel_pessoa}"/>
+                        <h:outputText value="#{deslocamentoController.selected.pessoa.id}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="DeslocamentoViewDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

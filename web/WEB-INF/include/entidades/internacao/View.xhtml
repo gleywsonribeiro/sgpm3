@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InternacaoViewDlg" widgetVar="InternacaoViewDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.ViewInternacaoTitle}">
+
+            <h:form id="InternacaoViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{internacaoController.selected != null}">
+
+                        <h:outputText value="#{bundle.ViewInternacaoLabel_id}"/>
+                        <h:outputText value="#{internacaoController.selected.id}" title="#{bundle.ViewInternacaoTitle_id}"/>
+
+                        <h:outputText value="#{bundle.ViewInternacaoLabel_dataBaixa}"/>
+                        <h:outputText value="#{internacaoController.selected.dataBaixa}" title="#{bundle.ViewInternacaoTitle_dataBaixa}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+
+                        <h:outputText value="#{bundle.ViewInternacaoLabel_dataAlta}"/>
+                        <h:outputText value="#{internacaoController.selected.dataAlta}" title="#{bundle.ViewInternacaoTitle_dataAlta}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+
+                        <h:outputText value="#{bundle.ViewInternacaoLabel_diagnostico}"/>
+                        <h:outputText value="#{internacaoController.selected.diagnostico}" title="#{bundle.ViewInternacaoTitle_diagnostico}"/>
+
+                        <h:outputText value="#{bundle.ViewInternacaoLabel_publicacao}"/>
+                        <h:outputText value="#{internacaoController.selected.publicacao}" title="#{bundle.ViewInternacaoTitle_publicacao}"/>
+
+                        <h:outputText value="#{bundle.ViewInternacaoLabel_pessoa}"/>
+                        <h:outputText value="#{internacaoController.selected.pessoa.id}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="InternacaoViewDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

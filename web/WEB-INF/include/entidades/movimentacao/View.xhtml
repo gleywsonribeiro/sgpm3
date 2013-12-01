@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MovimentacaoViewDlg" widgetVar="MovimentacaoViewDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.ViewMovimentacaoTitle}">
+
+            <h:form id="MovimentacaoViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{movimentacaoController.selected != null}">
+
+                        <h:outputText value="#{bundle.ViewMovimentacaoLabel_id}"/>
+                        <h:outputText value="#{movimentacaoController.selected.id}" title="#{bundle.ViewMovimentacaoTitle_id}"/>
+
+                        <h:outputText value="#{bundle.ViewMovimentacaoLabel_dataApresentacao}"/>
+                        <h:outputText value="#{movimentacaoController.selected.dataApresentacao}" title="#{bundle.ViewMovimentacaoTitle_dataApresentacao}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+
+                        <h:outputText value="#{bundle.ViewMovimentacaoLabel_publicacaoApresentacao}"/>
+                        <h:outputText value="#{movimentacaoController.selected.publicacaoApresentacao}" title="#{bundle.ViewMovimentacaoTitle_publicacaoApresentacao}"/>
+
+                        <h:outputText value="#{bundle.ViewMovimentacaoLabel_dataTransferencia}"/>
+                        <h:outputText value="#{movimentacaoController.selected.dataTransferencia}" title="#{bundle.ViewMovimentacaoTitle_dataTransferencia}"/>
+
+                        <h:outputText value="#{bundle.ViewMovimentacaoLabel_publicacaoTransferencia}"/>
+                        <h:outputText value="#{movimentacaoController.selected.publicacaoTransferencia}" title="#{bundle.ViewMovimentacaoTitle_publicacaoTransferencia}"/>
+
+                        <h:outputText value="#{bundle.ViewMovimentacaoLabel_pessoa}"/>
+                        <h:outputText value="#{movimentacaoController.selected.pessoa.id}"/>
+
+                        <h:outputText value="#{bundle.ViewMovimentacaoLabel_unidade}"/>
+                        <h:outputText value="#{movimentacaoController.selected.unidade.id}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="MovimentacaoViewDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DispensaLicencaCreateDlg" widgetVar="DispensaLicencaCreateDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.CreateDispensaLicencaTitle}">
+
+            <h:form id="DispensaLicencaCreateForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{dispensaLicencaController.selected != null}">
+
+                        <p:outputLabel value="#{bundle.CreateDispensaLicencaLabel_pessoa}" for="pessoa" />
+                        <p:selectOneMenu id="pessoa" value="#{dispensaLicencaController.selected.pessoa}"  converter="pessoaConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{pessoaController.items}"
+                                           var="pessoaItem"
+                                           itemValue="#{pessoaItem}"
+                                           itemLabel="#{pessoaItem.id.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="#{bundle.CreateDispensaLicencaLabel_duracao}" for="duracao" />
+                        <p:inputText id="duracao" value="#{dispensaLicencaController.selected.duracao}" title="#{bundle.CreateDispensaLicencaTitle_duracao}" />
+
+                        <p:outputLabel value="#{bundle.CreateDispensaLicencaLabel_natureza}" for="natureza" />
+                        <p:inputText id="natureza" value="#{dispensaLicencaController.selected.natureza}" title="#{bundle.CreateDispensaLicencaTitle_natureza}" />
+
+                        <p:outputLabel value="#{bundle.CreateDispensaLicencaLabel_publicacao}" for="publicacao" />
+                        <p:inputText id="publicacao" value="#{dispensaLicencaController.selected.publicacao}" title="#{bundle.CreateDispensaLicencaTitle_publicacao}" />
+
+                        <p:outputLabel value="#{bundle.CreateDispensaLicencaLabel_publicacaoSustacao}" for="publicacaoSustacao" />
+                        <p:inputText id="publicacaoSustacao" value="#{dispensaLicencaController.selected.publicacaoSustacao}" title="#{bundle.CreateDispensaLicencaTitle_publicacaoSustacao}" />
+
+                        <p:outputLabel value="#{bundle.CreateDispensaLicencaLabel_publicacaoDireito}" for="publicacaoDireito" />
+                        <p:inputText id="publicacaoDireito" value="#{dispensaLicencaController.selected.publicacaoDireito}" title="#{bundle.CreateDispensaLicencaTitle_publicacaoDireito}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{dispensaLicencaController.saveNew}" value="#{bundle.Save}" update="display,:DispensaLicencaListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,DispensaLicencaCreateDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DispensaLicencaCreateDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ReligiaoViewDlg" widgetVar="ReligiaoViewDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.ViewReligiaoTitle}">
+
+            <h:form id="ReligiaoViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{religiaoController.selected != null}">
+
+                        <h:outputText value="#{bundle.ViewReligiaoLabel_id}"/>
+                        <h:outputText value="#{religiaoController.selected.id}" title="#{bundle.ViewReligiaoTitle_id}"/>
+
+                        <h:outputText value="#{bundle.ViewReligiaoLabel_tpReligiao}"/>
+                        <h:outputText value="#{religiaoController.selected.tpReligiao}" title="#{bundle.ViewReligiaoTitle_tpReligiao}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ReligiaoViewDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MovimentacaoCreateDlg" widgetVar="MovimentacaoCreateDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.CreateMovimentacaoTitle}">
+
+            <h:form id="MovimentacaoCreateForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{movimentacaoController.selected != null}">
+
+                        <p:outputLabel value="#{bundle.CreateMovimentacaoLabel_dataApresentacao}" for="dataApresentacao" />
+                        <p:calendar id="dataApresentacao" pattern="MM/dd/yyyy" value="#{movimentacaoController.selected.dataApresentacao}" title="#{bundle.EditMovimentacaoTitle_dataApresentacao}"  showOn="button"/>
+
+                        <p:outputLabel value="#{bundle.CreateMovimentacaoLabel_publicacaoApresentacao}" for="publicacaoApresentacao" />
+                        <p:inputText id="publicacaoApresentacao" value="#{movimentacaoController.selected.publicacaoApresentacao}" title="#{bundle.CreateMovimentacaoTitle_publicacaoApresentacao}" />
+
+                        <p:outputLabel value="#{bundle.CreateMovimentacaoLabel_dataTransferencia}" for="dataTransferencia" />
+                        <p:inputText id="dataTransferencia" value="#{movimentacaoController.selected.dataTransferencia}" title="#{bundle.CreateMovimentacaoTitle_dataTransferencia}" />
+
+                        <p:outputLabel value="#{bundle.CreateMovimentacaoLabel_publicacaoTransferencia}" for="publicacaoTransferencia" />
+                        <p:inputText id="publicacaoTransferencia" value="#{movimentacaoController.selected.publicacaoTransferencia}" title="#{bundle.CreateMovimentacaoTitle_publicacaoTransferencia}" />
+
+                        <p:outputLabel value="#{bundle.CreateMovimentacaoLabel_pessoa}" for="pessoa" />
+                        <p:selectOneMenu id="pessoa" value="#{movimentacaoController.selected.pessoa}"  converter="pessoaConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{pessoaController.items}"
+                                           var="pessoaItem"
+                                           itemValue="#{pessoaItem}"
+                                           itemLabel="#{pessoaItem.id.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="#{bundle.CreateMovimentacaoLabel_unidade}" for="unidade" />
+                        <p:selectOneMenu id="unidade" value="#{movimentacaoController.selected.unidade}"  converter="unidadeConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{unidadeController.items}"
+                                           var="unidadeItem"
+                                           itemValue="#{unidadeItem}"
+                                           itemLabel="#{unidadeItem.id.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{movimentacaoController.saveNew}" value="#{bundle.Save}" update="display,:MovimentacaoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,MovimentacaoCreateDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="MovimentacaoCreateDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

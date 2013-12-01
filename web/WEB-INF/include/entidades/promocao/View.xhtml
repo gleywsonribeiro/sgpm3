@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PromocaoViewDlg" widgetVar="PromocaoViewDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.ViewPromocaoTitle}">
+
+            <h:form id="PromocaoViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{promocaoController.selected != null}">
+
+                        <h:outputText value="#{bundle.ViewPromocaoLabel_id}"/>
+                        <h:outputText value="#{promocaoController.selected.id}" title="#{bundle.ViewPromocaoTitle_id}"/>
+
+                        <h:outputText value="#{bundle.ViewPromocaoLabel_graduacao}"/>
+                        <h:outputText value="#{promocaoController.selected.graduacao.id}"/>
+
+                        <h:outputText value="#{bundle.ViewPromocaoLabel_dataPromocao}"/>
+                        <h:outputText value="#{promocaoController.selected.dataPromocao}" title="#{bundle.ViewPromocaoTitle_dataPromocao}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+
+                        <h:outputText value="#{bundle.ViewPromocaoLabel_publicacao}"/>
+                        <h:outputText value="#{promocaoController.selected.publicacao}" title="#{bundle.ViewPromocaoTitle_publicacao}"/>
+
+                        <h:outputText value="#{bundle.ViewPromocaoLabel_colocacao}"/>
+                        <h:outputText value="#{promocaoController.selected.colocacao}" title="#{bundle.ViewPromocaoTitle_colocacao}"/>
+
+                        <h:outputText value="#{bundle.ViewPromocaoLabel_criterio}"/>
+                        <h:outputText value="#{promocaoController.selected.criterio}" title="#{bundle.ViewPromocaoTitle_criterio}"/>
+
+                        <h:outputText value="#{bundle.ViewPromocaoLabel_especie}"/>
+                        <h:outputText value="#{promocaoController.selected.especie}" title="#{bundle.ViewPromocaoTitle_especie}"/>
+
+                        <h:outputText value="#{bundle.ViewPromocaoLabel_tipo}"/>
+                        <h:outputText value="#{promocaoController.selected.tipo}" title="#{bundle.ViewPromocaoTitle_tipo}"/>
+
+                        <h:outputText value="#{bundle.ViewPromocaoLabel_situacaoQuadro}"/>
+                        <h:outputText value="#{promocaoController.selected.situacaoQuadro}" title="#{bundle.ViewPromocaoTitle_situacaoQuadro}"/>
+
+                        <h:outputText value="#{bundle.ViewPromocaoLabel_pessoa}"/>
+                        <h:outputText value="#{promocaoController.selected.pessoa.id}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="PromocaoViewDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

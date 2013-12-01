@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CursoEditDlg" widgetVar="CursoEditDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.EditCursoTitle}">
+
+            <h:form id="CursoEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" rendered="#{cursoController.selected != null}">
+
+                        <h:outputLabel value="#{bundle.EditCursoLabel_id}" for="id" />
+                        <h:outputText id="id" value="#{cursoController.selected.id}" />
+
+                        <p:outputLabel value="#{bundle.EditCursoLabel_curso}" for="curso" />
+                        <p:inputText id="curso" value="#{cursoController.selected.curso}" title="#{bundle.EditCursoTitle_curso}" />
+
+                        <p:outputLabel value="#{bundle.EditCursoLabel_cursoCivil}" for="cursoCivil" />
+                        <p:inputText id="cursoCivil" value="#{cursoController.selected.cursoCivil}" title="#{bundle.EditCursoTitle_cursoCivil}" />
+
+                        <p:outputLabel value="#{bundle.EditCursoLabel_localCurso}" for="localCurso" />
+                        <p:inputText id="localCurso" value="#{cursoController.selected.localCurso}" title="#{bundle.EditCursoTitle_localCurso}" />
+
+                        <p:outputLabel value="#{bundle.EditCursoLabel_dataInicio}" for="dataInicio" />
+                        <p:calendar id="dataInicio" pattern="MM/dd/yyyy" value="#{cursoController.selected.dataInicio}" title="#{bundle.EditCursoTitle_dataInicio}"  showOn="button"/>
+
+                        <p:outputLabel value="#{bundle.EditCursoLabel_dataTermino}" for="dataTermino" />
+                        <p:calendar id="dataTermino" pattern="MM/dd/yyyy" value="#{cursoController.selected.dataTermino}" title="#{bundle.EditCursoTitle_dataTermino}"  showOn="button"/>
+
+                        <p:outputLabel value="#{bundle.EditCursoLabel_publicacao}" for="publicacao" />
+                        <p:inputText id="publicacao" value="#{cursoController.selected.publicacao}" title="#{bundle.EditCursoTitle_publicacao}" />
+
+                        <p:outputLabel value="#{bundle.EditCursoLabel_cargaHoraria}" for="cargaHoraria" />
+                        <p:inputText id="cargaHoraria" value="#{cursoController.selected.cargaHoraria}" title="#{bundle.EditCursoTitle_cargaHoraria}" />
+
+                        <p:outputLabel value="#{bundle.EditCursoLabel_entidadePromotora}" for="entidadePromotora" />
+                        <p:inputText id="entidadePromotora" value="#{cursoController.selected.entidadePromotora}" title="#{bundle.EditCursoTitle_entidadePromotora}" />
+
+                        <p:outputLabel value="#{bundle.EditCursoLabel_pessoa}" for="pessoa" />
+                        <p:selectOneMenu id="pessoa" value="#{cursoController.selected.pessoa}"  converter="pessoaConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{pessoaController.items}"
+                                           var="pessoaItem"
+                                           itemValue="#{pessoaItem}"
+                                           itemLabel="#{pessoaItem.id.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cursoController.save}" value="#{bundle.Save}" update="display,:CursoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,CursoEditDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CursoEditDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

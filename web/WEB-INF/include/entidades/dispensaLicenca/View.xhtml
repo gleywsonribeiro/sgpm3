@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DispensaLicencaViewDlg" widgetVar="DispensaLicencaViewDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.ViewDispensaLicencaTitle}">
+
+            <h:form id="DispensaLicencaViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{dispensaLicencaController.selected != null}">
+
+                        <h:outputText value="#{bundle.ViewDispensaLicencaLabel_id}"/>
+                        <h:outputText value="#{dispensaLicencaController.selected.id}" title="#{bundle.ViewDispensaLicencaTitle_id}"/>
+
+                        <h:outputText value="#{bundle.ViewDispensaLicencaLabel_pessoa}"/>
+                        <h:outputText value="#{dispensaLicencaController.selected.pessoa.id}"/>
+
+                        <h:outputText value="#{bundle.ViewDispensaLicencaLabel_duracao}"/>
+                        <h:outputText value="#{dispensaLicencaController.selected.duracao}" title="#{bundle.ViewDispensaLicencaTitle_duracao}"/>
+
+                        <h:outputText value="#{bundle.ViewDispensaLicencaLabel_natureza}"/>
+                        <h:outputText value="#{dispensaLicencaController.selected.natureza}" title="#{bundle.ViewDispensaLicencaTitle_natureza}"/>
+
+                        <h:outputText value="#{bundle.ViewDispensaLicencaLabel_publicacao}"/>
+                        <h:outputText value="#{dispensaLicencaController.selected.publicacao}" title="#{bundle.ViewDispensaLicencaTitle_publicacao}"/>
+
+                        <h:outputText value="#{bundle.ViewDispensaLicencaLabel_publicacaoSustacao}"/>
+                        <h:outputText value="#{dispensaLicencaController.selected.publicacaoSustacao}" title="#{bundle.ViewDispensaLicencaTitle_publicacaoSustacao}"/>
+
+                        <h:outputText value="#{bundle.ViewDispensaLicencaLabel_publicacaoDireito}"/>
+                        <h:outputText value="#{dispensaLicencaController.selected.publicacaoDireito}" title="#{bundle.ViewDispensaLicencaTitle_publicacaoDireito}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="DispensaLicencaViewDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

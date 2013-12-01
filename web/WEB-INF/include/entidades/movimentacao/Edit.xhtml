@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MovimentacaoEditDlg" widgetVar="MovimentacaoEditDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.EditMovimentacaoTitle}">
+
+            <h:form id="MovimentacaoEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" rendered="#{movimentacaoController.selected != null}">
+
+                        <h:outputLabel value="#{bundle.EditMovimentacaoLabel_id}" for="id" />
+                        <h:outputText id="id" value="#{movimentacaoController.selected.id}" />
+
+                        <p:outputLabel value="#{bundle.EditMovimentacaoLabel_dataApresentacao}" for="dataApresentacao" />
+                        <p:calendar id="dataApresentacao" pattern="MM/dd/yyyy" value="#{movimentacaoController.selected.dataApresentacao}" title="#{bundle.EditMovimentacaoTitle_dataApresentacao}"  showOn="button"/>
+
+                        <p:outputLabel value="#{bundle.EditMovimentacaoLabel_publicacaoApresentacao}" for="publicacaoApresentacao" />
+                        <p:inputText id="publicacaoApresentacao" value="#{movimentacaoController.selected.publicacaoApresentacao}" title="#{bundle.EditMovimentacaoTitle_publicacaoApresentacao}" />
+
+                        <p:outputLabel value="#{bundle.EditMovimentacaoLabel_dataTransferencia}" for="dataTransferencia" />
+                        <p:inputText id="dataTransferencia" value="#{movimentacaoController.selected.dataTransferencia}" title="#{bundle.EditMovimentacaoTitle_dataTransferencia}" />
+
+                        <p:outputLabel value="#{bundle.EditMovimentacaoLabel_publicacaoTransferencia}" for="publicacaoTransferencia" />
+                        <p:inputText id="publicacaoTransferencia" value="#{movimentacaoController.selected.publicacaoTransferencia}" title="#{bundle.EditMovimentacaoTitle_publicacaoTransferencia}" />
+
+                        <p:outputLabel value="#{bundle.EditMovimentacaoLabel_pessoa}" for="pessoa" />
+                        <p:selectOneMenu id="pessoa" value="#{movimentacaoController.selected.pessoa}"  converter="pessoaConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{pessoaController.items}"
+                                           var="pessoaItem"
+                                           itemValue="#{pessoaItem}"
+                                           itemLabel="#{pessoaItem.id.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="#{bundle.EditMovimentacaoLabel_unidade}" for="unidade" />
+                        <p:selectOneMenu id="unidade" value="#{movimentacaoController.selected.unidade}"  converter="unidadeConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{unidadeController.items}"
+                                           var="unidadeItem"
+                                           itemValue="#{unidadeItem}"
+                                           itemLabel="#{unidadeItem.id.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{movimentacaoController.save}" value="#{bundle.Save}" update="display,:MovimentacaoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,MovimentacaoEditDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="MovimentacaoEditDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

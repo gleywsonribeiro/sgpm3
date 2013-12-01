@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PerfilEditDlg" widgetVar="PerfilEditDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.EditPerfilTitle}">
+
+            <h:form id="PerfilEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" rendered="#{perfilController.selected != null}">
+
+                        <h:outputLabel value="#{bundle.EditPerfilLabel_id}" for="id" />
+                        <h:outputText id="id" value="#{perfilController.selected.id}" />
+
+                        <p:outputLabel value="#{bundle.EditPerfilLabel_nome}" for="nome" />
+                        <p:inputText id="nome" value="#{perfilController.selected.nome}" title="#{bundle.EditPerfilTitle_nome}" />
+
+                        <p:outputLabel value="#{bundle.EditPerfilLabel_permissao}" for="permissao" />
+                        <p:inputText id="permissao" value="#{perfilController.selected.permissao}" title="#{bundle.EditPerfilTitle_permissao}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{perfilController.save}" value="#{bundle.Save}" update="display,:PerfilListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PerfilEditDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PerfilEditDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SangueEditDlg" widgetVar="SangueEditDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.EditSangueTitle}">
+
+            <h:form id="SangueEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" rendered="#{sangueController.selected != null}">
+
+                        <h:outputLabel value="#{bundle.EditSangueLabel_id}" for="id" />
+                        <h:outputText id="id" value="#{sangueController.selected.id}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{sangueController.save}" value="#{bundle.Save}" update="display,:SangueListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,SangueEditDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SangueEditDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

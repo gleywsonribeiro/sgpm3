@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ContatoViewDlg" widgetVar="ContatoViewDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.ViewContatoTitle}">
+
+            <h:form id="ContatoViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{contatoController.selected != null}">
+
+                        <h:outputText value="#{bundle.ViewContatoLabel_id}"/>
+                        <h:outputText value="#{contatoController.selected.id}" title="#{bundle.ViewContatoTitle_id}"/>
+
+                        <h:outputText value="#{bundle.ViewContatoLabel_telefone}"/>
+                        <h:outputText value="#{contatoController.selected.telefone}" title="#{bundle.ViewContatoTitle_telefone}"/>
+
+                        <h:outputText value="#{bundle.ViewContatoLabel_fax}"/>
+                        <h:outputText value="#{contatoController.selected.fax}" title="#{bundle.ViewContatoTitle_fax}"/>
+
+                        <h:outputText value="#{bundle.ViewContatoLabel_celular}"/>
+                        <h:outputText value="#{contatoController.selected.celular}" title="#{bundle.ViewContatoTitle_celular}"/>
+
+                        <h:outputText value="#{bundle.ViewContatoLabel_email}"/>
+                        <h:outputText value="#{contatoController.selected.email}" title="#{bundle.ViewContatoTitle_email}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ContatoViewDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

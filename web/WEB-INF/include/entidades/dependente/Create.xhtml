@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DependenteCreateDlg" widgetVar="DependenteCreateDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.CreateDependenteTitle}">
+
+            <h:form id="DependenteCreateForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{dependenteController.selected != null}">
+
+                        <p:outputLabel value="#{bundle.CreateDependenteLabel_nome}" for="nome" />
+                        <p:inputText id="nome" value="#{dependenteController.selected.nome}" title="#{bundle.CreateDependenteTitle_nome}" />
+
+                        <p:outputLabel value="#{bundle.CreateDependenteLabel_cpf}" for="cpf" />
+                        <p:inputText id="cpf" value="#{dependenteController.selected.cpf}" title="#{bundle.CreateDependenteTitle_cpf}" />
+
+                        <p:outputLabel value="#{bundle.CreateDependenteLabel_rg}" for="rg" />
+                        <p:inputText id="rg" value="#{dependenteController.selected.rg}" title="#{bundle.CreateDependenteTitle_rg}" />
+
+                        <p:outputLabel value="#{bundle.CreateDependenteLabel_dataNascimento}" for="dataNascimento" />
+                        <p:calendar id="dataNascimento" pattern="MM/dd/yyyy" value="#{dependenteController.selected.dataNascimento}" title="#{bundle.EditDependenteTitle_dataNascimento}"  showOn="button"/>
+
+                        <p:outputLabel value="#{bundle.CreateDependenteLabel_pessoa}" for="pessoa" />
+                        <p:selectOneMenu id="pessoa" value="#{dependenteController.selected.pessoa}"  converter="pessoaConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{pessoaController.items}"
+                                           var="pessoaItem"
+                                           itemValue="#{pessoaItem}"
+                                           itemLabel="#{pessoaItem.id.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="#{bundle.CreateDependenteLabel_publicacao}" for="publicacao" />
+                        <p:inputText id="publicacao" value="#{dependenteController.selected.publicacao}" title="#{bundle.CreateDependenteTitle_publicacao}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{dependenteController.saveNew}" value="#{bundle.Save}" update="display,:DependenteListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,DependenteCreateDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DependenteCreateDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

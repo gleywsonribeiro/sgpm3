@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EstadoCivilCreateDlg" widgetVar="EstadoCivilCreateDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.CreateEstadoCivilTitle}">
+
+            <h:form id="EstadoCivilCreateForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{estadoCivilController.selected != null}">
+
+                        <p:outputLabel value="#{bundle.CreateEstadoCivilLabel_tpEstadoCivil}" for="tpEstadoCivil" />
+                        <p:inputText id="tpEstadoCivil" value="#{estadoCivilController.selected.tpEstadoCivil}" title="#{bundle.CreateEstadoCivilTitle_tpEstadoCivil}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{estadoCivilController.saveNew}" value="#{bundle.Save}" update="display,:EstadoCivilListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,EstadoCivilCreateDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EstadoCivilCreateDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

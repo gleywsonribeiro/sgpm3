@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TipoAtribuicaoCreateDlg" widgetVar="TipoAtribuicaoCreateDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.CreateTipoAtribuicaoTitle}">
+
+            <h:form id="TipoAtribuicaoCreateForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tipoAtribuicaoController.selected != null}">
+
+                        <p:outputLabel value="#{bundle.CreateTipoAtribuicaoLabel_tpAtribuicao}" for="tpAtribuicao" />
+                        <p:inputText id="tpAtribuicao" value="#{tipoAtribuicaoController.selected.tpAtribuicao}" title="#{bundle.CreateTipoAtribuicaoTitle_tpAtribuicao}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tipoAtribuicaoController.saveNew}" value="#{bundle.Save}" update="display,:TipoAtribuicaoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,TipoAtribuicaoCreateDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TipoAtribuicaoCreateDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

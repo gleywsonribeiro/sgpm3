@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PromocaoCreateDlg" widgetVar="PromocaoCreateDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.CreatePromocaoTitle}">
+
+            <h:form id="PromocaoCreateForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{promocaoController.selected != null}">
+
+                        <p:outputLabel value="#{bundle.CreatePromocaoLabel_graduacao}" for="graduacao" />
+                        <p:selectOneMenu id="graduacao" value="#{promocaoController.selected.graduacao}"  converter="graduacaoConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{graduacaoController.items}"
+                                           var="graduacaoItem"
+                                           itemValue="#{graduacaoItem}"
+                                           itemLabel="#{graduacaoItem.id.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="#{bundle.CreatePromocaoLabel_dataPromocao}" for="dataPromocao" />
+                        <p:calendar id="dataPromocao" pattern="MM/dd/yyyy" value="#{promocaoController.selected.dataPromocao}" title="#{bundle.EditPromocaoTitle_dataPromocao}"  showOn="button"/>
+
+                        <p:outputLabel value="#{bundle.CreatePromocaoLabel_publicacao}" for="publicacao" />
+                        <p:inputText id="publicacao" value="#{promocaoController.selected.publicacao}" title="#{bundle.CreatePromocaoTitle_publicacao}" />
+
+                        <p:outputLabel value="#{bundle.CreatePromocaoLabel_colocacao}" for="colocacao" />
+                        <p:inputText id="colocacao" value="#{promocaoController.selected.colocacao}" title="#{bundle.CreatePromocaoTitle_colocacao}" />
+
+                        <p:outputLabel value="#{bundle.CreatePromocaoLabel_criterio}" for="criterio" />
+                        <p:inputText id="criterio" value="#{promocaoController.selected.criterio}" title="#{bundle.CreatePromocaoTitle_criterio}" />
+
+                        <p:outputLabel value="#{bundle.CreatePromocaoLabel_especie}" for="especie" />
+                        <p:inputText id="especie" value="#{promocaoController.selected.especie}" title="#{bundle.CreatePromocaoTitle_especie}" />
+
+                        <p:outputLabel value="#{bundle.CreatePromocaoLabel_tipo}" for="tipo" />
+                        <p:inputText id="tipo" value="#{promocaoController.selected.tipo}" title="#{bundle.CreatePromocaoTitle_tipo}" />
+
+                        <p:outputLabel value="#{bundle.CreatePromocaoLabel_situacaoQuadro}" for="situacaoQuadro" />
+                        <p:inputText id="situacaoQuadro" value="#{promocaoController.selected.situacaoQuadro}" title="#{bundle.CreatePromocaoTitle_situacaoQuadro}" />
+
+                        <p:outputLabel value="#{bundle.CreatePromocaoLabel_pessoa}" for="pessoa" />
+                        <p:selectOneMenu id="pessoa" value="#{promocaoController.selected.pessoa}"  converter="pessoaConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{pessoaController.items}"
+                                           var="pessoaItem"
+                                           itemValue="#{pessoaItem}"
+                                           itemLabel="#{pessoaItem.id.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{promocaoController.saveNew}" value="#{bundle.Save}" update="display,:PromocaoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PromocaoCreateDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PromocaoCreateDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

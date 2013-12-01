@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SituacaoFuncionalCreateDlg" widgetVar="SituacaoFuncionalCreateDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.CreateSituacaoFuncionalTitle}">
+
+            <h:form id="SituacaoFuncionalCreateForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{situacaoFuncionalController.selected != null}">
+
+                        <p:outputLabel value="#{bundle.CreateSituacaoFuncionalLabel_stFuncional}" for="stFuncional" />
+                        <p:inputText id="stFuncional" value="#{situacaoFuncionalController.selected.stFuncional}" title="#{bundle.CreateSituacaoFuncionalTitle_stFuncional}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{situacaoFuncionalController.saveNew}" value="#{bundle.Save}" update="display,:SituacaoFuncionalListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,SituacaoFuncionalCreateDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SituacaoFuncionalCreateDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

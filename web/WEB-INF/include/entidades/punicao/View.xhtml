@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PunicaoViewDlg" widgetVar="PunicaoViewDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.ViewPunicaoTitle}">
+
+            <h:form id="PunicaoViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{punicaoController.selected != null}">
+
+                        <h:outputText value="#{bundle.ViewPunicaoLabel_id}"/>
+                        <h:outputText value="#{punicaoController.selected.id}" title="#{bundle.ViewPunicaoTitle_id}"/>
+
+                        <h:outputText value="#{bundle.ViewPunicaoLabel_docCancelamento}"/>
+                        <h:outputText value="#{punicaoController.selected.docCancelamento}" title="#{bundle.ViewPunicaoTitle_docCancelamento}"/>
+
+                        <h:outputText value="#{bundle.ViewPunicaoLabel_dataAplicacao}"/>
+                        <h:outputText value="#{punicaoController.selected.dataAplicacao}" title="#{bundle.ViewPunicaoTitle_dataAplicacao}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+
+                        <h:outputText value="#{bundle.ViewPunicaoLabel_dataSuspensao}"/>
+                        <h:outputText value="#{punicaoController.selected.dataSuspensao}" title="#{bundle.ViewPunicaoTitle_dataSuspensao}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+
+                        <h:outputText value="#{bundle.ViewPunicaoLabel_dataCancelamento}"/>
+                        <h:outputText value="#{punicaoController.selected.dataCancelamento}" title="#{bundle.ViewPunicaoTitle_dataCancelamento}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+
+                        <h:outputText value="#{bundle.ViewPunicaoLabel_publicacao}"/>
+                        <h:outputText value="#{punicaoController.selected.publicacao}" title="#{bundle.ViewPunicaoTitle_publicacao}"/>
+
+                        <h:outputText value="#{bundle.ViewPunicaoLabel_pessoa}"/>
+                        <h:outputText value="#{punicaoController.selected.pessoa.id}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="PunicaoViewDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

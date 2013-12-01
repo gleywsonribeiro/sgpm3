@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:form id="DeslocamentoListForm">
+
+        <p:panel header="#{bundle.ListDeslocamentoTitle}">
+
+            <p:dataTable id="datalist" value="#{deslocamentoController.items}" var="item"
+                         selectionMode="single" selection="#{deslocamentoController.selected}"
+                         rowKey="#{item.id}"
+                         paginator="true"
+                         rows="10"
+                         rowsPerPageTemplate="10,20,30"
+                         >
+
+                <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                <p:column sortBy="#{item.id}" filterBy="#{item.id}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListDeslocamentoTitle_id}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.id}"/>
+                </p:column>
+                <p:column sortBy="#{item.dataSeguimento}" filterBy="#{item.dataSeguimento}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListDeslocamentoTitle_dataSeguimento}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.dataSeguimento}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                </p:column>
+                <p:column sortBy="#{item.dataRegresso}" filterBy="#{item.dataRegresso}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListDeslocamentoTitle_dataRegresso}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.dataRegresso}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                </p:column>
+                <p:column sortBy="#{item.localidade}" filterBy="#{item.localidade}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListDeslocamentoTitle_localidade}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.localidade}"/>
+                </p:column>
+                <p:column sortBy="#{item.carater}" filterBy="#{item.carater}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListDeslocamentoTitle_carater}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.carater}"/>
+                </p:column>
+                <p:column sortBy="#{item.publicacao}" filterBy="#{item.publicacao}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListDeslocamentoTitle_publicacao}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.publicacao}"/>
+                </p:column>
+                <p:column sortBy="#{item.pessoa.id}" filterBy="#{item.pessoa.id}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListDeslocamentoTitle_pessoa}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.pessoa.id}"/>
+                </p:column>
+                <f:facet name="footer">
+                    <div class="footer-section">
+                        <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{deslocamentoController.prepareCreate}" update=":DeslocamentoCreateForm" oncomplete="DeslocamentoCreateDialog.show()"/>
+                        <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":DeslocamentoViewForm" oncomplete="DeslocamentoViewDialog.show()" disabled="#{empty deslocamentoController.selected}"/>
+                        <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":DeslocamentoEditForm" oncomplete="DeslocamentoEditDialog.show()" disabled="#{empty deslocamentoController.selected}"/>
+                        <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{deslocamentoController.delete}" update=":growl,datalist" disabled="#{empty deslocamentoController.selected}"/>
+                    </div>
+                </f:facet>
+
+            </p:dataTable>
+
+        </p:panel>
+
+    </h:form>
+
+</ui:composition>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ContatoCreateDlg" widgetVar="ContatoCreateDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.CreateContatoTitle}">
+
+            <h:form id="ContatoCreateForm">
+
+                <h:panelGroup id="display">
+                    <h:panelGrid columns="2" rendered="#{contatoController.selected != null}">
+
+                        <p:outputLabel value="#{bundle.CreateContatoLabel_telefone}" for="telefone" />
+                        <p:inputText id="telefone" value="#{contatoController.selected.telefone}" title="#{bundle.CreateContatoTitle_telefone}" />
+
+                        <p:outputLabel value="#{bundle.CreateContatoLabel_fax}" for="fax" />
+                        <p:inputText id="fax" value="#{contatoController.selected.fax}" title="#{bundle.CreateContatoTitle_fax}" />
+
+                        <p:outputLabel value="#{bundle.CreateContatoLabel_celular}" for="celular" />
+                        <p:inputText id="celular" value="#{contatoController.selected.celular}" title="#{bundle.CreateContatoTitle_celular}" />
+
+                        <p:outputLabel value="#{bundle.CreateContatoLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{contatoController.selected.email}" title="#{bundle.CreateContatoTitle_email}" />
+                    </h:panelGrid>
+                    <p:commandButton actionListener="#{contatoController.saveNew}" value="#{bundle.Save}" update="display,:ContatoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,ContatoCreateDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ContatoCreateDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

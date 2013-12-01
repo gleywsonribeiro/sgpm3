@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UnidadeEditDlg" widgetVar="UnidadeEditDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.EditUnidadeTitle}">
+
+            <h:form id="UnidadeEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" rendered="#{unidadeController.selected != null}">
+
+                        <h:outputLabel value="#{bundle.EditUnidadeLabel_id}" for="id" />
+                        <h:outputText id="id" value="#{unidadeController.selected.id}" />
+
+                        <p:outputLabel value="#{bundle.EditUnidadeLabel_nome}" for="nome" />
+                        <p:inputText id="nome" value="#{unidadeController.selected.nome}" title="#{bundle.EditUnidadeTitle_nome}" />
+
+                        <p:outputLabel value="#{bundle.EditUnidadeLabel_sigla}" for="sigla" />
+                        <p:inputText id="sigla" value="#{unidadeController.selected.sigla}" title="#{bundle.EditUnidadeTitle_sigla}" />
+
+                        <p:outputLabel value="#{bundle.EditUnidadeLabel_dataCriacao}" for="dataCriacao" />
+                        <p:calendar id="dataCriacao" pattern="MM/dd/yyyy" value="#{unidadeController.selected.dataCriacao}" title="#{bundle.EditUnidadeTitle_dataCriacao}"  showOn="button"/>
+
+                        <p:outputLabel value="#{bundle.EditUnidadeLabel_dataExtincao}" for="dataExtincao" />
+                        <p:calendar id="dataExtincao" pattern="MM/dd/yyyy" value="#{unidadeController.selected.dataExtincao}" title="#{bundle.EditUnidadeTitle_dataExtincao}"  showOn="button"/>
+
+                        <p:outputLabel value="#{bundle.EditUnidadeLabel_historico}" for="historico" />
+                        <p:inputText id="historico" value="#{unidadeController.selected.historico}" title="#{bundle.EditUnidadeTitle_historico}" />
+
+                        <p:outputLabel value="#{bundle.EditUnidadeLabel_contato}" for="contato" />
+                        <p:selectOneMenu id="contato" value="#{unidadeController.selected.contato}"  converter="contatoConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{contatoController.items}"
+                                           var="contatoItem"
+                                           itemValue="#{contatoItem}"
+                                           itemLabel="#{contatoItem.id.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="#{bundle.EditUnidadeLabel_endereco}" for="endereco" />
+                        <p:selectOneMenu id="endereco" value="#{unidadeController.selected.endereco}"  converter="enderecoConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{enderecoController.items}"
+                                           var="enderecoItem"
+                                           itemValue="#{enderecoItem}"
+                                           itemLabel="#{enderecoItem.id.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="#{bundle.EditUnidadeLabel_informacaoTecnica}" for="informacaoTecnica" />
+                        <p:inputText id="informacaoTecnica" value="#{unidadeController.selected.informacaoTecnica}" title="#{bundle.EditUnidadeTitle_informacaoTecnica}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{unidadeController.save}" value="#{bundle.Save}" update="display,:UnidadeListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,UnidadeEditDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="UnidadeEditDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

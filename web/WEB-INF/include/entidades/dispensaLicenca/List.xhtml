@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:form id="DispensaLicencaListForm">
+
+        <p:panel header="#{bundle.ListDispensaLicencaTitle}">
+
+            <p:dataTable id="datalist" value="#{dispensaLicencaController.items}" var="item"
+                         selectionMode="single" selection="#{dispensaLicencaController.selected}"
+                         rowKey="#{item.id}"
+                         paginator="true"
+                         rows="10"
+                         rowsPerPageTemplate="10,20,30"
+                         >
+
+                <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                <p:column sortBy="#{item.id}" filterBy="#{item.id}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListDispensaLicencaTitle_id}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.id}"/>
+                </p:column>
+                <p:column sortBy="#{item.pessoa.id}" filterBy="#{item.pessoa.id}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListDispensaLicencaTitle_pessoa}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.pessoa.id}"/>
+                </p:column>
+                <p:column sortBy="#{item.duracao}" filterBy="#{item.duracao}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListDispensaLicencaTitle_duracao}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.duracao}"/>
+                </p:column>
+                <p:column sortBy="#{item.natureza}" filterBy="#{item.natureza}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListDispensaLicencaTitle_natureza}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.natureza}"/>
+                </p:column>
+                <p:column sortBy="#{item.publicacao}" filterBy="#{item.publicacao}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListDispensaLicencaTitle_publicacao}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.publicacao}"/>
+                </p:column>
+                <p:column sortBy="#{item.publicacaoSustacao}" filterBy="#{item.publicacaoSustacao}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListDispensaLicencaTitle_publicacaoSustacao}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.publicacaoSustacao}"/>
+                </p:column>
+                <p:column sortBy="#{item.publicacaoDireito}" filterBy="#{item.publicacaoDireito}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListDispensaLicencaTitle_publicacaoDireito}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.publicacaoDireito}"/>
+                </p:column>
+                <f:facet name="footer">
+                    <div class="footer-section">
+                        <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{dispensaLicencaController.prepareCreate}" update=":DispensaLicencaCreateForm" oncomplete="DispensaLicencaCreateDialog.show()"/>
+                        <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":DispensaLicencaViewForm" oncomplete="DispensaLicencaViewDialog.show()" disabled="#{empty dispensaLicencaController.selected}"/>
+                        <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":DispensaLicencaEditForm" oncomplete="DispensaLicencaEditDialog.show()" disabled="#{empty dispensaLicencaController.selected}"/>
+                        <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{dispensaLicencaController.delete}" update=":growl,datalist" disabled="#{empty dispensaLicencaController.selected}"/>
+                    </div>
+                </f:facet>
+
+            </p:dataTable>
+
+        </p:panel>
+
+    </h:form>
+
+</ui:composition>

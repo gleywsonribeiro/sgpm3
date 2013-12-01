@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ContatoEditDlg" widgetVar="ContatoEditDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.EditContatoTitle}">
+
+            <h:form id="ContatoEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" rendered="#{contatoController.selected != null}">
+
+                        <h:outputLabel value="#{bundle.EditContatoLabel_id}" for="id" />
+                        <h:outputText id="id" value="#{contatoController.selected.id}" />
+
+                        <p:outputLabel value="#{bundle.EditContatoLabel_telefone}" for="telefone" />
+                        <p:inputText id="telefone" value="#{contatoController.selected.telefone}" title="#{bundle.EditContatoTitle_telefone}" />
+
+                        <p:outputLabel value="#{bundle.EditContatoLabel_fax}" for="fax" />
+                        <p:inputText id="fax" value="#{contatoController.selected.fax}" title="#{bundle.EditContatoTitle_fax}" />
+
+                        <p:outputLabel value="#{bundle.EditContatoLabel_celular}" for="celular" />
+                        <p:inputText id="celular" value="#{contatoController.selected.celular}" title="#{bundle.EditContatoTitle_celular}" />
+
+                        <p:outputLabel value="#{bundle.EditContatoLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{contatoController.selected.email}" title="#{bundle.EditContatoTitle_email}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{contatoController.save}" value="#{bundle.Save}" update="display,:ContatoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,ContatoEditDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ContatoEditDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

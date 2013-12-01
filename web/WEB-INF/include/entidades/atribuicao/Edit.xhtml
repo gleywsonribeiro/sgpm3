@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AtribuicaoEditDlg" widgetVar="AtribuicaoEditDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.EditAtribuicaoTitle}">
+
+            <h:form id="AtribuicaoEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" rendered="#{atribuicaoController.selected != null}">
+
+                        <h:outputLabel value="#{bundle.EditAtribuicaoLabel_id}" for="id" />
+                        <h:outputText id="id" value="#{atribuicaoController.selected.id}" />
+
+                        <p:outputLabel value="#{bundle.EditAtribuicaoLabel_pessoa}" for="pessoa" />
+                        <p:selectOneMenu id="pessoa" value="#{atribuicaoController.selected.pessoa}"  converter="pessoaConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{pessoaController.items}"
+                                           var="pessoaItem"
+                                           itemValue="#{pessoaItem}"
+                                           itemLabel="#{pessoaItem.id.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="#{bundle.EditAtribuicaoLabel_tipoAtribuicao}" for="tipoAtribuicao" />
+                        <p:selectOneMenu id="tipoAtribuicao" value="#{atribuicaoController.selected.tipoAtribuicao}"  converter="tipoAtribuicaoConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{tipoAtribuicaoController.items}"
+                                           var="tipoAtribuicaoItem"
+                                           itemValue="#{tipoAtribuicaoItem}"
+                                           itemLabel="#{tipoAtribuicaoItem.id.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="#{bundle.EditAtribuicaoLabel_dataDaAtribuicao}" for="dataDaAtribuicao" />
+                        <p:calendar id="dataDaAtribuicao" pattern="MM/dd/yyyy" value="#{atribuicaoController.selected.dataDaAtribuicao}" title="#{bundle.EditAtribuicaoTitle_dataDaAtribuicao}"  showOn="button"/>
+
+                        <p:outputLabel value="#{bundle.EditAtribuicaoLabel_publicacao}" for="publicacao" />
+                        <p:inputText id="publicacao" value="#{atribuicaoController.selected.publicacao}" title="#{bundle.EditAtribuicaoTitle_publicacao}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{atribuicaoController.save}" value="#{bundle.Save}" update="display,:AtribuicaoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,AtribuicaoEditDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="AtribuicaoEditDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

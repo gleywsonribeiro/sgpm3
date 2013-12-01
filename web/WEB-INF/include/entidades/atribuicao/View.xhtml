@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AtribuicaoViewDlg" widgetVar="AtribuicaoViewDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.ViewAtribuicaoTitle}">
+
+            <h:form id="AtribuicaoViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{atribuicaoController.selected != null}">
+
+                        <h:outputText value="#{bundle.ViewAtribuicaoLabel_id}"/>
+                        <h:outputText value="#{atribuicaoController.selected.id}" title="#{bundle.ViewAtribuicaoTitle_id}"/>
+
+                        <h:outputText value="#{bundle.ViewAtribuicaoLabel_pessoa}"/>
+                        <h:outputText value="#{atribuicaoController.selected.pessoa.id}"/>
+
+                        <h:outputText value="#{bundle.ViewAtribuicaoLabel_tipoAtribuicao}"/>
+                        <h:outputText value="#{atribuicaoController.selected.tipoAtribuicao.id}"/>
+
+                        <h:outputText value="#{bundle.ViewAtribuicaoLabel_dataDaAtribuicao}"/>
+                        <h:outputText value="#{atribuicaoController.selected.dataDaAtribuicao}" title="#{bundle.ViewAtribuicaoTitle_dataDaAtribuicao}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+
+                        <h:outputText value="#{bundle.ViewAtribuicaoLabel_publicacao}"/>
+                        <h:outputText value="#{atribuicaoController.selected.publicacao}" title="#{bundle.ViewAtribuicaoTitle_publicacao}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="AtribuicaoViewDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PromocaoEditDlg" widgetVar="PromocaoEditDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.EditPromocaoTitle}">
+
+            <h:form id="PromocaoEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" rendered="#{promocaoController.selected != null}">
+
+                        <h:outputLabel value="#{bundle.EditPromocaoLabel_id}" for="id" />
+                        <h:outputText id="id" value="#{promocaoController.selected.id}" />
+
+                        <p:outputLabel value="#{bundle.EditPromocaoLabel_graduacao}" for="graduacao" />
+                        <p:selectOneMenu id="graduacao" value="#{promocaoController.selected.graduacao}"  converter="graduacaoConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{graduacaoController.items}"
+                                           var="graduacaoItem"
+                                           itemValue="#{graduacaoItem}"
+                                           itemLabel="#{graduacaoItem.id.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="#{bundle.EditPromocaoLabel_dataPromocao}" for="dataPromocao" />
+                        <p:calendar id="dataPromocao" pattern="MM/dd/yyyy" value="#{promocaoController.selected.dataPromocao}" title="#{bundle.EditPromocaoTitle_dataPromocao}"  showOn="button"/>
+
+                        <p:outputLabel value="#{bundle.EditPromocaoLabel_publicacao}" for="publicacao" />
+                        <p:inputText id="publicacao" value="#{promocaoController.selected.publicacao}" title="#{bundle.EditPromocaoTitle_publicacao}" />
+
+                        <p:outputLabel value="#{bundle.EditPromocaoLabel_colocacao}" for="colocacao" />
+                        <p:inputText id="colocacao" value="#{promocaoController.selected.colocacao}" title="#{bundle.EditPromocaoTitle_colocacao}" />
+
+                        <p:outputLabel value="#{bundle.EditPromocaoLabel_criterio}" for="criterio" />
+                        <p:inputText id="criterio" value="#{promocaoController.selected.criterio}" title="#{bundle.EditPromocaoTitle_criterio}" />
+
+                        <p:outputLabel value="#{bundle.EditPromocaoLabel_especie}" for="especie" />
+                        <p:inputText id="especie" value="#{promocaoController.selected.especie}" title="#{bundle.EditPromocaoTitle_especie}" />
+
+                        <p:outputLabel value="#{bundle.EditPromocaoLabel_tipo}" for="tipo" />
+                        <p:inputText id="tipo" value="#{promocaoController.selected.tipo}" title="#{bundle.EditPromocaoTitle_tipo}" />
+
+                        <p:outputLabel value="#{bundle.EditPromocaoLabel_situacaoQuadro}" for="situacaoQuadro" />
+                        <p:inputText id="situacaoQuadro" value="#{promocaoController.selected.situacaoQuadro}" title="#{bundle.EditPromocaoTitle_situacaoQuadro}" />
+
+                        <p:outputLabel value="#{bundle.EditPromocaoLabel_pessoa}" for="pessoa" />
+                        <p:selectOneMenu id="pessoa" value="#{promocaoController.selected.pessoa}"  converter="pessoaConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{pessoaController.items}"
+                                           var="pessoaItem"
+                                           itemValue="#{pessoaItem}"
+                                           itemLabel="#{pessoaItem.id.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{promocaoController.save}" value="#{bundle.Save}" update="display,:PromocaoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PromocaoEditDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PromocaoEditDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

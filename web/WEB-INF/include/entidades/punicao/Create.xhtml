@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PunicaoCreateDlg" widgetVar="PunicaoCreateDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.CreatePunicaoTitle}">
+
+            <h:form id="PunicaoCreateForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{punicaoController.selected != null}">
+
+                        <p:outputLabel value="#{bundle.CreatePunicaoLabel_docCancelamento}" for="docCancelamento" />
+                        <p:inputText id="docCancelamento" value="#{punicaoController.selected.docCancelamento}" title="#{bundle.CreatePunicaoTitle_docCancelamento}" />
+
+                        <p:outputLabel value="#{bundle.CreatePunicaoLabel_dataAplicacao}" for="dataAplicacao" />
+                        <p:calendar id="dataAplicacao" pattern="MM/dd/yyyy" value="#{punicaoController.selected.dataAplicacao}" title="#{bundle.EditPunicaoTitle_dataAplicacao}"  showOn="button"/>
+
+                        <p:outputLabel value="#{bundle.CreatePunicaoLabel_dataSuspensao}" for="dataSuspensao" />
+                        <p:calendar id="dataSuspensao" pattern="MM/dd/yyyy" value="#{punicaoController.selected.dataSuspensao}" title="#{bundle.EditPunicaoTitle_dataSuspensao}"  showOn="button"/>
+
+                        <p:outputLabel value="#{bundle.CreatePunicaoLabel_dataCancelamento}" for="dataCancelamento" />
+                        <p:calendar id="dataCancelamento" pattern="MM/dd/yyyy" value="#{punicaoController.selected.dataCancelamento}" title="#{bundle.EditPunicaoTitle_dataCancelamento}"  showOn="button"/>
+
+                        <p:outputLabel value="#{bundle.CreatePunicaoLabel_publicacao}" for="publicacao" />
+                        <p:inputText id="publicacao" value="#{punicaoController.selected.publicacao}" title="#{bundle.CreatePunicaoTitle_publicacao}" />
+
+                        <p:outputLabel value="#{bundle.CreatePunicaoLabel_pessoa}" for="pessoa" />
+                        <p:selectOneMenu id="pessoa" value="#{punicaoController.selected.pessoa}"  converter="pessoaConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{pessoaController.items}"
+                                           var="pessoaItem"
+                                           itemValue="#{pessoaItem}"
+                                           itemLabel="#{pessoaItem.id.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{punicaoController.saveNew}" value="#{bundle.Save}" update="display,:PunicaoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PunicaoCreateDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PunicaoCreateDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

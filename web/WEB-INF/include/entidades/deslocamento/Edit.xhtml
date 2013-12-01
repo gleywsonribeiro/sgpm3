@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DeslocamentoEditDlg" widgetVar="DeslocamentoEditDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.EditDeslocamentoTitle}">
+
+            <h:form id="DeslocamentoEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" rendered="#{deslocamentoController.selected != null}">
+
+                        <h:outputLabel value="#{bundle.EditDeslocamentoLabel_id}" for="id" />
+                        <h:outputText id="id" value="#{deslocamentoController.selected.id}" />
+
+                        <p:outputLabel value="#{bundle.EditDeslocamentoLabel_dataSeguimento}" for="dataSeguimento" />
+                        <p:calendar id="dataSeguimento" pattern="MM/dd/yyyy" value="#{deslocamentoController.selected.dataSeguimento}" title="#{bundle.EditDeslocamentoTitle_dataSeguimento}"  showOn="button"/>
+
+                        <p:outputLabel value="#{bundle.EditDeslocamentoLabel_dataRegresso}" for="dataRegresso" />
+                        <p:calendar id="dataRegresso" pattern="MM/dd/yyyy" value="#{deslocamentoController.selected.dataRegresso}" title="#{bundle.EditDeslocamentoTitle_dataRegresso}"  showOn="button"/>
+
+                        <p:outputLabel value="#{bundle.EditDeslocamentoLabel_localidade}" for="localidade" />
+                        <p:inputText id="localidade" value="#{deslocamentoController.selected.localidade}" title="#{bundle.EditDeslocamentoTitle_localidade}" />
+
+                        <p:outputLabel value="#{bundle.EditDeslocamentoLabel_carater}" for="carater" />
+                        <p:inputText id="carater" value="#{deslocamentoController.selected.carater}" title="#{bundle.EditDeslocamentoTitle_carater}" />
+
+                        <p:outputLabel value="#{bundle.EditDeslocamentoLabel_publicacao}" for="publicacao" />
+                        <p:inputText id="publicacao" value="#{deslocamentoController.selected.publicacao}" title="#{bundle.EditDeslocamentoTitle_publicacao}" />
+
+                        <p:outputLabel value="#{bundle.EditDeslocamentoLabel_pessoa}" for="pessoa" />
+                        <p:selectOneMenu id="pessoa" value="#{deslocamentoController.selected.pessoa}"  converter="pessoaConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{pessoaController.items}"
+                                           var="pessoaItem"
+                                           itemValue="#{pessoaItem}"
+                                           itemLabel="#{pessoaItem.id.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{deslocamentoController.save}" value="#{bundle.Save}" update="display,:DeslocamentoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,DeslocamentoEditDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DeslocamentoEditDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

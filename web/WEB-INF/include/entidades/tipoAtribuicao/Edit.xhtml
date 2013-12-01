@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TipoAtribuicaoEditDlg" widgetVar="TipoAtribuicaoEditDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.EditTipoAtribuicaoTitle}">
+
+            <h:form id="TipoAtribuicaoEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" rendered="#{tipoAtribuicaoController.selected != null}">
+
+                        <h:outputLabel value="#{bundle.EditTipoAtribuicaoLabel_id}" for="id" />
+                        <h:outputText id="id" value="#{tipoAtribuicaoController.selected.id}" />
+
+                        <p:outputLabel value="#{bundle.EditTipoAtribuicaoLabel_tpAtribuicao}" for="tpAtribuicao" />
+                        <p:inputText id="tpAtribuicao" value="#{tipoAtribuicaoController.selected.tpAtribuicao}" title="#{bundle.EditTipoAtribuicaoTitle_tpAtribuicao}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tipoAtribuicaoController.save}" value="#{bundle.Save}" update="display,:TipoAtribuicaoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,TipoAtribuicaoEditDialog);"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TipoAtribuicaoEditDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>
