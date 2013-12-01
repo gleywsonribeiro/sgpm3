@@ -44,22 +44,17 @@ public class LoginController extends AbstractController<Usuario> implements Seri
         List<Usuario> lista = facade.findAll();
 
         for (Usuario user : lista) {
-
-            if (user.getLogin().equals(usuario.getLogin())
-                    && user.getSenha().equals(usuario.getSenha())) {
-                FacesContext context
-                        = FacesContext.getCurrentInstance();
-                HttpSession httpSession
-                        = (HttpSession) context.getExternalContext().getSession(false);
+            if (user.getLogin().equals(usuario.getLogin()) && user.getSenha().equals(usuario.getSenha())) {
+                FacesContext context = FacesContext.getCurrentInstance();
+                HttpSession httpSession = (HttpSession) context.getExternalContext().getSession(false);
                 this.usuario = user;
-                httpSession.setAttribute("currentUser",
-                        usuario);
+                httpSession.setAttribute("currentUser", usuario);
                 return "index";
             }
         }
 
         //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Bem vindo "+usuario.getLogin()));
-        if (usuario.getLogin().equals("gleywson") && usuario.getSenha().equals("starcraft2")) {
+        if (usuario.getLogin().equals("policial") && usuario.getSenha().equals("militar")) {
             FacesContext context = FacesContext.getCurrentInstance();
             HttpSession httpSession = (HttpSession) context.getExternalContext().getSession(false);
             //this.usuario = user;
