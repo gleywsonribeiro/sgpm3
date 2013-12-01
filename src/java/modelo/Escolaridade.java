@@ -42,7 +42,7 @@ public class Escolaridade implements Serializable {
     }
 
     public void setTpEscolaridade(String tpEscolaridade) {
-        this.tpEscolaridade = tpEscolaridade;
+        this.tpEscolaridade = tpEscolaridade.toUpperCase();
     }
 
     public List<Pessoa> getPessoas() {

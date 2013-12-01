@@ -36,7 +36,7 @@ public class TipoAtribuicao implements Serializable {
     }
 
     public void setTpAtribuicao(String tpAtribuicao) {
-        this.tpAtribuicao = tpAtribuicao;
+        this.tpAtribuicao = tpAtribuicao.toUpperCase();
     }
 
     

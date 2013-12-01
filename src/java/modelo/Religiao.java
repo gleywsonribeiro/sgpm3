@@ -41,7 +41,7 @@ public class Religiao implements Serializable {
     }
 
     public void setTpReligiao(String tpReligiao) {
-        this.tpReligiao = tpReligiao;
+        this.tpReligiao = tpReligiao.toUpperCase();
     }
 
     public List<Pessoa> getPessoas() {

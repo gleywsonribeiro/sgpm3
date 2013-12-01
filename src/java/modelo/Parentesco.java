@@ -35,7 +35,7 @@ public class Parentesco implements Serializable {
     }
 
     public void setTpParentesco(String tpParentesco) {
-        this.tpParentesco = tpParentesco;
+        this.tpParentesco = tpParentesco.toUpperCase();
     }
 
     @Override

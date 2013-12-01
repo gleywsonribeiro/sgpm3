@@ -27,7 +27,11 @@ public class Sangue implements Serializable {
     private String tpSangue;
     
     @OneToMany(mappedBy = "sangue", fetch = FetchType.EAGER)
-    private List<Pessoa> pessoas = new ArrayList<>();
+    private List<Pessoa> pessoas;
+
+    public Sangue() {
+        this.pessoas = new ArrayList<>();
+    }
     
     public Long getId() {
         return id;
@@ -42,7 +46,7 @@ public class Sangue implements Serializable {
     }
 
     public void setTpSangue(String tpSangue) {
-        this.tpSangue = tpSangue;
+        this.tpSangue = tpSangue.toUpperCase();
     }
     
     @Override

@@ -42,7 +42,7 @@ public class Quadro implements Serializable {
     }
 
     public void setTpQuadro(String tpQuadro) {
-        this.tpQuadro = tpQuadro;
+        this.tpQuadro = tpQuadro.toUpperCase();
     }
 
     public List<Graduacao> getGraduacoes() {

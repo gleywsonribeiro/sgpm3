@@ -42,7 +42,7 @@ public class EstadoCivil implements Serializable {
     }
 
     public void setTpEstadoCivil(String tpEstadoCivil) {
-        this.tpEstadoCivil = tpEstadoCivil;
+        this.tpEstadoCivil = tpEstadoCivil.toUpperCase();
     }
 
     public List<Pessoa> getPessoas() {
