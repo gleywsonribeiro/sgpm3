@@ -27,18 +27,18 @@ import modelo.Usuario;
 @SessionScoped
 public class LoginController extends AbstractController<Usuario> implements Serializable {
 
-    //@Inject
-    //private UsuarioFacade facade;
+    @Inject
+    private UsuarioFacade facade;
     private Usuario usuario;
 
     public LoginController() {
-      //  super(Usuario.class);
+        super(Usuario.class);
         this.usuario = new Usuario();
     }
 
-//    public void init() {
-//        super.setFacade(facade);
-//    }
+    public void init() {
+        super.setFacade(facade);
+    }
 
     public String login() {
         //List<Usuario> lista = facade.findAll();
