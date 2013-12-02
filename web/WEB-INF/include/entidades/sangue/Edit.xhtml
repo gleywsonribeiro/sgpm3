@@ -16,7 +16,7 @@
                     <p:panelGrid  columns="2" rendered="#{sangueController.selected != null}">
 
                         <h:outputLabel value="#{bundle.EditSangueLabel_id}" for="id" />
-                        <h:outputText id="id" value="#{sangueController.selected.id}" />
+                        <h:outputText style="text-transform: uppercase" id="id" value="#{sangueController.selected.id}" />
                     
                         <h:outputLabel value="Tipo de Sangue" for="tpsangue" />
                         <h:inputText id="tpsangue" value="#{sangueController.selected.tpSangue}" />

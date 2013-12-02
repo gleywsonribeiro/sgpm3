@@ -15,7 +15,7 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{sangueController.selected != null}">
                         <h:outputLabel value="Tipo de Sangue" for="tpsangue" />
-                        <h:inputText id="tpsangue" value="#{sangueController.selected.tpSangue}" />
+                        <h:inputText style="text-transform: uppercase" id="tpsangue" value="#{sangueController.selected.tpSangue}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{sangueController.saveNew}" value="#{bundle.Save}" update="display,:SangueListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,SangueCreateDialog);"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="SangueCreateDialog.hide()"/>
