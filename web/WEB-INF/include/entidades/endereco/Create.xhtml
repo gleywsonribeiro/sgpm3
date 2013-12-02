@@ -15,12 +15,6 @@
                     <!--<p:scrollPanel>-->
                     <h:panelGrid columns="2" rendered="#{enderecoController.selected != null}">
 
-                        <p:outputLabel value="#{bundle.CreateEnderecoLabel_cidade}" for="cidade" />
-                        <p:inputText id="cidade" value="#{enderecoController.selected.cidade}" title="#{bundle.CreateEnderecoTitle_cidade}" />
-
-                        <p:outputLabel value="#{bundle.CreateEnderecoLabel_bairro}" for="bairro" />
-                        <p:inputText id="bairro" value="#{enderecoController.selected.bairro}" title="#{bundle.CreateEnderecoTitle_bairro}" />
-
                         <p:outputLabel value="#{bundle.CreateEnderecoLabel_logradouro}" for="logradouro" />
                         <p:inputText id="logradouro" value="#{enderecoController.selected.logradouro}" title="#{bundle.CreateEnderecoTitle_logradouro}" />
 

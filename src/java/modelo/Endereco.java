@@ -19,8 +19,8 @@ public class Endereco implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
-    private String cidade;
-    private String bairro;
+//    private String cidade;
+//    private String bairro;
     private String logradouro;
     private String cep;
     private String numero;
@@ -34,21 +34,21 @@ public class Endereco implements Serializable {
         this.id = id;
     }
 
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
-    }
+//    public String getCidade() {
+//        return cidade;
+//    }
+//
+//    public void setCidade(String cidade) {
+//        this.cidade = cidade;
+//    }
+//
+//    public String getBairro() {
+//        return bairro;
+//    }
+//
+//    public void setBairro(String bairro) {
+//        this.bairro = bairro;
+//    }
 
     public String getLogradouro() {
         return logradouro;
