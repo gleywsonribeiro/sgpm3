@@ -39,7 +39,7 @@
                         <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":EscolaridadeViewForm" oncomplete="EscolaridadeViewDialog.show()" disabled="#{empty escolaridadeController.selected}"/>
                         <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":EscolaridadeEditForm" oncomplete="EscolaridadeEditDialog.show()" disabled="#{empty escolaridadeController.selected}"/>
                         <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{escolaridadeController.delete}" update=":growl,datalist" disabled="#{empty escolaridadeController.selected}">
-                            
+                            <p:confirm header="Exclusão" message="Deseja realmente excluir?" icon="ui-icon-alert"/>
                         </p:commandButton>
                     
                         <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">  
