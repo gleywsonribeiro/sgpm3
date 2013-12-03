@@ -15,3 +15,10 @@
 .ui-datatable .ui-datatable-footer .footer-section {
     text-align: left;
 }
+.logopm {  
+    background-image: url(../resources/imagens/logc.png) !important;  
+    width: 14px;
+    height: 18px;  
+    float: bottom;  
+    margin-right: 0px;
+}  
