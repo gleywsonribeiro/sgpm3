@@ -17,7 +17,9 @@
         <p:growl id="growl" life="3000"/>
 
         <p:layout fullPage="true">
-            <p:layoutUnit position="north" header="#{bundle.AppName}">
+            <p:layoutUnit position="north">
+                <center><p:graphicImage library="imagens" name="logo.png"/></center>
+                <center><h:outputText value="#{bundle.AppName}" style="color: #5e8305; font-weight: bold"/></center>
                 <!-- Menu here. Also a layout and a way to log a user out -->
                 <ui:include src="/WEB-INF/include/appmenu.xhtml"/>
             </p:layoutUnit>
@@ -28,15 +30,15 @@
             <p:layoutUnit position="south" size="60">
                 <ui:insert name="footer"/>
                 <center>
-                <p:ajaxStatus>  
-                    <f:facet name="start">  
-                        <p:graphicImage name="ajax-loaderBarra.gif" library="imagens" />  
-                    </f:facet>  
+                    <p:ajaxStatus>  
+                        <f:facet name="start">  
+                            <p:graphicImage name="ajax-loaderBarra.gif" library="imagens" />  
+                        </f:facet>  
 
-                    <f:facet name="complete">  
-                        <h:outputText value="" />  
-                    </f:facet>  
-                </p:ajaxStatus>
+                        <f:facet name="complete">  
+                            <h:outputText value="" />  
+                        </f:facet>  
+                    </p:ajaxStatus>
                 </center>
             </p:layoutUnit>
 
