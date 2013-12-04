@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="BairroViewDlg" widgetVar="BairroViewDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.ViewMoradiaTitle}">
+
+            <h:form id="BairroViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{bairroController.selected != null}">
+
+                        <h:outputText value="Id"/>
+                        <h:outputText value="#{bairroController.selected.id}" title="#{bundle.ViewMoradiaTitle_id}"/>
+
+                        <h:outputText value="Nome"/>
+                        <h:outputText value="#{bairroController.selected.nome}" title="Nome do bairro"/>
+                        
+                        <h:outputText value="Area"/>
+                        <h:outputText value="#{bairroController.selected.area}" title="Área"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="BairroViewDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>
