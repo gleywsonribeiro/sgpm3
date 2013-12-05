@@ -19,6 +19,17 @@
 
                         <p:outputLabel value="Área" for="area" />
                         <p:inputText id="area" value="#{bairroController.selected.area}" title="Entre como área" />
+                    
+                        <p:outputLabel value="Município" for="municipio" />
+                        <p:selectOneMenu id="municipio" value="#{bairroController.selected.municipio}"  converter="municipioConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{municipioController.items}"
+                                           var="municipioItem"
+                                           itemValue="#{municipioItem}"
+                                           itemLabel="#{municipioItem.nome}"
+                                           />
+
+                        </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{bairroController.saveNew}" value="#{bundle.Save}" update="display,:BairroListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,BairroCreateDialog);"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="MoradiaCreateDialog.hide()"/>

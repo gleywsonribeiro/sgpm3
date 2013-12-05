@@ -39,6 +39,12 @@
                     </f:facet>
                     <h:outputText value="#{item.area}"/>
                 </p:column>
+                <p:column sortBy="#{item.municipio.nome}">
+                    <f:facet name="header">
+                        <h:outputText value="Municipio"/>
+                    </f:facet>
+                    <h:outputText value="#{item.municipio.nome}"/>
+                </p:column>
                 <f:facet name="footer">
                     <div class="footer-section">
                         <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{bairroController.prepareCreate}" update=":BairroCreateForm" oncomplete="BairroCreateDialog.show()"/>

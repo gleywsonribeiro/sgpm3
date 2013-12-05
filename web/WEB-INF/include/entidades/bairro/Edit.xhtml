@@ -20,9 +20,20 @@
 
                         <p:outputLabel value="Nome" for="nome" />
                         <p:inputText style="text-transform: uppercase" id="nome" value="#{bairroController.selected.nome}" title="Entre como nome" />
-                        
+
                         <p:outputLabel value="Área" for="area" />
                         <p:inputText id="area" value="#{bairroController.selected.area}" title="Entre como área" />
+
+                        <p:outputLabel value="Município" for="municipio" />
+                        <p:selectOneMenu id="municipio" value="#{bairroController.selected.municipio}"  converter="municipioConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{municipioController.items}"
+                                           var="municipioItem"
+                                           itemValue="#{municipioItem}"
+                                           itemLabel="#{municipioItem.nome}"
+                                           />
+
+                        </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{bairroController.save}" value="#{bundle.Save}" update="display,:BairroListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,BairroEditDialog);"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="BairroEditDialog.hide()"/>
