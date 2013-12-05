@@ -9,12 +9,11 @@ package controllers;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import modelo.Atribuicao;
 import modelo.Municipio;
 
 /**
  *
- * @author Gleywson
+ * @author gleywson
  */
 @Stateless
 public class MunicipioFacade extends AbstractFacade<Municipio> {

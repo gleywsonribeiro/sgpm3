@@ -13,7 +13,7 @@ import modelo.Bairro;
 
 /**
  *
- * @author Gleywson
+ * @author gleywson
  */
 @Stateless
 public class BairroFacade extends AbstractFacade<Bairro> {

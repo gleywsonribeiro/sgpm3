@@ -1,7 +1,8 @@
 package converters;
 
-import beans.util.JsfUtil;
+import modelo.Municipio;
 import controllers.MunicipioFacade;
+import beans.util.JsfUtil;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.inject.Inject;
@@ -9,7 +10,6 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
-import modelo.Municipio;
 
 @FacesConverter(value = "municipioConverter")
 public class MunicipioConverter implements Converter {

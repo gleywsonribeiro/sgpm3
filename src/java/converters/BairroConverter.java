@@ -1,9 +1,8 @@
 package converters;
 
-import modelo.Curso;
-import controllers.CursoFacade;
-import beans.util.JsfUtil;
+import modelo.Bairro;
 import controllers.BairroFacade;
+import beans.util.JsfUtil;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.inject.Inject;
@@ -11,7 +10,6 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
-import modelo.Bairro;
 
 @FacesConverter(value = "bairroConverter")
 public class BairroConverter implements Converter {

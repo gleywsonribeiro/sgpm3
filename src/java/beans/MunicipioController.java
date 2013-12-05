@@ -1,14 +1,12 @@
 package beans;
 
-import modelo.Atribuicao;
-import controllers.AtribuicaoFacade;
+import modelo.Municipio;
 import controllers.MunicipioFacade;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.inject.Named;
 import javax.inject.Inject;
 import javax.faces.view.ViewScoped;
-import modelo.Municipio;
 
 @Named(value = "municipioController")
 @ViewScoped
