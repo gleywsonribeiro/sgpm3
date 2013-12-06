@@ -18,6 +18,28 @@
                         <h:outputLabel value="#{bundle.EditEnderecoLabel_id}" for="id" />
                         <h:outputText id="id" value="#{enderecoController.selected.id}" />
 
+                        <h:outputLabel value="#{bundle.EditEnderecoLabel_municipio}" for="municipio"/>
+                        <p:selectOneMenu id="municipio" value="#{enderecoController.selected.municipio}"  converter="municipioConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{municipioController.items}"
+                                           var="municipioItem"
+                                           itemValue="#{municipioItem}"
+                                           itemLabel="#{municipioItem.nome}"
+                                           />
+
+                        </p:selectOneMenu>
+                        
+                        <h:outputLabel value="#{bundle.EditEnderecoLabel_bairro}" for="bairro"/>
+                        <p:selectOneMenu id="bairro" value="#{enderecoController.selected.bairro}"  converter="bairroConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{bairroController.items}"
+                                           var="bairroItem"
+                                           itemValue="#{bairroItem}"
+                                           itemLabel="#{bairroItem.nome}"
+                                           />
+
+                        </p:selectOneMenu>
+                        
                         <p:outputLabel value="#{bundle.EditEnderecoLabel_logradouro}" for="logradouro" />
                         <p:inputText style="text-transform: uppercase" id="logradouro" value="#{enderecoController.selected.logradouro}" title="#{bundle.EditEnderecoTitle_logradouro}" />
 

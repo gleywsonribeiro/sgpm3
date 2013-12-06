@@ -8,6 +8,7 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -19,8 +20,10 @@ public class Endereco implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
-//    private String cidade;
-//    private String bairro;
+    @ManyToOne
+    private Municipio municipio;
+    @ManyToOne
+    private Bairro bairro;
     private String logradouro;
     private String cep;
     private String numero;
@@ -34,21 +37,21 @@ public class Endereco implements Serializable {
         this.id = id;
     }
 
-//    public String getCidade() {
-//        return cidade;
-//    }
-//
-//    public void setCidade(String cidade) {
-//        this.cidade = cidade;
-//    }
-//
-//    public String getBairro() {
-//        return bairro;
-//    }
-//
-//    public void setBairro(String bairro) {
-//        this.bairro = bairro;
-//    }
+    public Municipio getMunicipio() {
+        return municipio;
+    }
+
+    public void setMunicipio(Municipio municipio) {
+        this.municipio = municipio;
+    }
+
+    public Bairro getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(Bairro bairro) {
+        this.bairro = bairro;
+    }
 
     public String getLogradouro() {
         return logradouro;

@@ -34,6 +34,20 @@
                     </f:facet>
                     <h:outputText value="#{item.logradouro}"/>
                 </p:column>
+                
+                <p:column sortBy="#{item.municipio.nome}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListEnderecoTitle_municipio}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.municipio.nome}"/>
+                </p:column>
+                
+                <p:column sortBy="#{item.bairro.nome}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListEnderecoTitle_bairro}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.bairro.nome}"/>
+                </p:column>
                 <p:column sortBy="#{item.cep}">
                     <f:facet name="header">
                         <h:outputText value="#{bundle.ListEnderecoTitle_cep}"/>
