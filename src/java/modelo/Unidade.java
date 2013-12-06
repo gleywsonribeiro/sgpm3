@@ -6,7 +6,7 @@ package modelo;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Calendar;
+//import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
@@ -64,7 +64,7 @@ public class Unidade implements Serializable {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.nome = nome.toUpperCase();
     }
 
     public String getSigla() {
@@ -72,7 +72,7 @@ public class Unidade implements Serializable {
     }
 
     public void setSigla(String sigla) {
-        this.sigla = sigla;
+        this.sigla = sigla.toUpperCase();
     }
 
     public Date getDataCriacao() {
@@ -105,7 +105,7 @@ public class Unidade implements Serializable {
     }
 
     public void setHistorico(String historico) {
-        this.historico = historico;
+        this.historico = historico.toUpperCase();
     }
 
     public Endereco getEndereco() {

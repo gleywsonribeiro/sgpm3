@@ -38,7 +38,14 @@
                         <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{situacaoFuncionalController.prepareCreate}" update=":SituacaoFuncionalCreateForm" oncomplete="SituacaoFuncionalCreateDialog.show()"/>
                         <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":SituacaoFuncionalViewForm" oncomplete="SituacaoFuncionalViewDialog.show()" disabled="#{empty situacaoFuncionalController.selected}"/>
                         <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":SituacaoFuncionalEditForm" oncomplete="SituacaoFuncionalEditDialog.show()" disabled="#{empty situacaoFuncionalController.selected}"/>
-                        <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{situacaoFuncionalController.delete}" update=":growl,datalist" disabled="#{empty situacaoFuncionalController.selected}"/>
+                        <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{situacaoFuncionalController.delete}" update=":growl,datalist" disabled="#{empty situacaoFuncionalController.selected}">
+                            <p:confirm header="Exclusão" message="Deseja realmente excluir?" icon="ui-icon-alert"/>
+                        </p:commandButton>
+                        
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">  
+                            <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>  
+                            <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>       
+                        </p:confirmDialog>
                     </div>
                 </f:facet>
 

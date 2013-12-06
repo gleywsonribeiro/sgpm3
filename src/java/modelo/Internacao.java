@@ -65,7 +65,7 @@ public class Internacao implements Serializable {
     }
 
     public void setDiagnostico(String diagnostico) {
-        this.diagnostico = diagnostico;
+        this.diagnostico = diagnostico.toUpperCase();
     }
 
     public String getPublicacao() {
@@ -73,7 +73,7 @@ public class Internacao implements Serializable {
     }
 
     public void setPublicacao(String publicacao) {
-        this.publicacao = publicacao;
+        this.publicacao = publicacao.toUpperCase();
     }
 
     public Pessoa getPessoa() {

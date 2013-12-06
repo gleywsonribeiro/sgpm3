@@ -19,7 +19,7 @@
                         <h:outputText id="id" value="#{graduacaoController.selected.id}" />
 
                         <p:outputLabel value="#{bundle.EditGraduacaoLabel_graduacao}" for="graduacao" />
-                        <p:inputText id="graduacao" value="#{graduacaoController.selected.graduacao}" title="#{bundle.EditGraduacaoTitle_graduacao}" />
+                        <p:inputText style="text-transform: uppercase" id="graduacao" value="#{graduacaoController.selected.graduacao}" title="#{bundle.EditGraduacaoTitle_graduacao}" />
 
                         <p:outputLabel value="#{bundle.EditGraduacaoLabel_hierarquia}" for="hierarquia" />
                         <p:inputText id="hierarquia" value="#{graduacaoController.selected.hierarquia}" title="#{bundle.EditGraduacaoTitle_hierarquia}" />
@@ -30,7 +30,7 @@
                             <f:selectItems value="#{quadroController.items}"
                                            var="quadroItem"
                                            itemValue="#{quadroItem}"
-                                           itemLabel="#{quadroItem.id.toString()}"
+                                           itemLabel="#{quadroItem.nome}"
                                            />
 
                         </p:selectOneMenu>

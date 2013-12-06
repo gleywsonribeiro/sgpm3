@@ -67,7 +67,7 @@ public class Deslocamento implements Serializable {
     }
 
     public void setLocalidade(String localidade) {
-        this.localidade = localidade;
+        this.localidade = localidade.toUpperCase();
     }
 
     public String getCarater() {
@@ -75,7 +75,7 @@ public class Deslocamento implements Serializable {
     }
 
     public void setCarater(String carater) {
-        this.carater = carater;
+        this.carater = carater.toUpperCase();
     }
 
     public String getPublicacao() {
@@ -83,7 +83,7 @@ public class Deslocamento implements Serializable {
     }
 
     public void setPublicacao(String publicacao) {
-        this.publicacao = publicacao;
+        this.publicacao = publicacao.toUpperCase();
     }
 
     public Pessoa getPessoa() {

@@ -42,7 +42,7 @@ public class SituacaoFuncional implements Serializable {
     }
 
     public void setStFuncional(String stFuncional) {
-        this.stFuncional = stFuncional;
+        this.stFuncional = stFuncional.toUpperCase();
     }
 
     public List<Pessoa> getPessoas() {

@@ -33,16 +33,16 @@
                         <p:inputText id="duracao" value="#{dispensaLicencaController.selected.duracao}" title="#{bundle.EditDispensaLicencaTitle_duracao}" />
 
                         <p:outputLabel value="#{bundle.EditDispensaLicencaLabel_natureza}" for="natureza" />
-                        <p:inputText id="natureza" value="#{dispensaLicencaController.selected.natureza}" title="#{bundle.EditDispensaLicencaTitle_natureza}" />
+                        <p:inputText style="text-transform: uppercase" id="natureza" value="#{dispensaLicencaController.selected.natureza}" title="#{bundle.EditDispensaLicencaTitle_natureza}" />
 
                         <p:outputLabel value="#{bundle.EditDispensaLicencaLabel_publicacao}" for="publicacao" />
-                        <p:inputText id="publicacao" value="#{dispensaLicencaController.selected.publicacao}" title="#{bundle.EditDispensaLicencaTitle_publicacao}" />
+                        <p:inputText style="text-transform: uppercase" id="publicacao" value="#{dispensaLicencaController.selected.publicacao}" title="#{bundle.EditDispensaLicencaTitle_publicacao}" />
 
                         <p:outputLabel value="#{bundle.EditDispensaLicencaLabel_publicacaoSustacao}" for="publicacaoSustacao" />
-                        <p:inputText id="publicacaoSustacao" value="#{dispensaLicencaController.selected.publicacaoSustacao}" title="#{bundle.EditDispensaLicencaTitle_publicacaoSustacao}" />
+                        <p:inputText style="text-transform: uppercase"  id="publicacaoSustacao" value="#{dispensaLicencaController.selected.publicacaoSustacao}" title="#{bundle.EditDispensaLicencaTitle_publicacaoSustacao}" />
 
                         <p:outputLabel value="#{bundle.EditDispensaLicencaLabel_publicacaoDireito}" for="publicacaoDireito" />
-                        <p:inputText id="publicacaoDireito" value="#{dispensaLicencaController.selected.publicacaoDireito}" title="#{bundle.EditDispensaLicencaTitle_publicacaoDireito}" />
+                        <p:inputText style="text-transform: uppercase"  id="publicacaoDireito" value="#{dispensaLicencaController.selected.publicacaoDireito}" title="#{bundle.EditDispensaLicencaTitle_publicacaoDireito}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{dispensaLicencaController.save}" value="#{bundle.Save}" update="display,:DispensaLicencaListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,DispensaLicencaEditDialog);"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="DispensaLicencaEditDialog.hide()"/>

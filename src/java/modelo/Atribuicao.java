@@ -70,7 +70,7 @@ public class Atribuicao implements Serializable {
     }
 
     public void setPublicacao(String publicacao) {
-        this.publicacao = publicacao;
+        this.publicacao = publicacao.toUpperCase();
     }
 
     

@@ -50,7 +50,7 @@ public class Dependente implements Serializable {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.nome = nome.toUpperCase();
     }
 
     public String getCpf() {
@@ -90,7 +90,7 @@ public class Dependente implements Serializable {
     }
 
     public void setPublicacao(String publicacao) {
-        this.publicacao = publicacao;
+        this.publicacao = publicacao.toUpperCase();
     }
 
     @Override

@@ -27,7 +27,7 @@ public class Cabelo implements Serializable {
     }
 
     public void setCor(String cor) {
-        this.cor = cor;
+        this.cor = cor.toUpperCase();
     }
 
     public String getNatureza() {
@@ -35,7 +35,7 @@ public class Cabelo implements Serializable {
     }
 
     public void setNatureza(String natureza) {
-        this.natureza = natureza;
+        this.natureza = natureza.toUpperCase();
     }
 
     public String getParticularidade() {
@@ -43,7 +43,7 @@ public class Cabelo implements Serializable {
     }
 
     public void setParticularidade(String particularidade) {
-        this.particularidade = particularidade;
+        this.particularidade = particularidade.toUpperCase();
     }
 
     public boolean isCalvo() {
@@ -53,8 +53,5 @@ public class Cabelo implements Serializable {
     public void setCalvo(boolean calvo) {
         this.calvo = calvo;
     }
-
-    
-    
     
 }

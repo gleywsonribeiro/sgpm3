@@ -48,7 +48,6 @@ public class DispensaLicenca implements Serializable {
         this.id = id;
     }
 
-    
     public Pessoa getPessoa() {
         return pessoa;
     }
@@ -65,12 +64,36 @@ public class DispensaLicenca implements Serializable {
         this.duracao = duracao;
     }
 
+    public Date getDataConcessao() {
+        return dataConcessao;
+    }
+
+    public void setDataConcessao(Date dataConcessao) {
+        this.dataConcessao = dataConcessao;
+    }
+
+    public Date getDataApresentacao() {
+        return dataApresentacao;
+    }
+
+    public void setDataApresentacao(Date dataApresentacao) {
+        this.dataApresentacao = dataApresentacao;
+    }
+
+    public Date getDataSustacao() {
+        return dataSustacao;
+    }
+
+    public void setDataSustacao(Date dataSustacao) {
+        this.dataSustacao = dataSustacao;
+    }
+
     public String getNatureza() {
         return natureza;
     }
 
     public void setNatureza(String natureza) {
-        this.natureza = natureza;
+        this.natureza = natureza.toUpperCase();
     }
 
     public String getPublicacao() {
@@ -78,7 +101,7 @@ public class DispensaLicenca implements Serializable {
     }
 
     public void setPublicacao(String publicacao) {
-        this.publicacao = publicacao;
+        this.publicacao = publicacao.toUpperCase();
     }
 
     public String getPublicacaoSustacao() {
@@ -86,7 +109,7 @@ public class DispensaLicenca implements Serializable {
     }
 
     public void setPublicacaoSustacao(String publicacaoSustacao) {
-        this.publicacaoSustacao = publicacaoSustacao;
+        this.publicacaoSustacao = publicacaoSustacao.toUpperCase();
     }
 
     public String getPublicacaoDireito() {
@@ -94,7 +117,7 @@ public class DispensaLicenca implements Serializable {
     }
 
     public void setPublicacaoDireito(String publicacaoDireito) {
-        this.publicacaoDireito = publicacaoDireito;
+        this.publicacaoDireito = publicacaoDireito.toUpperCase();
     }
     
     @Override

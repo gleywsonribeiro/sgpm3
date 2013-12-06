@@ -16,19 +16,19 @@
                     <p:panelGrid columns="2" rendered="#{punicaoController.selected != null}">
 
                         <p:outputLabel value="#{bundle.CreatePunicaoLabel_docCancelamento}" for="docCancelamento" />
-                        <p:inputText id="docCancelamento" value="#{punicaoController.selected.docCancelamento}" title="#{bundle.CreatePunicaoTitle_docCancelamento}" />
+                        <p:inputText style="text-transform: uppercase" id="docCancelamento" value="#{punicaoController.selected.docCancelamento}" title="#{bundle.CreatePunicaoTitle_docCancelamento}" />
 
                         <p:outputLabel value="#{bundle.CreatePunicaoLabel_dataAplicacao}" for="dataAplicacao" />
-                        <p:calendar id="dataAplicacao" pattern="MM/dd/yyyy" value="#{punicaoController.selected.dataAplicacao}" title="#{bundle.EditPunicaoTitle_dataAplicacao}"  showOn="button"/>
+                        <p:calendar id="dataAplicacao" pattern="dd/MM/yyyy" value="#{punicaoController.selected.dataAplicacao}" title="#{bundle.EditPunicaoTitle_dataAplicacao}"  showOn="button"/>
 
                         <p:outputLabel value="#{bundle.CreatePunicaoLabel_dataSuspensao}" for="dataSuspensao" />
-                        <p:calendar id="dataSuspensao" pattern="MM/dd/yyyy" value="#{punicaoController.selected.dataSuspensao}" title="#{bundle.EditPunicaoTitle_dataSuspensao}"  showOn="button"/>
+                        <p:calendar id="dataSuspensao" pattern="dd/MM/yyyy" value="#{punicaoController.selected.dataSuspensao}" title="#{bundle.EditPunicaoTitle_dataSuspensao}"  showOn="button"/>
 
                         <p:outputLabel value="#{bundle.CreatePunicaoLabel_dataCancelamento}" for="dataCancelamento" />
-                        <p:calendar id="dataCancelamento" pattern="MM/dd/yyyy" value="#{punicaoController.selected.dataCancelamento}" title="#{bundle.EditPunicaoTitle_dataCancelamento}"  showOn="button"/>
+                        <p:calendar id="dataCancelamento" pattern="dd/MM/yyyy" value="#{punicaoController.selected.dataCancelamento}" title="#{bundle.EditPunicaoTitle_dataCancelamento}"  showOn="button"/>
 
                         <p:outputLabel value="#{bundle.CreatePunicaoLabel_publicacao}" for="publicacao" />
-                        <p:inputText id="publicacao" value="#{punicaoController.selected.publicacao}" title="#{bundle.CreatePunicaoTitle_publicacao}" />
+                        <p:inputText style="text-transform: uppercase" id="publicacao" value="#{punicaoController.selected.publicacao}" title="#{bundle.CreatePunicaoTitle_publicacao}" />
 
                         <p:outputLabel value="#{bundle.CreatePunicaoLabel_pessoa}" for="pessoa" />
                         <p:selectOneMenu id="pessoa" value="#{punicaoController.selected.pessoa}"  converter="pessoaConverter">

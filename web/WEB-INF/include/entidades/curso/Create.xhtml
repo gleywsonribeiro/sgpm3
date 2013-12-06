@@ -16,28 +16,28 @@
                     <p:panelGrid columns="2" rendered="#{cursoController.selected != null}">
 
                         <p:outputLabel value="#{bundle.CreateCursoLabel_curso}" for="curso" />
-                        <p:inputText id="curso" value="#{cursoController.selected.curso}" title="#{bundle.CreateCursoTitle_curso}" />
+                        <p:inputText style="text-transform: uppercase" id="curso" value="#{cursoController.selected.curso}" title="#{bundle.CreateCursoTitle_curso}" />
 
                         <p:outputLabel value="#{bundle.CreateCursoLabel_cursoCivil}" for="cursoCivil" />
-                        <p:inputText id="cursoCivil" value="#{cursoController.selected.cursoCivil}" title="#{bundle.CreateCursoTitle_cursoCivil}" />
+                        <p:inputText style="text-transform: uppercase" id="cursoCivil" value="#{cursoController.selected.cursoCivil}" title="#{bundle.CreateCursoTitle_cursoCivil}" />
 
                         <p:outputLabel value="#{bundle.CreateCursoLabel_localCurso}" for="localCurso" />
-                        <p:inputText id="localCurso" value="#{cursoController.selected.localCurso}" title="#{bundle.CreateCursoTitle_localCurso}" />
+                        <p:inputText style="text-transform: uppercase" id="localCurso" value="#{cursoController.selected.localCurso}" title="#{bundle.CreateCursoTitle_localCurso}" />
 
                         <p:outputLabel value="#{bundle.CreateCursoLabel_dataInicio}" for="dataInicio" />
-                        <p:calendar id="dataInicio" pattern="MM/dd/yyyy" value="#{cursoController.selected.dataInicio}" title="#{bundle.EditCursoTitle_dataInicio}"  showOn="button"/>
+                        <p:calendar id="dataInicio" pattern="dd/MM/yyyy" value="#{cursoController.selected.dataInicio}" title="#{bundle.EditCursoTitle_dataInicio}"  showOn="button"/>
 
                         <p:outputLabel value="#{bundle.CreateCursoLabel_dataTermino}" for="dataTermino" />
-                        <p:calendar id="dataTermino" pattern="MM/dd/yyyy" value="#{cursoController.selected.dataTermino}" title="#{bundle.EditCursoTitle_dataTermino}"  showOn="button"/>
+                        <p:calendar id="dataTermino" pattern="dd/MM/yyyy" value="#{cursoController.selected.dataTermino}" title="#{bundle.EditCursoTitle_dataTermino}"  showOn="button"/>
 
                         <p:outputLabel value="#{bundle.CreateCursoLabel_publicacao}" for="publicacao" />
-                        <p:inputText id="publicacao" value="#{cursoController.selected.publicacao}" title="#{bundle.CreateCursoTitle_publicacao}" />
+                        <p:inputText style="text-transform: uppercase" id="publicacao" value="#{cursoController.selected.publicacao}" title="#{bundle.CreateCursoTitle_publicacao}" />
 
                         <p:outputLabel value="#{bundle.CreateCursoLabel_cargaHoraria}" for="cargaHoraria" />
                         <p:inputText id="cargaHoraria" value="#{cursoController.selected.cargaHoraria}" title="#{bundle.CreateCursoTitle_cargaHoraria}" />
 
                         <p:outputLabel value="#{bundle.CreateCursoLabel_entidadePromotora}" for="entidadePromotora" />
-                        <p:inputText id="entidadePromotora" value="#{cursoController.selected.entidadePromotora}" title="#{bundle.CreateCursoTitle_entidadePromotora}" />
+                        <p:inputText style="text-transform: uppercase" id="entidadePromotora" value="#{cursoController.selected.entidadePromotora}" title="#{bundle.CreateCursoTitle_entidadePromotora}" />
 
                         <p:outputLabel value="#{bundle.CreateCursoLabel_pessoa}" for="pessoa" />
                         <p:selectOneMenu id="pessoa" value="#{cursoController.selected.pessoa}"  converter="pessoaConverter">

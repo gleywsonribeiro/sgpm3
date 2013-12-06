@@ -15,14 +15,14 @@
                     <!--<p:scrollPanel>-->
                     <h:panelGrid columns="2" rendered="#{enderecoController.selected != null}">
 
-                        <p:outputLabel value="#{bundle.CreateEnderecoLabel_logradouro}" for="logradouro" />
-                        <p:inputText id="logradouro" value="#{enderecoController.selected.logradouro}" title="#{bundle.CreateEnderecoTitle_logradouro}" />
+                        <p:outputLabel value="#{bundle.EditEnderecoLabel_logradouro}" for="logradouro" />
+                        <p:inputText style="text-transform: uppercase" id="logradouro" value="#{enderecoController.selected.logradouro}" title="#{bundle.EditEnderecoTitle_logradouro}" />
 
-                        <p:outputLabel value="#{bundle.CreateEnderecoLabel_cep}" for="cep" />
-                        <p:inputText id="cep" value="#{enderecoController.selected.cep}" title="#{bundle.CreateEnderecoTitle_cep}" />
+                        <p:outputLabel value="#{bundle.EditEnderecoLabel_cep}" for="cep" />
+                        <p:inputText id="cep" value="#{enderecoController.selected.cep}" title="#{bundle.EditEnderecoTitle_cep}" />
 
-                        <p:outputLabel value="#{bundle.CreateEnderecoLabel_numero}" for="numero" />
-                        <p:inputText id="numero" value="#{enderecoController.selected.numero}" title="#{bundle.CreateEnderecoTitle_numero}" />
+                        <p:outputLabel value="#{bundle.EditEnderecoLabel_numero}" for="numero" />
+                        <p:inputText id="numero" value="#{enderecoController.selected.numero}" title="#{bundle.EditEnderecoTitle_numero}" />
                     </h:panelGrid>
                     <!--</p:scrollPanel>-->
                     <p:commandButton actionListener="#{enderecoController.saveNew}" value="#{bundle.Save}" update="display,:EnderecoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,EnderecoCreateDialog);"/>

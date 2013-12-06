@@ -41,7 +41,7 @@
                         <p:calendar id="dataDaAtribuicao" pattern="MM/dd/yyyy" value="#{atribuicaoController.selected.dataDaAtribuicao}" title="#{bundle.EditAtribuicaoTitle_dataDaAtribuicao}"  showOn="button"/>
 
                         <p:outputLabel value="#{bundle.CreateAtribuicaoLabel_publicacao}" for="publicacao" />
-                        <p:inputText id="publicacao" value="#{atribuicaoController.selected.publicacao}" title="#{bundle.CreateAtribuicaoTitle_publicacao}" />
+                        <p:inputText style="text-transform: uppercase" id="publicacao" value="#{atribuicaoController.selected.publicacao}" title="#{bundle.CreateAtribuicaoTitle_publicacao}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{atribuicaoController.saveNew}" value="#{bundle.Save}" update="display,:AtribuicaoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,AtribuicaoCreateDialog);"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="AtribuicaoCreateDialog.hide()"/>

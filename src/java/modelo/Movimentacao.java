@@ -64,7 +64,7 @@ public class Movimentacao implements Serializable {
     }
 
     public void setPublicacaoApresentacao(String publicacaoApresentacao) {
-        this.publicacaoApresentacao = publicacaoApresentacao;
+        this.publicacaoApresentacao = publicacaoApresentacao.toUpperCase();
     }
 
     public Calendar getDataTransferencia() {
@@ -80,7 +80,7 @@ public class Movimentacao implements Serializable {
     }
 
     public void setPublicacaoTransferencia(String publicacaoTransferencia) {
-        this.publicacaoTransferencia = publicacaoTransferencia;
+        this.publicacaoTransferencia = publicacaoTransferencia.toUpperCase();
     }
 
     public Pessoa getPessoa() {

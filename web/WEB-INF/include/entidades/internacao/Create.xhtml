@@ -15,25 +15,25 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{internacaoController.selected != null}">
 
-                        <p:outputLabel value="#{bundle.CreateInternacaoLabel_dataBaixa}" for="dataBaixa" />
-                        <p:calendar id="dataBaixa" pattern="MM/dd/yyyy" value="#{internacaoController.selected.dataBaixa}" title="#{bundle.EditInternacaoTitle_dataBaixa}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditInternacaoLabel_dataBaixa}" for="dataBaixa" />
+                        <p:calendar id="dataBaixa" pattern="dd/MM/yyyy" value="#{internacaoController.selected.dataBaixa}" title="#{bundle.EditInternacaoTitle_dataBaixa}"  showOn="button"/>
 
-                        <p:outputLabel value="#{bundle.CreateInternacaoLabel_dataAlta}" for="dataAlta" />
-                        <p:calendar id="dataAlta" pattern="MM/dd/yyyy" value="#{internacaoController.selected.dataAlta}" title="#{bundle.EditInternacaoTitle_dataAlta}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditInternacaoLabel_dataAlta}" for="dataAlta" />
+                        <p:calendar id="dataAlta" pattern="dd/MM/yyyy" value="#{internacaoController.selected.dataAlta}" title="#{bundle.EditInternacaoTitle_dataAlta}"  showOn="button"/>
 
-                        <p:outputLabel value="#{bundle.CreateInternacaoLabel_diagnostico}" for="diagnostico" />
-                        <p:inputText id="diagnostico" value="#{internacaoController.selected.diagnostico}" title="#{bundle.CreateInternacaoTitle_diagnostico}" />
+                        <p:outputLabel value="#{bundle.EditInternacaoLabel_diagnostico}" for="diagnostico" />
+                        <p:inputText style="text-transform: uppercase" id="diagnostico" value="#{internacaoController.selected.diagnostico}" title="#{bundle.EditInternacaoTitle_diagnostico}" />
 
-                        <p:outputLabel value="#{bundle.CreateInternacaoLabel_publicacao}" for="publicacao" />
-                        <p:inputText id="publicacao" value="#{internacaoController.selected.publicacao}" title="#{bundle.CreateInternacaoTitle_publicacao}" />
+                        <p:outputLabel value="#{bundle.EditInternacaoLabel_publicacao}" for="publicacao" />
+                        <p:inputText style="text-transform: uppercase" id="publicacao" value="#{internacaoController.selected.publicacao}" title="#{bundle.EditInternacaoTitle_publicacao}" />
 
-                        <p:outputLabel value="#{bundle.CreateInternacaoLabel_pessoa}" for="pessoa" />
+                        <p:outputLabel value="#{bundle.EditInternacaoLabel_pessoa}" for="pessoa" />
                         <p:selectOneMenu id="pessoa" value="#{internacaoController.selected.pessoa}"  converter="pessoaConverter">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{pessoaController.items}"
                                            var="pessoaItem"
                                            itemValue="#{pessoaItem}"
-                                           itemLabel="#{pessoaItem.id.toString()}"
+                                           itemLabel="#{pessoaItem.nome}"
                                            />
 
                         </p:selectOneMenu>

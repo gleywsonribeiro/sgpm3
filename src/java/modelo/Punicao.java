@@ -76,12 +76,12 @@ public class Punicao implements Serializable {
     }
 
     public void setPublicacao(String publicacao) {
-        this.publicacao = publicacao;
+        this.publicacao = publicacao.toUpperCase();
     }
 
     
     public void setDocCancelamento(String docCancelamento) {
-        this.docCancelamento = docCancelamento;
+        this.docCancelamento = docCancelamento.toUpperCase();
     }
 
     public Pessoa getPessoa() {

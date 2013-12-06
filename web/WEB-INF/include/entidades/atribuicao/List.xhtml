@@ -44,7 +44,7 @@
                         <h:outputText value="#{bundle.ListAtribuicaoTitle_dataDaAtribuicao}"/>
                     </f:facet>
                     <h:outputText value="#{item.dataDaAtribuicao}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
                     </h:outputText>
                 </p:column>
                 <p:column sortBy="#{item.publicacao}" filterBy="#{item.publicacao}">

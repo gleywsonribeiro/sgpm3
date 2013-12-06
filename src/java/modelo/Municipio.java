@@ -45,7 +45,7 @@ public class Municipio implements Serializable {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.nome = nome.toUpperCase();
     }
 
     public Double getArea() {

@@ -21,7 +21,7 @@ public class Habilitacao implements Serializable{
     }
 
     public void setNumeroHabilitacao(String numeroHabilitacao) {
-        this.numeroHabilitacao = numeroHabilitacao;
+        this.numeroHabilitacao = numeroHabilitacao.toUpperCase();
     }
 
     public String getCategoria() {
@@ -29,7 +29,7 @@ public class Habilitacao implements Serializable{
     }
 
     public void setCategoria(String categoria) {
-        this.categoria = categoria;
+        this.categoria = categoria.toUpperCase();
     }
     
     

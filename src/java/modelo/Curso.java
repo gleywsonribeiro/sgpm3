@@ -5,7 +5,7 @@
 package modelo;
 
 import java.io.Serializable;
-import java.util.Calendar;
+//import java.util.Calendar;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -52,7 +52,7 @@ public class Curso implements Serializable {
     }
 
     public void setCurso(String curso) {
-        this.curso = curso;
+        this.curso = curso.toUpperCase();
     }
 
     public String getCursoCivil() {
@@ -60,7 +60,7 @@ public class Curso implements Serializable {
     }
 
     public void setCursoCivil(String cursoCivil) {
-        this.cursoCivil = cursoCivil;
+        this.cursoCivil = cursoCivil.toUpperCase();
     }
 
     public String getLocalCurso() {
@@ -68,7 +68,7 @@ public class Curso implements Serializable {
     }
 
     public void setLocalCurso(String localCurso) {
-        this.localCurso = localCurso;
+        this.localCurso = localCurso.toUpperCase();
     }
 
     public Date getDataInicio() {
@@ -93,7 +93,7 @@ public class Curso implements Serializable {
     }
 
     public void setPublicacao(String publicacao) {
-        this.publicacao = publicacao;
+        this.publicacao = publicacao.toUpperCase();
     }
 
     public int getCargaHoraria() {
@@ -109,7 +109,7 @@ public class Curso implements Serializable {
     }
 
     public void setEntidadePromotora(String entidadePromotora) {
-        this.entidadePromotora = entidadePromotora;
+        this.entidadePromotora = entidadePromotora.toUpperCase() ;
     }
 
     public Pessoa getPessoa() {

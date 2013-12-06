@@ -34,7 +34,7 @@ public class InformacaoTecnica implements Serializable {
     }
 
     public void setLinhaTelefonica(String linhaTelefonica) {
-        this.linhaTelefonica = linhaTelefonica;
+        this.linhaTelefonica = linhaTelefonica.toUpperCase();
     }
 
     public String getCentralTelefonica() {
@@ -42,7 +42,7 @@ public class InformacaoTecnica implements Serializable {
     }
 
     public void setCentralTelefonica(String centralTelefonica) {
-        this.centralTelefonica = centralTelefonica;
+        this.centralTelefonica = centralTelefonica.toUpperCase();
     }
 
     public String getRedeLogicaSf() {
@@ -50,7 +50,7 @@ public class InformacaoTecnica implements Serializable {
     }
 
     public void setRedeLogicaSf(String redeLogicaSf) {
-        this.redeLogicaSf = redeLogicaSf;
+        this.redeLogicaSf = redeLogicaSf.toUpperCase();
     }
 
     public String getRedeLogicaCf() {
@@ -58,7 +58,7 @@ public class InformacaoTecnica implements Serializable {
     }
 
     public void setRedeLogicaCf(String redeLogicaCf) {
-        this.redeLogicaCf = redeLogicaCf;
+        this.redeLogicaCf = redeLogicaCf.toUpperCase();
     }
 
     public String getInternet() {
@@ -66,7 +66,7 @@ public class InformacaoTecnica implements Serializable {
     }
 
     public void setInternet(String internet) {
-        this.internet = internet;
+        this.internet = internet.toUpperCase();
     }
 
     public String getConexao() {
@@ -74,7 +74,7 @@ public class InformacaoTecnica implements Serializable {
     }
 
     public void setConexao(String conexao) {
-        this.conexao = conexao;
+        this.conexao = conexao.toUpperCase();
     }
 
     public int getVelocidadeConexao() {
@@ -90,7 +90,7 @@ public class InformacaoTecnica implements Serializable {
     }
 
     public void setIpWan(String ipWan) {
-        this.ipWan = ipWan;
+        this.ipWan = ipWan.toUpperCase();
     }
 
     public String getServidorRemoto() {
@@ -98,7 +98,7 @@ public class InformacaoTecnica implements Serializable {
     }
 
     public void setServidorRemoto(String servidorRemoto) {
-        this.servidorRemoto = servidorRemoto;
+        this.servidorRemoto = servidorRemoto.toUpperCase();
     }
 
     public String getIpServidor() {
@@ -106,7 +106,7 @@ public class InformacaoTecnica implements Serializable {
     }
 
     public void setIpServidor(String ipServidor) {
-        this.ipServidor = ipServidor;
+        this.ipServidor = ipServidor.toUpperCase();
     }
 
     public String getDominio() {
@@ -114,7 +114,7 @@ public class InformacaoTecnica implements Serializable {
     }
 
     public void setDominio(String dominio) {
-        this.dominio = dominio;
+        this.dominio = dominio.toUpperCase();
     }
 
     public int getComputadores() {
@@ -146,7 +146,7 @@ public class InformacaoTecnica implements Serializable {
     }
 
     public void setSistemaOperacional(String sistemaOperacional) {
-        this.sistemaOperacional = sistemaOperacional;
+        this.sistemaOperacional = sistemaOperacional.toUpperCase();
     }
     
     

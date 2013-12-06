@@ -55,7 +55,7 @@ public class Endereco implements Serializable {
     }
 
     public void setLogradouro(String logradouro) {
-        this.logradouro = logradouro;
+        this.logradouro = logradouro.toUpperCase();
     }
 
     public String getCep() {

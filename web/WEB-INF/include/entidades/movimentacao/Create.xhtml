@@ -16,16 +16,16 @@
                     <p:panelGrid columns="2" rendered="#{movimentacaoController.selected != null}">
 
                         <p:outputLabel value="#{bundle.CreateMovimentacaoLabel_dataApresentacao}" for="dataApresentacao" />
-                        <p:calendar id="dataApresentacao" pattern="MM/dd/yyyy" value="#{movimentacaoController.selected.dataApresentacao}" title="#{bundle.EditMovimentacaoTitle_dataApresentacao}"  showOn="button"/>
+                        <p:calendar id="dataApresentacao" pattern="dd/MM/yyyy" value="#{movimentacaoController.selected.dataApresentacao}" title="#{bundle.EditMovimentacaoTitle_dataApresentacao}"  showOn="button"/>
 
                         <p:outputLabel value="#{bundle.CreateMovimentacaoLabel_publicacaoApresentacao}" for="publicacaoApresentacao" />
-                        <p:inputText id="publicacaoApresentacao" value="#{movimentacaoController.selected.publicacaoApresentacao}" title="#{bundle.CreateMovimentacaoTitle_publicacaoApresentacao}" />
+                        <p:inputText style="text-transform: uppercase" id="publicacaoApresentacao" value="#{movimentacaoController.selected.publicacaoApresentacao}" title="#{bundle.CreateMovimentacaoTitle_publicacaoApresentacao}" />
 
                         <p:outputLabel value="#{bundle.CreateMovimentacaoLabel_dataTransferencia}" for="dataTransferencia" />
                         <p:inputText id="dataTransferencia" value="#{movimentacaoController.selected.dataTransferencia}" title="#{bundle.CreateMovimentacaoTitle_dataTransferencia}" />
 
                         <p:outputLabel value="#{bundle.CreateMovimentacaoLabel_publicacaoTransferencia}" for="publicacaoTransferencia" />
-                        <p:inputText id="publicacaoTransferencia" value="#{movimentacaoController.selected.publicacaoTransferencia}" title="#{bundle.CreateMovimentacaoTitle_publicacaoTransferencia}" />
+                        <p:inputText style="text-transform: uppercase" id="publicacaoTransferencia" value="#{movimentacaoController.selected.publicacaoTransferencia}" title="#{bundle.CreateMovimentacaoTitle_publicacaoTransferencia}" />
 
                         <p:outputLabel value="#{bundle.CreateMovimentacaoLabel_pessoa}" for="pessoa" />
                         <p:selectOneMenu id="pessoa" value="#{movimentacaoController.selected.pessoa}"  converter="pessoaConverter">
@@ -33,7 +33,7 @@
                             <f:selectItems value="#{pessoaController.items}"
                                            var="pessoaItem"
                                            itemValue="#{pessoaItem}"
-                                           itemLabel="#{pessoaItem.id.toString()}"
+                                           itemLabel="#{pessoaItem.nome}"
                                            />
 
                         </p:selectOneMenu>
@@ -44,7 +44,7 @@
                             <f:selectItems value="#{unidadeController.items}"
                                            var="unidadeItem"
                                            itemValue="#{unidadeItem}"
-                                           itemLabel="#{unidadeItem.id.toString()}"
+                                           itemLabel="#{unidadeItem.nome}"
                                            />
 
                         </p:selectOneMenu>

@@ -19,7 +19,7 @@
                         <h:outputText id="id" value="#{situacaoFuncionalController.selected.id}" />
 
                         <p:outputLabel value="#{bundle.EditSituacaoFuncionalLabel_stFuncional}" for="stFuncional" />
-                        <p:inputText id="stFuncional" value="#{situacaoFuncionalController.selected.stFuncional}" title="#{bundle.EditSituacaoFuncionalTitle_stFuncional}" />
+                        <p:inputText style="text-transform: uppercase" id="stFuncional" value="#{situacaoFuncionalController.selected.stFuncional}" title="#{bundle.EditSituacaoFuncionalTitle_stFuncional}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{situacaoFuncionalController.save}" value="#{bundle.Save}" update="display,:SituacaoFuncionalListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,SituacaoFuncionalEditDialog);"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="SituacaoFuncionalEditDialog.hide()"/>

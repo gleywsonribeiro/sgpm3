@@ -24,7 +24,7 @@ public class Bigode implements Serializable {
     }
 
     public void setTipo(String tipo) {
-        this.tipo = tipo;
+        this.tipo = tipo.toUpperCase();
     }
 
     public String getCor() {
@@ -32,7 +32,7 @@ public class Bigode implements Serializable {
     }
 
     public void setCor(String cor) {
-        this.cor = cor;
+        this.cor = cor.toUpperCase();
     }
     
     

@@ -19,19 +19,19 @@
                         <h:outputText id="id" value="#{deslocamentoController.selected.id}" />
 
                         <p:outputLabel value="#{bundle.EditDeslocamentoLabel_dataSeguimento}" for="dataSeguimento" />
-                        <p:calendar id="dataSeguimento" pattern="MM/dd/yyyy" value="#{deslocamentoController.selected.dataSeguimento}" title="#{bundle.EditDeslocamentoTitle_dataSeguimento}"  showOn="button"/>
+                        <p:calendar id="dataSeguimento" pattern="dd/MM/yyyy" value="#{deslocamentoController.selected.dataSeguimento}" title="#{bundle.EditDeslocamentoTitle_dataSeguimento}"  showOn="button"/>
 
                         <p:outputLabel value="#{bundle.EditDeslocamentoLabel_dataRegresso}" for="dataRegresso" />
-                        <p:calendar id="dataRegresso" pattern="MM/dd/yyyy" value="#{deslocamentoController.selected.dataRegresso}" title="#{bundle.EditDeslocamentoTitle_dataRegresso}"  showOn="button"/>
+                        <p:calendar id="dataRegresso" pattern="dd/MM/yyyy" value="#{deslocamentoController.selected.dataRegresso}" title="#{bundle.EditDeslocamentoTitle_dataRegresso}"  showOn="button"/>
 
                         <p:outputLabel value="#{bundle.EditDeslocamentoLabel_localidade}" for="localidade" />
-                        <p:inputText id="localidade" value="#{deslocamentoController.selected.localidade}" title="#{bundle.EditDeslocamentoTitle_localidade}" />
+                        <p:inputText style="text-transform: uppercase" id="localidade" value="#{deslocamentoController.selected.localidade}" title="#{bundle.EditDeslocamentoTitle_localidade}" />
 
                         <p:outputLabel value="#{bundle.EditDeslocamentoLabel_carater}" for="carater" />
-                        <p:inputText id="carater" value="#{deslocamentoController.selected.carater}" title="#{bundle.EditDeslocamentoTitle_carater}" />
+                        <p:inputText style="text-transform: uppercase" id="carater" value="#{deslocamentoController.selected.carater}" title="#{bundle.EditDeslocamentoTitle_carater}" />
 
                         <p:outputLabel value="#{bundle.EditDeslocamentoLabel_publicacao}" for="publicacao" />
-                        <p:inputText id="publicacao" value="#{deslocamentoController.selected.publicacao}" title="#{bundle.EditDeslocamentoTitle_publicacao}" />
+                        <p:inputText style="text-transform: uppercase" id="publicacao" value="#{deslocamentoController.selected.publicacao}" title="#{bundle.EditDeslocamentoTitle_publicacao}" />
 
                         <p:outputLabel value="#{bundle.EditDeslocamentoLabel_pessoa}" for="pessoa" />
                         <p:selectOneMenu id="pessoa" value="#{deslocamentoController.selected.pessoa}"  converter="pessoaConverter">
@@ -39,7 +39,7 @@
                             <f:selectItems value="#{pessoaController.items}"
                                            var="pessoaItem"
                                            itemValue="#{pessoaItem}"
-                                           itemLabel="#{pessoaItem.id.toString()}"
+                                           itemLabel="#{pessoaItem.nome}"
                                            />
 
                         </p:selectOneMenu>

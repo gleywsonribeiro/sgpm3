@@ -19,13 +19,13 @@
                         <p:inputText id="nome" value="#{dependenteController.selected.nome}" title="#{bundle.CreateDependenteTitle_nome}" />
 
                         <p:outputLabel value="#{bundle.CreateDependenteLabel_cpf}" for="cpf" />
-                        <p:inputText id="cpf" value="#{dependenteController.selected.cpf}" title="#{bundle.CreateDependenteTitle_cpf}" />
+                        <p:inputText style="text-transform: uppercase" id="cpf" value="#{dependenteController.selected.cpf}" title="#{bundle.CreateDependenteTitle_cpf}" />
 
                         <p:outputLabel value="#{bundle.CreateDependenteLabel_rg}" for="rg" />
                         <p:inputText id="rg" value="#{dependenteController.selected.rg}" title="#{bundle.CreateDependenteTitle_rg}" />
 
                         <p:outputLabel value="#{bundle.CreateDependenteLabel_dataNascimento}" for="dataNascimento" />
-                        <p:calendar id="dataNascimento" pattern="MM/dd/yyyy" value="#{dependenteController.selected.dataNascimento}" title="#{bundle.EditDependenteTitle_dataNascimento}"  showOn="button"/>
+                        <p:calendar id="dataNascimento" pattern="dd/MM/yyyy" value="#{dependenteController.selected.dataNascimento}" title="#{bundle.EditDependenteTitle_dataNascimento}"  showOn="button"/>
 
                         <p:outputLabel value="#{bundle.CreateDependenteLabel_pessoa}" for="pessoa" />
                         <p:selectOneMenu id="pessoa" value="#{dependenteController.selected.pessoa}"  converter="pessoaConverter">
@@ -33,13 +33,13 @@
                             <f:selectItems value="#{pessoaController.items}"
                                            var="pessoaItem"
                                            itemValue="#{pessoaItem}"
-                                           itemLabel="#{pessoaItem.id.toString()}"
+                                           itemLabel="#{pessoaItem.nome}"
                                            />
 
                         </p:selectOneMenu>
 
                         <p:outputLabel value="#{bundle.CreateDependenteLabel_publicacao}" for="publicacao" />
-                        <p:inputText id="publicacao" value="#{dependenteController.selected.publicacao}" title="#{bundle.CreateDependenteTitle_publicacao}" />
+                        <p:inputText style="text-transform: uppercase" id="publicacao" value="#{dependenteController.selected.publicacao}" title="#{bundle.CreateDependenteTitle_publicacao}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{dependenteController.saveNew}" value="#{bundle.Save}" update="display,:DependenteListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,DependenteCreateDialog);"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="DependenteCreateDialog.hide()"/>

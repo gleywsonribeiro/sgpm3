@@ -40,7 +40,7 @@ public class Graduacao implements Serializable {
     }
 
     public void setGraduacao(String graduacao) {
-        this.graduacao = graduacao;
+        this.graduacao = graduacao.toUpperCase();
     }
 
     public int getHierarquia() {

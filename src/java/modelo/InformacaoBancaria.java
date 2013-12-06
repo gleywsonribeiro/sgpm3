@@ -22,7 +22,7 @@ public class InformacaoBancaria implements Serializable{
     }
 
     public void setBanco(String banco) {
-        this.banco = banco;
+        this.banco = banco.toUpperCase();
     }
 
     public String getAgencia() {

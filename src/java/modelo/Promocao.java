@@ -5,7 +5,6 @@
 package modelo;
 
 import java.io.Serializable;
-import java.util.Calendar;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -70,7 +69,7 @@ public class Promocao implements Serializable {
     }
 
     public void setPublicacao(String publicacao) {
-        this.publicacao = publicacao;
+        this.publicacao = publicacao.toUpperCase();
     }
 
     public int getColocacao() {
@@ -86,7 +85,7 @@ public class Promocao implements Serializable {
     }
 
     public void setCriterio(String criterio) {
-        this.criterio = criterio;
+        this.criterio = criterio.toUpperCase();
     }
 
     public String getEspecie() {
@@ -94,7 +93,7 @@ public class Promocao implements Serializable {
     }
 
     public void setEspecie(String especie) {
-        this.especie = especie;
+        this.especie = especie.toUpperCase();
     }
 
     public String getTipo() {
@@ -102,7 +101,7 @@ public class Promocao implements Serializable {
     }
 
     public void setTipo(String tipo) {
-        this.tipo = tipo;
+        this.tipo = tipo.toUpperCase();
     }
 
     public String getSituacaoQuadro() {
@@ -110,7 +109,7 @@ public class Promocao implements Serializable {
     }
 
     public void setSituacaoQuadro(String situacaoQuadro) {
-        this.situacaoQuadro = situacaoQuadro;
+        this.situacaoQuadro = situacaoQuadro.toUpperCase();
     }
 
     public Pessoa getPessoa() {

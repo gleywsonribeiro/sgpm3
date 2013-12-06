@@ -15,8 +15,8 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{situacaoFuncionalController.selected != null}">
 
-                        <p:outputLabel value="#{bundle.CreateSituacaoFuncionalLabel_stFuncional}" for="stFuncional" />
-                        <p:inputText id="stFuncional" value="#{situacaoFuncionalController.selected.stFuncional}" title="#{bundle.CreateSituacaoFuncionalTitle_stFuncional}" />
+                        <p:outputLabel value="#{bundle.EditSituacaoFuncionalLabel_stFuncional}" for="stFuncional" />
+                        <p:inputText style="text-transform: uppercase" id="stFuncional" value="#{situacaoFuncionalController.selected.stFuncional}" title="#{bundle.EditSituacaoFuncionalTitle_stFuncional}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{situacaoFuncionalController.saveNew}" value="#{bundle.Save}" update="display,:SituacaoFuncionalListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,SituacaoFuncionalCreateDialog);"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="SituacaoFuncionalCreateDialog.hide()"/>

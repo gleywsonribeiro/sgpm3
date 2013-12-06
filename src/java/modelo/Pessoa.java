@@ -135,7 +135,7 @@ public class Pessoa implements Serializable {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.nome = nome.toUpperCase();
     }
 
     public String getCpf() {
@@ -168,7 +168,7 @@ public class Pessoa implements Serializable {
     }
 
     public void setNomeDeGuerra(String nomeDeGuerra) {
-        this.nomeDeGuerra = nomeDeGuerra;
+        this.nomeDeGuerra = nomeDeGuerra.toUpperCase();
     }
 
     public String getNomePai() {
@@ -176,7 +176,7 @@ public class Pessoa implements Serializable {
     }
 
     public void setNomePai(String nomePai) {
-        this.nomePai = nomePai;
+        this.nomePai = nomePai.toUpperCase();
     }
 
     public String getNomeMae() {
@@ -184,7 +184,7 @@ public class Pessoa implements Serializable {
     }
 
     public void setNomeMae(String nomeMae) {
-        this.nomeMae = nomeMae;
+        this.nomeMae = nomeMae.toUpperCase();
     }
 
     public String getPisPasep() {
@@ -192,7 +192,7 @@ public class Pessoa implements Serializable {
     }
 
     public void setPisPasep(String pisPasep) {
-        this.pisPasep = pisPasep;
+        this.pisPasep = pisPasep.toUpperCase();
     }
 
     public String getTipo() {
@@ -200,7 +200,7 @@ public class Pessoa implements Serializable {
     }
 
     public void setTipo(String tipo) {
-        this.tipo = tipo;
+        this.tipo = tipo.toUpperCase();
     }
 
     public String getSexo() {
@@ -208,7 +208,7 @@ public class Pessoa implements Serializable {
     }
 
     public void setSexo(String sexo) {
-        this.sexo = sexo;
+        this.sexo = sexo.toUpperCase();
     }
 
     public String getMatricula() {
@@ -248,7 +248,7 @@ public class Pessoa implements Serializable {
     }
 
     public void setBoca(String boca) {
-        this.boca = boca;
+        this.boca = boca.toUpperCase();
     }
 
     public String getCutis() {
@@ -256,7 +256,7 @@ public class Pessoa implements Serializable {
     }
 
     public void setCutis(String cutis) {
-        this.cutis = cutis;
+        this.cutis = cutis.toUpperCase();
     }
 
     public String getNariz() {
@@ -264,7 +264,7 @@ public class Pessoa implements Serializable {
     }
 
     public void setNariz(String nariz) {
-        this.nariz = nariz;
+        this.nariz = nariz.toUpperCase();
     }
 
     public String getRosto() {
@@ -272,7 +272,7 @@ public class Pessoa implements Serializable {
     }
 
     public void setRosto(String rosto) {
-        this.rosto = rosto;
+        this.rosto = rosto.toUpperCase();
     }
 
     public int getVestuario() {
@@ -304,7 +304,7 @@ public class Pessoa implements Serializable {
     }
 
     public void setHabilidadeProfissional(String habilidadeProfissional) {
-        this.habilidadeProfissional = habilidadeProfissional;
+        this.habilidadeProfissional = habilidadeProfissional.toUpperCase();
     }
 
     public String getHabilidadeEsportiva() {
@@ -312,7 +312,7 @@ public class Pessoa implements Serializable {
     }
 
     public void setHabilidadeEsportiva(String habilidadeEsportiva) {
-        this.habilidadeEsportiva = habilidadeEsportiva;
+        this.habilidadeEsportiva = habilidadeEsportiva.toUpperCase();
     }
 
     public Cabelo getCabelo() {

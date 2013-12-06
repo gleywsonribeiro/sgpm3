@@ -44,7 +44,7 @@ public class Perfil implements Serializable {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.nome = nome.toUpperCase();
     }
 
     public String getPermissao() {
@@ -52,7 +52,7 @@ public class Perfil implements Serializable {
     }
 
     public void setPermissao(String permissao) {
-        this.permissao = permissao;
+        this.permissao = permissao.toUpperCase();
     }
 
     public List<Usuario> getUsuarios() {

@@ -32,7 +32,7 @@
                         <h:outputText value="#{bundle.ListInternacaoTitle_dataBaixa}"/>
                     </f:facet>
                     <h:outputText value="#{item.dataBaixa}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
                     </h:outputText>
                 </p:column>
                 <p:column sortBy="#{item.dataAlta}" filterBy="#{item.dataAlta}">
@@ -40,7 +40,7 @@
                         <h:outputText value="#{bundle.ListInternacaoTitle_dataAlta}"/>
                     </f:facet>
                     <h:outputText value="#{item.dataAlta}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
                     </h:outputText>
                 </p:column>
                 <p:column sortBy="#{item.diagnostico}" filterBy="#{item.diagnostico}">
@@ -66,7 +66,14 @@
                         <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{internacaoController.prepareCreate}" update=":InternacaoCreateForm" oncomplete="InternacaoCreateDialog.show()"/>
                         <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":InternacaoViewForm" oncomplete="InternacaoViewDialog.show()" disabled="#{empty internacaoController.selected}"/>
                         <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":InternacaoEditForm" oncomplete="InternacaoEditDialog.show()" disabled="#{empty internacaoController.selected}"/>
-                        <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{internacaoController.delete}" update=":growl,datalist" disabled="#{empty internacaoController.selected}"/>
+                        <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{internacaoController.delete}" update=":growl,datalist" disabled="#{empty internacaoController.selected}">
+                            <p:confirm header="Exclusão" message="Deseja realmente excluir?" icon="ui-icon-alert"/>
+                        </p:commandButton>
+                        
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">  
+                            <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>  
+                            <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>       
+                        </p:confirmDialog>
                     </div>
                 </f:facet>
 

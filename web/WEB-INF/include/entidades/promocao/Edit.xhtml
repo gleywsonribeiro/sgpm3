@@ -24,31 +24,31 @@
                             <f:selectItems value="#{graduacaoController.items}"
                                            var="graduacaoItem"
                                            itemValue="#{graduacaoItem}"
-                                           itemLabel="#{graduacaoItem.id.toString()}"
+                                           itemLabel="#{graduacaoItem.nome}"
                                            />
 
                         </p:selectOneMenu>
 
                         <p:outputLabel value="#{bundle.EditPromocaoLabel_dataPromocao}" for="dataPromocao" />
-                        <p:calendar id="dataPromocao" pattern="MM/dd/yyyy" value="#{promocaoController.selected.dataPromocao}" title="#{bundle.EditPromocaoTitle_dataPromocao}"  showOn="button"/>
+                        <p:calendar id="dataPromocao" pattern="dd/MM/yyyy" value="#{promocaoController.selected.dataPromocao}" title="#{bundle.EditPromocaoTitle_dataPromocao}"  showOn="button"/>
 
                         <p:outputLabel value="#{bundle.EditPromocaoLabel_publicacao}" for="publicacao" />
-                        <p:inputText id="publicacao" value="#{promocaoController.selected.publicacao}" title="#{bundle.EditPromocaoTitle_publicacao}" />
+                        <p:inputText style="text-transform: uppercase" id="publicacao" value="#{promocaoController.selected.publicacao}" title="#{bundle.EditPromocaoTitle_publicacao}" />
 
                         <p:outputLabel value="#{bundle.EditPromocaoLabel_colocacao}" for="colocacao" />
                         <p:inputText id="colocacao" value="#{promocaoController.selected.colocacao}" title="#{bundle.EditPromocaoTitle_colocacao}" />
 
                         <p:outputLabel value="#{bundle.EditPromocaoLabel_criterio}" for="criterio" />
-                        <p:inputText id="criterio" value="#{promocaoController.selected.criterio}" title="#{bundle.EditPromocaoTitle_criterio}" />
+                        <p:inputText style="text-transform: uppercase" id="criterio" value="#{promocaoController.selected.criterio}" title="#{bundle.EditPromocaoTitle_criterio}" />
 
                         <p:outputLabel value="#{bundle.EditPromocaoLabel_especie}" for="especie" />
-                        <p:inputText id="especie" value="#{promocaoController.selected.especie}" title="#{bundle.EditPromocaoTitle_especie}" />
+                        <p:inputText style="text-transform: uppercase" id="especie" value="#{promocaoController.selected.especie}" title="#{bundle.EditPromocaoTitle_especie}" />
 
                         <p:outputLabel value="#{bundle.EditPromocaoLabel_tipo}" for="tipo" />
-                        <p:inputText id="tipo" value="#{promocaoController.selected.tipo}" title="#{bundle.EditPromocaoTitle_tipo}" />
+                        <p:inputText style="text-transform: uppercase" id="tipo" value="#{promocaoController.selected.tipo}" title="#{bundle.EditPromocaoTitle_tipo}" />
 
                         <p:outputLabel value="#{bundle.EditPromocaoLabel_situacaoQuadro}" for="situacaoQuadro" />
-                        <p:inputText id="situacaoQuadro" value="#{promocaoController.selected.situacaoQuadro}" title="#{bundle.EditPromocaoTitle_situacaoQuadro}" />
+                        <p:inputText style="text-transform: uppercase" id="situacaoQuadro" value="#{promocaoController.selected.situacaoQuadro}" title="#{bundle.EditPromocaoTitle_situacaoQuadro}" />
 
                         <p:outputLabel value="#{bundle.EditPromocaoLabel_pessoa}" for="pessoa" />
                         <p:selectOneMenu id="pessoa" value="#{promocaoController.selected.pessoa}"  converter="pessoaConverter">
@@ -56,7 +56,7 @@
                             <f:selectItems value="#{pessoaController.items}"
                                            var="pessoaItem"
                                            itemValue="#{pessoaItem}"
-                                           itemLabel="#{pessoaItem.id.toString()}"
+                                           itemLabel="#{pessoaItem.nome}"
                                            />
 
                         </p:selectOneMenu>
