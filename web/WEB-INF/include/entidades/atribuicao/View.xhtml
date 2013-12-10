@@ -22,11 +22,11 @@
                         <h:outputText value="#{atribuicaoController.selected.pessoa.id}"/>
 
                         <h:outputText value="#{bundle.ViewAtribuicaoLabel_tipoAtribuicao}"/>
-                        <h:outputText value="#{atribuicaoController.selected.tipoAtribuicao.id}"/>
+                        <h:outputText value="#{atribuicaoController.selected.tipoAtribuicao.tpAtribuicao}"/>
 
                         <h:outputText value="#{bundle.ViewAtribuicaoLabel_dataDaAtribuicao}"/>
                         <h:outputText value="#{atribuicaoController.selected.dataDaAtribuicao}" title="#{bundle.ViewAtribuicaoTitle_dataDaAtribuicao}">
-                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
                         </h:outputText>
 
                         <h:outputText value="#{bundle.ViewAtribuicaoLabel_publicacao}"/>

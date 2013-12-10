@@ -19,7 +19,7 @@
                         <p:inputText style="text-transform: uppercase" id="nome" value="#{dependenteController.selected.nome}" title="#{bundle.CreateDependenteTitle_nome}" />
 
                         <p:outputLabel value="#{bundle.CreateDependenteLabel_cpf}" for="cpf" />
-                        <p:inputText id="cpf" value="#{dependenteController.selected.cpf}" title="#{bundle.CreateDependenteTitle_cpf}" />
+                        <p:inputMask mask="999.999.999-99" id="cpf" value="#{dependenteController.selected.cpf}" title="#{bundle.CreateDependenteTitle_cpf}" />
 
                         <p:outputLabel value="#{bundle.CreateDependenteLabel_rg}" for="rg" />
                         <p:inputText id="rg" value="#{dependenteController.selected.rg}" title="#{bundle.CreateDependenteTitle_rg}" />

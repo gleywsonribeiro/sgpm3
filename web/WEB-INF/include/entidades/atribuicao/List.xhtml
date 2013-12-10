@@ -33,11 +33,11 @@
                     </f:facet>
                     <h:outputText value="#{item.pessoa.id}"/>
                 </p:column>
-                <p:column sortBy="#{item.tipoAtribuicao.id}" filterBy="#{item.tipoAtribuicao.id}">
+                <p:column sortBy="#{item.tipoAtribuicao.tpAtribuicao}">
                     <f:facet name="header">
                         <h:outputText value="#{bundle.ListAtribuicaoTitle_tipoAtribuicao}"/>
                     </f:facet>
-                    <h:outputText value="#{item.tipoAtribuicao.id}"/>
+                    <h:outputText value="#{item.tipoAtribuicao.tpAtribuicao}"/>
                 </p:column>
                 <p:column sortBy="#{item.dataDaAtribuicao}" filterBy="#{item.dataDaAtribuicao}">
                     <f:facet name="header">

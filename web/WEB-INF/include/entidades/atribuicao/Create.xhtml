@@ -21,7 +21,7 @@
                             <f:selectItems value="#{pessoaController.items}"
                                            var="pessoaItem"
                                            itemValue="#{pessoaItem}"
-                                           itemLabel="#{pessoaItem.id.toString()}"
+                                           itemLabel="#{pessoaItem.nome}"
                                            />
 
                         </p:selectOneMenu>
@@ -32,13 +32,13 @@
                             <f:selectItems value="#{tipoAtribuicaoController.items}"
                                            var="tipoAtribuicaoItem"
                                            itemValue="#{tipoAtribuicaoItem}"
-                                           itemLabel="#{tipoAtribuicaoItem.id.toString()}"
+                                           itemLabel="#{tipoAtribuicaoItem.tpAtribuicao}"
                                            />
 
                         </p:selectOneMenu>
 
                         <p:outputLabel value="#{bundle.CreateAtribuicaoLabel_dataDaAtribuicao}" for="dataDaAtribuicao" />
-                        <p:calendar id="dataDaAtribuicao" pattern="MM/dd/yyyy" value="#{atribuicaoController.selected.dataDaAtribuicao}" title="#{bundle.EditAtribuicaoTitle_dataDaAtribuicao}"  showOn="button"/>
+                        <p:calendar id="dataDaAtribuicao" pattern="dd/MM/yyyy" value="#{atribuicaoController.selected.dataDaAtribuicao}" title="#{bundle.EditAtribuicaoTitle_dataDaAtribuicao}"  showOn="button"/>
 
                         <p:outputLabel value="#{bundle.CreateAtribuicaoLabel_publicacao}" for="publicacao" />
                         <p:inputText style="text-transform: uppercase" id="publicacao" value="#{atribuicaoController.selected.publicacao}" title="#{bundle.CreateAtribuicaoTitle_publicacao}" />

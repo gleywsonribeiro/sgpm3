@@ -29,11 +29,11 @@
 
                         <h:outputText value="#{bundle.ViewDependenteLabel_dataNascimento}"/>
                         <h:outputText value="#{dependenteController.selected.dataNascimento}" title="#{bundle.ViewDependenteTitle_dataNascimento}">
-                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
                         </h:outputText>
 
                         <h:outputText value="#{bundle.ViewDependenteLabel_pessoa}"/>
-                        <h:outputText value="#{dependenteController.selected.pessoa.id}"/>
+                        <h:outputText value="#{dependenteController.selected.pessoa.nome}"/>
 
                         <h:outputText value="#{bundle.ViewDependenteLabel_publicacao}"/>
                         <h:outputText value="#{dependenteController.selected.publicacao}" title="#{bundle.ViewDependenteTitle_publicacao}"/>
