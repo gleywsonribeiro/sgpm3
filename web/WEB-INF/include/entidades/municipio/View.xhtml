@@ -8,21 +8,21 @@
 
     <ui:composition>
 
-        <p:dialog id="MunicipioViewDlg" widgetVar="MunicipioViewDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.MunicipioView}">
+        <p:dialog id="MunicipioViewDlg" widgetVar="MunicipioViewDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.ViewMunicipioTitle}">
 
             <h:form id="MunicipioViewForm">
 
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{municipioController.selected != null}">
 
-                        <h:outputText value="Id"/>
-                        <h:outputText value="#{municipioController.selected.id}" title="Id"/>
+                        <h:outputText value="#{bundle.ViewMunicipioLabel_id}"/>
+                        <h:outputText value="#{municipioController.selected.id}" title="#{bundle.ViewMunicipioTitle_id}"/>
 
-                        <h:outputText value="Nome"/>
-                        <h:outputText value="#{municipioController.selected.nome}" title="Nome"/>
-                        
-                         <h:outputText value="Area"/>
-                        <h:outputText value="#{municipioController.selected.area}" title="Área do Município"/>
+                        <h:outputText value="#{bundle.ViewMunicipioLabel_nome}"/>
+                        <h:outputText value="#{municipioController.selected.nome}" title="#{bundle.ViewMunicipioTitle_nome}"/>
+
+                        <h:outputText value="#{bundle.ViewMunicipioLabel_area}"/>
+                        <h:outputText value="#{municipioController.selected.area}" title="#{bundle.ViewMunicipioTitle_area}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="MunicipioViewDialog.hide()"/>
                 </h:panelGroup>

@@ -8,7 +8,7 @@
 
     <h:form id="BairroListForm">
 
-        <p:panel header="#{bundle.BairroLista}">
+        <p:panel header="#{bundle.ListBairroTitle}">
 
             <p:dataTable id="datalist" value="#{bairroController.items}" var="item"
                          selectionMode="single" selection="#{bairroController.selected}"
@@ -23,25 +23,25 @@
 
                 <p:column sortBy="#{item.id}">
                     <f:facet name="header">
-                        <h:outputText value="Id"/>
+                        <h:outputText value="#{bundle.ListBairroTitle_id}"/>
                     </f:facet>
                     <h:outputText value="#{item.id}"/>
                 </p:column>
                 <p:column sortBy="#{item.nome}">
                     <f:facet name="header">
-                        <h:outputText value="Nome"/>
+                        <h:outputText value="#{bundle.ListBairroTitle_nome}"/>
                     </f:facet>
                     <h:outputText value="#{item.nome}"/>
                 </p:column>
                 <p:column sortBy="#{item.area}">
                     <f:facet name="header">
-                        <h:outputText value="Area"/>
+                        <h:outputText value="#{bundle.ListBairroTitle_area}"/>
                     </f:facet>
                     <h:outputText value="#{item.area}"/>
                 </p:column>
                 <p:column sortBy="#{item.municipio.nome}">
                     <f:facet name="header">
-                        <h:outputText value="Municipio"/>
+                        <h:outputText value="#{bundle.ListBairroTitle_municipio}"/>
                     </f:facet>
                     <h:outputText value="#{item.municipio.nome}"/>
                 </p:column>

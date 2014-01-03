@@ -8,21 +8,24 @@
 
     <ui:composition>
 
-        <p:dialog id="BairroViewDlg" widgetVar="BairroViewDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.BairroView}">
+        <p:dialog id="BairroViewDlg" widgetVar="BairroViewDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.ViewBairroTitle}">
 
             <h:form id="BairroViewForm">
 
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{bairroController.selected != null}">
 
-                        <h:outputText value="Id"/>
-                        <h:outputText value="#{bairroController.selected.id}" title="#{bundle.ViewMoradiaTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewBairroLabel_id}"/>
+                        <h:outputText value="#{bairroController.selected.id}" title="#{bundle.ViewBairroTitle_id}"/>
 
-                        <h:outputText value="Nome"/>
-                        <h:outputText value="#{bairroController.selected.nome}" title="Nome do bairro"/>
+                        <h:outputText value="#{bundle.ViewBairroLabel_nome}"/>
+                        <h:outputText value="#{bairroController.selected.nome}" title="#{bundle.ViewBairroTitle_nome}"/>
                         
-                        <h:outputText value="Area"/>
-                        <h:outputText value="#{bairroController.selected.area}" title="Área"/>
+                        <h:outputText value="#{bundle.ViewBairroLabel_area}"/>
+                        <h:outputText value="#{bairroController.selected.area}" title="#{bundle.ViewBairroTitle_area}"/>
+                        
+                        <h:outputText value="#{bundle.ViewBairroLabel_municipio}"/>
+                        <h:outputText value="#{bairroController.selected.municipio.nome}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="BairroViewDialog.hide()"/>
                 </h:panelGroup>

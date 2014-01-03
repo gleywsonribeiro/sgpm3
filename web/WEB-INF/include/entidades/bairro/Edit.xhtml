@@ -8,23 +8,23 @@
 
     <ui:composition>
 
-        <p:dialog id="BairroEditDlg" widgetVar="BairroEditDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.BairroEdit}">
+        <p:dialog id="BairroEditDlg" widgetVar="BairroEditDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.EditBairroTitle}">
 
             <h:form id="BairroEditForm">
 
                 <h:panelGroup id="display">
                     <p:panelGrid  columns="2" rendered="#{bairroController.selected != null}">
 
-                        <h:outputLabel value="Id" for="id" />
+                        <h:outputLabel value="#{bundle.EditBairroLabel_id}" for="id" />
                         <h:outputText id="id" value="#{bairroController.selected.id}" />
 
-                        <p:outputLabel value="Nome" for="nome" />
-                        <p:inputText style="text-transform: uppercase" id="nome" value="#{bairroController.selected.nome}" title="Entre como nome" />
+                        <p:outputLabel value="#{bundle.EditBairroLabel_nome}" for="nome" />
+                        <p:inputText style="text-transform: uppercase" id="nome" value="#{bairroController.selected.nome}" title="#{bundle.EditBairroTitle_nome}" />
 
-                        <p:outputLabel value="Área" for="area" />
-                        <p:inputText id="area" value="#{bairroController.selected.area}" title="Entre como área" />
+                        <p:outputLabel value="#{bundle.EditBairroLabel_area}" for="area" />
+                        <p:inputText id="area" value="#{bairroController.selected.area}" title="#{bundle.EditBairroTitle_area}" />
 
-                        <p:outputLabel value="Município" for="municipio" />
+                        <p:outputLabel value="#{bundle.EditBairroLabel_municipio}" for="municipio" />
                         <p:selectOneMenu id="municipio" value="#{bairroController.selected.municipio}"  converter="municipioConverter">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{municipioController.items}"

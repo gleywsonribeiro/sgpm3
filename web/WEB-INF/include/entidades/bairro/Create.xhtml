@@ -8,19 +8,19 @@
 
     <ui:composition>
 
-        <p:dialog id="BairroCreateDlg" widgetVar="BairroCreateDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.BairroCreate}">
+        <p:dialog id="BairroCreateDlg" widgetVar="BairroCreateDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.CreateBairroTitle}">
 
             <h:form id="BairroCreateForm">
 
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{bairroController.selected != null}">
-                        <p:outputLabel value="Nome" for="nome" />
-                        <p:inputText style="text-transform: uppercase" id="nome" value="#{bairroController.selected.nome}" title="Entre como nome" />
+                        <p:outputLabel value="#{bundle.CreateBairroLabel_nome}" for="nome" />
+                        <p:inputText style="text-transform: uppercase" id="nome" value="#{bairroController.selected.nome}" title="#{bundle.CreateBairroTitle_nome}" />
 
-                        <p:outputLabel value="Área" for="area" />
-                        <p:inputText id="area" value="#{bairroController.selected.area}" title="Entre como área" />
+                        <p:outputLabel value="#{bundle.CreateBairroLabel_area}" for="area" />
+                        <p:inputText id="area" value="#{bairroController.selected.area}" title="#{bundle.CreateBairroTitle_area}" />
                     
-                        <p:outputLabel value="Município" for="municipio" />
+                        <p:outputLabel value="#{bundle.CreateBairroLabel_municipio}" for="municipio" />
                         <p:selectOneMenu id="municipio" value="#{bairroController.selected.municipio}"  converter="municipioConverter">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{municipioController.items}"

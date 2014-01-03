@@ -8,7 +8,7 @@
 
     <h:form id="MunicipioListForm">
 
-        <p:panel header="#{bundle.MunicipioLista}">
+        <p:panel header="#{bundle.ListMunicipioTitle}">
 
             <p:dataTable id="datalist" value="#{municipioController.items}" var="item"
                          selectionMode="single" selection="#{municipioController.selected}"
@@ -23,19 +23,19 @@
 
                 <p:column sortBy="#{item.id}">
                     <f:facet name="header">
-                        <h:outputText value="#{bundle.ListMoradiaTitle_id}"/>
+                        <h:outputText value="#{bundle.ListMunicipioTitle_id}"/>
                     </f:facet>
                     <h:outputText value="#{item.id}"/>
                 </p:column>
                 <p:column sortBy="#{item.nome}">
                     <f:facet name="header">
-                        <h:outputText value="Nome"/>
+                        <h:outputText value="#{bundle.ListMunicipioTitle_nome}"/>
                     </f:facet>
                     <h:outputText value="#{item.nome}"/>
                 </p:column>
                 <p:column sortBy="#{item.area}">
                     <f:facet name="header">
-                        <h:outputText value="Área"/>
+                        <h:outputText value="#{bundle.ListMunicipioTitle_area}"/>
                     </f:facet>
                     <h:outputText value="#{item.area}"/>
                 </p:column>

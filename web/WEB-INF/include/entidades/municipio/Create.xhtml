@@ -8,17 +8,17 @@
 
     <ui:composition>
 
-        <p:dialog id="MunicipioCreateDlg" widgetVar="MunicipioCreateDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.MunicipioCreate}">
+        <p:dialog id="MunicipioCreateDlg" widgetVar="MunicipioCreateDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.CreateMunicipioTitle}">
 
             <h:form id="MunicipioCreateForm">
 
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{municipioController.selected != null}">
-                        <p:outputLabel value="Nome" for="nome" />
-                        <p:inputText style="text-transform: uppercase" id="nome" value="#{municipioController.selected.nome}" title="Nome do município" />
+                        <p:outputLabel value="#{bundle.CreateMunicipioLabel_nome}" for="nome" />
+                        <p:inputText style="text-transform: uppercase" id="nome" value="#{municipioController.selected.nome}" title="#{bundle.CreateMunicipioTitle_nome}" />
 
-                        <p:outputLabel value="Área" for="area" />
-                        <p:inputText style="text-transform: uppercase" id="area" value="#{municipioController.selected.area}" title="Área do município" />
+                        <p:outputLabel value="#{bundle.CreateMunicipioLabel_area}" for="area" />
+                        <p:inputText style="text-transform: uppercase" id="area" value="#{municipioController.selected.area}" title="#{bundle.CreateMunicipioTitle_area}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{municipioController.saveNew}" value="#{bundle.Save}" update="display,:MunicipioListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,MunicipioCreateDialog);"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="MunicipioCreateDialog.hide()"/>
