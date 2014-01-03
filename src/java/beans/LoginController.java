@@ -90,7 +90,7 @@ public class LoginController extends AbstractController<Usuario> implements Seri
         if (hora >= 18) {
             saudacao = "Boa noite";
         }
-
+        saudacao += usuario.getPessoa() != null? " "+usuario.getPessoa().getNome():"";
         return saudacao;
     }
 
