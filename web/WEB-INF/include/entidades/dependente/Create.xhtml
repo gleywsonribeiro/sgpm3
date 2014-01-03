@@ -13,7 +13,7 @@
             <h:form id="DependenteCreateForm">
 
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{dependenteController.selected != null}">
+                    <p:panelGrid styleClass="semBorda" columns="2" rendered="#{dependenteController.selected != null}">
 
                         <p:outputLabel value="#{bundle.CreateDependenteLabel_nome}" for="nome" />
                         <p:inputText style="text-transform: uppercase" id="nome" value="#{dependenteController.selected.nome}" title="#{bundle.CreateDependenteTitle_nome}" />

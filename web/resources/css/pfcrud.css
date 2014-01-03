@@ -22,3 +22,6 @@
     float: bottom;  
     margin-right: 0px;
 }  
+.semBorda tr, .semBorda td {
+    border: none !important;
+}
