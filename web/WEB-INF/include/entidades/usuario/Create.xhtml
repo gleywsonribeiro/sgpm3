@@ -21,6 +21,17 @@
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_senha}" for="senha" />
                         <p:inputText id="senha" value="#{usuarioController.selected.senha}" title="#{bundle.CreateUsuarioTitle_senha}" />
 
+                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_pessoa}" for="pessoa" />
+                        <p:selectOneMenu id="pessoa" value="#{usuarioController.selected.pessoa}"  converter="pessoaConverter">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{pessoaController.items}"
+                                           var="pessoaItem"
+                                           itemValue="#{pessoaItem}"
+                                           itemLabel="#{pessoaItem.nome}"
+                                           />
+
+                        </p:selectOneMenu>
+                        
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_perfil}" for="perfil" />
                         <p:selectOneMenu id="perfil" value="#{usuarioController.selected.perfil}"  converter="perfilConverter">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>

@@ -42,7 +42,7 @@ public class Pessoa implements Serializable {
     private String pisPasep;
     
     //v.civil, civil ou militar
-    private String tipo;
+    private String tipoPessoa;
     private String sexo;
     private String matricula;
     private String rgMilitar;
@@ -195,13 +195,15 @@ public class Pessoa implements Serializable {
         this.pisPasep = pisPasep.toUpperCase();
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getTipoPessoa() {
+        return tipoPessoa;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo.toUpperCase();
+    public void setTipoPessoa(String tipoPessoa) {
+        this.tipoPessoa = tipoPessoa;
     }
+
+    
 
     public String getSexo() {
         return sexo;
