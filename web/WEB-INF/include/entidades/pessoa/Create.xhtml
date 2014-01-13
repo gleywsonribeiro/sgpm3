@@ -8,12 +8,12 @@
 
     <ui:composition>
 
-        <p:dialog id="PessoaCreateDlg" widgetVar="PessoaCreateDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.CreatePessoaTitle}">
+        <p:dialog id="PessoaCreateDlg" maximizable="true" widgetVar="PessoaCreateDialog" modal="true" resizable="false" appendToBody="true" header="#{bundle.CreatePessoaTitle}">
 
             <h:form id="PessoaCreateForm">
 
                 <h:panelGroup id="display">
-                    <p:scrollPanel mode="native" style="height: 350px; width: 800px">
+                    <p:scrollPanel >
                         <p:fieldset legend="Dados Pessoais">
                             <p:panelGrid rendered="#{pessoaController.selected != null}">
                                 <p:row>
@@ -23,7 +23,7 @@
                                     </p:column>
                                     <p:column>
                                         <p:outputLabel value="#{bundle.CreatePessoaLabel_cpf}" for="cpf" />
-                                        <p:inputText id="cpf" value="#{pessoaController.selected.cpf}" title="#{bundle.CreatePessoaTitle_cpf}" />
+                                        <p:inputMask mask="999.999.999-99" id="cpf" value="#{pessoaController.selected.cpf}" title="#{bundle.CreatePessoaTitle_cpf}" />
                                     </p:column>
                                 </p:row>
                                 <p:row>
@@ -236,48 +236,55 @@
                         <p:spacer height="25px"/>
 
                         <p:fieldset legend="Dados de Identificação Militar">
-                            <h:panelGrid columns="4">
-                                <p:outputLabel value="#{bundle.CreatePessoaLabel_altura}" for="altura" />
-                                <p:inputText id="altura" value="#{pessoaController.selected.altura}" title="#{bundle.CreatePessoaTitle_altura}" />
+                            <h:panelGrid columns="2" style="width: 600px">
+                                <h:panelGroup >
+                                    <h:panelGrid columns="2">
+                                        <p:outputLabel value="#{bundle.CreatePessoaLabel_habilidadeProfissional}" for="habilidadeProfissional" style="float: right;"/>
+                                        <p:inputText style="text-transform: uppercase" id="habilidadeProfissional" value="#{pessoaController.selected.habilidadeProfissional}" title="#{bundle.CreatePessoaTitle_habilidadeProfissional}" />
 
-                                <p:outputLabel value="#{bundle.CreatePessoaLabel_boca}" for="boca" />
-                                <p:inputText style="text-transform: uppercase" id="boca" value="#{pessoaController.selected.boca}" title="#{bundle.CreatePessoaTitle_boca}" />
+                                        <p:outputLabel value="#{bundle.CreatePessoaLabel_habilidadeEsportiva}" for="habilidadeEsportiva" style="float: right;"/>
+                                        <p:inputText style="text-transform: uppercase" id="habilidadeEsportiva" value="#{pessoaController.selected.habilidadeEsportiva}" title="#{bundle.CreatePessoaTitle_habilidadeEsportiva}" />
+                                        
+                                        <p:outputLabel value="#{bundle.CreatePessoaLabel_altura}" for="altura" style="float: right;" />
+                                        <p:inputText id="altura" value="#{pessoaController.selected.altura}" title="#{bundle.CreatePessoaTitle_altura}" />
 
-                                <p:outputLabel value="#{bundle.CreatePessoaLabel_cutis}" for="cutis" />
-                                <p:inputText style="text-transform: uppercase" id="cutis" value="#{pessoaController.selected.cutis}" title="#{bundle.CreatePessoaTitle_cutis}" />
+                                        <p:outputLabel value="#{bundle.CreatePessoaLabel_cutis}" for="cutis" style="float: right;" />
+                                        <p:inputText style="text-transform: uppercase" id="cutis" value="#{pessoaController.selected.cutis}" title="#{bundle.CreatePessoaTitle_cutis}" />
+                                      
+                                        <p:outputLabel value="#{bundle.CreatePessoaLabel_vestuario}" for="vestuario" style="float: right;" />
+                                        <p:spinner min="33" max="46" id="vestuario" value="#{pessoaController.selected.vestuario}" title="#{bundle.CreatePessoaTitle_vestuario}" />
 
-                                <p:outputLabel value="#{bundle.CreatePessoaLabel_nariz}" for="nariz" />
-                                <p:inputText style="text-transform: uppercase" id="nariz" value="#{pessoaController.selected.nariz}" title="#{bundle.CreatePessoaTitle_nariz}" />
+                                        <p:outputLabel value="#{bundle.CreatePessoaLabel_calcado}" for="calcado" style="float: right;" />
+                                        <p:spinner min="33" max="46" id="calcado" value="#{pessoaController.selected.calcado}" title="#{bundle.CreatePessoaTitle_calcado}"/>
+                                        
+                                        <p:outputLabel value="#{bundle.CreatePessoaLabel_cobertura}" for="cobertura" style="float: right;"/>
+                                        <p:spinner min="33" max="46" id="cobertura" value="#{pessoaController.selected.cobertura}" title="#{bundle.CreatePessoaTitle_cobertura}" />
+                                    </h:panelGrid>
+                                </h:panelGroup>
+                                <h:panelGroup style="float: right">
+                                    <h:panelGrid columns="2">
+                                        <p:outputLabel value="#{bundle.CreatePessoaLabel_boca}" for="boca" style="float: right;" />
+                                        <p:inputText style="text-transform: uppercase" id="boca" value="#{pessoaController.selected.boca}" title="#{bundle.CreatePessoaTitle_boca}" />
+                                 
+                                        <p:outputLabel value="#{bundle.CreatePessoaLabel_nariz}" for="nariz" style="float: right;" />
+                                        <p:inputText style="text-transform: uppercase" id="nariz" value="#{pessoaController.selected.nariz}" title="#{bundle.CreatePessoaTitle_nariz}" />
 
-                                <p:outputLabel value="#{bundle.CreatePessoaLabel_rosto}" for="rosto" />
-                                <p:inputText style="text-transform: uppercase" id="rosto" value="#{pessoaController.selected.rosto}" title="#{bundle.CreatePessoaTitle_rosto}" />
+                                        <p:outputLabel value="#{bundle.CreatePessoaLabel_rosto}" for="rosto" style="float: right;" />
+                                        <p:inputText style="text-transform: uppercase" id="rosto" value="#{pessoaController.selected.rosto}" title="#{bundle.CreatePessoaTitle_rosto}" />
+                                        
+                                        <p:outputLabel value="#{bundle.CreatePessoaLabel_cabelo}" for="cabelo" style="float: right;"/>
+                                        <p:inputText style="text-transform: uppercase" id="cabelo" value="#{pessoaController.selected.cabelo}" title="#{bundle.CreatePessoaTitle_cabelo}" />
 
-                                <p:outputLabel value="#{bundle.CreatePessoaLabel_vestuario}" for="vestuario" />
-                                <p:inputText id="vestuario" value="#{pessoaController.selected.vestuario}" title="#{bundle.CreatePessoaTitle_vestuario}" />
+                                        <p:outputLabel value="#{bundle.CreatePessoaLabel_barba}" for="barba" style="float: right;"/>
+                                        <p:inputText style="text-transform: uppercase" id="barba" value="#{pessoaController.selected.barba}" title="#{bundle.CreatePessoaTitle_barba}" />
 
-                                <p:outputLabel value="#{bundle.CreatePessoaLabel_calcado}" for="calcado" />
-                                <p:inputText id="calcado" value="#{pessoaController.selected.calcado}" title="#{bundle.CreatePessoaTitle_calcado}" />
+                                        <p:outputLabel value="#{bundle.CreatePessoaLabel_bigode}" for="bigode" style="float: right;"/>
+                                        <p:inputText style="text-transform: uppercase" id="bigode" value="#{pessoaController.selected.bigode}" title="#{bundle.CreatePessoaTitle_bigode}" />
 
-                                <p:outputLabel value="#{bundle.CreatePessoaLabel_cobertura}" for="cobertura" />
-                                <p:inputText id="cobertura" value="#{pessoaController.selected.cobertura}" title="#{bundle.CreatePessoaTitle_cobertura}" />
-
-                                <p:outputLabel value="#{bundle.CreatePessoaLabel_habilidadeProfissional}" for="habilidadeProfissional" />
-                                <p:inputText style="text-transform: uppercase" id="habilidadeProfissional" value="#{pessoaController.selected.habilidadeProfissional}" title="#{bundle.CreatePessoaTitle_habilidadeProfissional}" />
-
-                                <p:outputLabel value="#{bundle.CreatePessoaLabel_habilidadeEsportiva}" for="habilidadeEsportiva" />
-                                <p:inputText style="text-transform: uppercase" id="habilidadeEsportiva" value="#{pessoaController.selected.habilidadeEsportiva}" title="#{bundle.CreatePessoaTitle_habilidadeEsportiva}" />
-
-                                <p:outputLabel value="#{bundle.CreatePessoaLabel_cabelo}" for="cabelo" />
-                                <p:inputText style="text-transform: uppercase" id="cabelo" value="#{pessoaController.selected.cabelo}" title="#{bundle.CreatePessoaTitle_cabelo}" />
-
-                                <p:outputLabel value="#{bundle.CreatePessoaLabel_barba}" for="barba" />
-                                <p:inputText style="text-transform: uppercase" id="barba" value="#{pessoaController.selected.barba}" title="#{bundle.CreatePessoaTitle_barba}" />
-
-                                <p:outputLabel value="#{bundle.CreatePessoaLabel_bigode}" for="bigode" />
-                                <p:inputText style="text-transform: uppercase" id="bigode" value="#{pessoaController.selected.bigode}" title="#{bundle.CreatePessoaTitle_bigode}" />
-
-                                <p:outputLabel value="#{bundle.CreatePessoaLabel_olho}" for="olho" />
-                                <p:inputText style="text-transform: uppercase" id="olho" value="#{pessoaController.selected.olho}" title="#{bundle.CreatePessoaTitle_olho}" />
+                                        <p:outputLabel value="#{bundle.CreatePessoaLabel_olho}" for="olho" style="float: right;"/>
+                                        <p:inputText style="text-transform: uppercase" id="olho" value="#{pessoaController.selected.olho}" title="#{bundle.CreatePessoaTitle_olho}" />
+                                    </h:panelGrid>
+                                </h:panelGroup>
                             </h:panelGrid>
                         </p:fieldset>
 
