@@ -13,7 +13,7 @@
             <h:form id="EnderecoEditForm">
 
                 <h:panelGroup id="display">
-                    <p:panelGrid  columns="2" rendered="#{enderecoController.selected != null}">
+                    <h:panelGrid  columns="2" rendered="#{enderecoController.selected != null}">
 
                         <h:outputLabel value="#{bundle.EditEnderecoLabel_id}" for="id" />
                         <h:outputText id="id" value="#{enderecoController.selected.id}" />
@@ -26,13 +26,14 @@
                                            itemValue="#{municipioItem}"
                                            itemLabel="#{municipioItem.nome}"
                                            />
+                            <p:ajax update="bairro"/>
 
                         </p:selectOneMenu>
                         
                         <h:outputLabel value="#{bundle.EditEnderecoLabel_bairro}" for="bairro"/>
                         <p:selectOneMenu id="bairro" value="#{enderecoController.selected.bairro}"  converter="bairroConverter">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{bairroController.items}"
+                            <f:selectItems value="#{enderecoController.selected.municipio.bairros}"
                                            var="bairroItem"
                                            itemValue="#{bairroItem}"
                                            itemLabel="#{bairroItem.nome}"
@@ -48,7 +49,7 @@
 
                         <p:outputLabel value="#{bundle.EditEnderecoLabel_numero}" for="numero" />
                         <p:inputText id="numero" value="#{enderecoController.selected.numero}" title="#{bundle.EditEnderecoTitle_numero}" />
-                    </p:panelGrid>
+                    </h:panelGrid>
                     <p:commandButton actionListener="#{enderecoController.save}" value="#{bundle.Save}" update="display,:EnderecoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,EnderecoEditDialog);"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="EnderecoEditDialog.hide()"/>
                 </h:panelGroup>

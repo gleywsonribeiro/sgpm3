@@ -16,20 +16,20 @@
                     <h:panelGrid columns="2" rendered="#{enderecoController.selected != null}">
                         
                         <h:outputLabel value="#{bundle.CreateEnderecoLabel_municipio}" for="municipio"/>
-                        <p:selectOneMenu id="municpio" value="#{enderecoController.selected.municipio}"  converter="municipioConverter">
+                        <p:selectOneMenu id="municipio" value="#{enderecoController.selected.municipio}"  converter="municipioConverter">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{municipioController.items}"
                                            var="municipioItem"
                                            itemValue="#{municipioItem}"
                                            itemLabel="#{municipioItem.nome}"
                                            />
-
+                            <p:ajax update="bairro"/>
                         </p:selectOneMenu>
                         
                         <h:outputLabel value="#{bundle.CreateEnderecoLabel_bairro}" for="bairro"/>
                         <p:selectOneMenu id="bairro" value="#{enderecoController.selected.bairro}"  converter="bairroConverter">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{bairroController.items}"
+                            <f:selectItems value="#{enderecoController.selected.municipio.bairros}"
                                            var="bairroItem"
                                            itemValue="#{bairroItem}"
                                            itemLabel="#{bairroItem.nome}"
