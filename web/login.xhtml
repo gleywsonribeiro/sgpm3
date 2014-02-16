@@ -7,11 +7,15 @@
     <h:head>
         <title>Login</title>
         <h:outputStylesheet library="css" name="pfcrud.css"/>
+        <center>
+            <h:graphicImage library="imagens" name="pmpa_fundo.png" width="45%" style="-webkit-background-size: cover"/>     
+        </center>    
     </h:head>
     <h:body>
-        <h:form>
-            <p:growl id="alerta" life="3000"/>
-            <center>
+        <p:dialog visible="true" closable="false" draggable="false" resizable="false">
+            <h:form>
+                <p:growl id="alerta" life="3000"/>
+
                 <p:panelGrid>
                     <f:facet name="header">  
                         <p:row>  
@@ -42,8 +46,9 @@
                         </p:column>
                     </p:row>
                 </p:panelGrid>
-<!--                <p:captcha label="captcha" language="pt" theme="white" validatorMessage="Captcha não corresponde" requiredMessage="Preencha o captcha"/>-->
-            </center>
-        </h:form>
+                <!--                <p:captcha label="captcha" language="pt" theme="white" validatorMessage="Captcha não corresponde" requiredMessage="Preencha o captcha"/>-->
+
+            </h:form>
+        </p:dialog>
     </h:body>
 </html>
