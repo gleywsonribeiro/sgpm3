@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -43,6 +44,7 @@ public class Pessoa implements Serializable {
     
     //v.civil, civil ou militar
     private String tipoPessoa;
+    @Column(length = 1)
     private String sexo;
     private String matricula;
     private String rgMilitar;

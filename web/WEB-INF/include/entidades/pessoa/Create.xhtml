@@ -44,7 +44,10 @@
                                         <p:inputText id="tipo" value="#{pessoaController.selected.tipoPessoa}" title="#{bundle.CreatePessoaTitle_tipo}" />
 
                                         <p:outputLabel value="#{bundle.CreatePessoaLabel_sexo}" for="sexo" style="float: right;"/>
-                                        <p:inputText style="text-transform: uppercase" id="sexo" value="#{pessoaController.selected.sexo}" title="#{bundle.CreatePessoaTitle_sexo}" />
+                                        <p:selectOneRadio id="sexo" value="#{pessoaController.selected.sexo}">
+                                            <f:selectItem itemLabel="Masculino" itemValue="M"/>
+                                            <f:selectItem itemLabel="Feminino" itemValue="F"/>
+                                        </p:selectOneRadio>
 
                                         <p:outputLabel value="#{bundle.CreatePessoaLabel_matricula}" for="matricula" style="float: right;"/>
                                         <p:inputText id="matricula" value="#{pessoaController.selected.matricula}" title="#{bundle.CreatePessoaTitle_matricula}" />

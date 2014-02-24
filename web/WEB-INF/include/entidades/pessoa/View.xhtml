@@ -13,136 +13,245 @@
             <h:form id="PessoaViewForm">
 
                 <h:panelGroup id="display">
-                    <p:scrollPanel>
-                        <p:panelGrid columns="2" rendered="#{pessoaController.selected != null}">
+                    <p:scrollPanel mode="native" style="height: 50%">
+                        <p:fieldset legend="Dados Pessoais">
+                            <h:panelGrid columns="2" width="600px">
+                                <h:panelGroup>
+                                    <p:watermark value="#{bundle.ViewPessoaLabel_nome}" for="nome" />
+                                    <p:inputText size="50" style="text-transform: uppercase" id="nome" value="#{pessoaController.selected.nome}" title="#{bundle.CreatePessoaTitle_nome}" disabled="true"/>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_id}"/>
-                            <h:outputText value="#{pessoaController.selected.id}" title="#{bundle.ViewPessoaTitle_id}"/>
+                                    <h:panelGrid columns="2" width="300px">
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_nome}"/>
-                            <h:outputText value="#{pessoaController.selected.nome}" title="#{bundle.ViewPessoaTitle_nome}"/>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_cpf}" for="cpf" style="float: right;"/>
+                                        <p:inputMask mask="999.999.999-99" id="cpf" value="#{pessoaController.selected.cpf}" title="#{bundle.CreatePessoaTitle_cpf}" disabled="true"/>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_cpf}"/>
-                            <h:outputText value="#{pessoaController.selected.cpf}" title="#{bundle.ViewPessoaTitle_cpf}"/>
+                                        <p:outputLabel  value="#{bundle.ViewPessoaLabel_dataNascimento}" for="dataNascimento" style="float: right;"/>
+                                        <p:calendar id="dataNascimento" pattern="dd/MM/yyyy" value="#{pessoaController.selected.dataNascimento}" title="#{bundle.EditPessoaTitle_dataNascimento}"  showOn="button" disabled="true"/>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_dataNascimento}"/>
-                            <h:outputText value="#{pessoaController.selected.dataNascimento}" title="#{bundle.ViewPessoaTitle_dataNascimento}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_nomeDeGuerra}" for="nomeDeGuerra" style="float: right;"/>
+                                        <p:inputText style="text-transform: uppercase" id="nomeDeGuerra" value="#{pessoaController.selected.nomeDeGuerra}" title="#{bundle.CreatePessoaTitle_nomeDeGuerra}" disabled="true"/>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_nomeDeGuerra}"/>
-                            <h:outputText value="#{pessoaController.selected.nomeDeGuerra}" title="#{bundle.ViewPessoaTitle_nomeDeGuerra}"/>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_nomePai}" for="nomePai" style="float: right;"/>
+                                        <p:inputText style="text-transform: uppercase" id="nomePai" value="#{pessoaController.selected.nomePai}" title="#{bundle.CreatePessoaTitle_nomePai}" disabled="true"/>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_nomePai}"/>
-                            <h:outputText value="#{pessoaController.selected.nomePai}" title="#{bundle.ViewPessoaTitle_nomePai}"/>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_nomeMae}" for="nomeMae" style="float: right;"/>
+                                        <p:inputText style="text-transform: uppercase" id="nomeMae" value="#{pessoaController.selected.nomeMae}" title="#{bundle.CreatePessoaTitle_nomeMae}" disabled="true"/>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_nomeMae}"/>
-                            <h:outputText value="#{pessoaController.selected.nomeMae}" title="#{bundle.ViewPessoaTitle_nomeMae}"/>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_pisPasep}" for="pisPasep" style="float: right;"/>
+                                        <p:inputText id="pisPasep" value="#{pessoaController.selected.pisPasep}" title="#{bundle.CreatePessoaTitle_pisPasep}" disabled="true"/>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_pisPasep}"/>
-                            <h:outputText value="#{pessoaController.selected.pisPasep}" title="#{bundle.ViewPessoaTitle_pisPasep}"/>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_tipo}" for="tipo" style="float: right;"/>
+                                        <p:inputText id="tipo" value="#{pessoaController.selected.tipoPessoa}" title="#{bundle.CreatePessoaTitle_tipo}" disabled="true"/>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_tipo}"/>
-                            <h:outputText value="#{pessoaController.selected.tipo}" title="#{bundle.ViewPessoaTitle_tipo}"/>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_sexo}" for="sexo" style="float: right;"/>
+                                        <p:selectOneRadio id="sexo" value="#{pessoaController.selected.sexo}" disabled="true">
+                                            <f:selectItem itemLabel="Masculino" itemValue="M"/>
+                                            <f:selectItem itemLabel="Feminino" itemValue="F"/>
+                                        </p:selectOneRadio>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_sexo}"/>
-                            <h:outputText value="#{pessoaController.selected.sexo}" title="#{bundle.ViewPessoaTitle_sexo}"/>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_matricula}" for="matricula" style="float: right;"/>
+                                        <p:inputText id="matricula" value="#{pessoaController.selected.matricula}" title="#{bundle.CreatePessoaTitle_matricula}" disabled="true"/>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_matricula}"/>
-                            <h:outputText value="#{pessoaController.selected.matricula}" title="#{bundle.ViewPessoaTitle_matricula}"/>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_rgMilitar}" for="rgMilitar" style="float: right;"/>
+                                        <p:inputText id="rgMilitar" value="#{pessoaController.selected.rgMilitar}" title="#{bundle.CreatePessoaTitle_rgMilitar}" disabled="true"/>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_rgMilitar}"/>
-                            <h:outputText value="#{pessoaController.selected.rgMilitar}" title="#{bundle.ViewPessoaTitle_rgMilitar}"/>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_rgCivil}" for="rgCivil" style="float: right;"/>
+                                        <p:inputText id="rgCivil" value="#{pessoaController.selected.rgCivil}" title="#{bundle.CreatePessoaTitle_rgCivil}" disabled="true"/>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_rgCivil}"/>
-                            <h:outputText value="#{pessoaController.selected.rgCivil}" title="#{bundle.ViewPessoaTitle_rgCivil}"/>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_habilitacao}" for="habilitacao" style="float: right;"/>
+                                        <p:inputText id="habilitacao" value="#{pessoaController.selected.habilitacao}" title="#{bundle.CreatePessoaTitle_habilitacao}" disabled="true"/>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_altura}"/>
-                            <h:outputText value="#{pessoaController.selected.altura}" title="#{bundle.ViewPessoaTitle_altura}"/>
+                                    </h:panelGrid>
+                                </h:panelGroup>
+                                <h:panelGroup style="float: right">
+                                    <h:panelGrid columns="2" width="500px">
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_tituloEleitor}" for="tituloEleitor" style="float: right;"/>
+                                        <p:inputText id="tituloEleitor" value="#{pessoaController.selected.tituloEleitor}" title="#{bundle.CreatePessoaTitle_tituloEleitor}" disabled="true"/>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_boca}"/>
-                            <h:outputText value="#{pessoaController.selected.boca}" title="#{bundle.ViewPessoaTitle_boca}"/>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_informacaoBancaria}" for="informacaoBancaria" style="float: right;"/>
+                                        <p:inputText id="informacaoBancaria" value="#{pessoaController.selected.informacaoBancaria}" title="#{bundle.CreatePessoaTitle_informacaoBancaria}" disabled="true"/>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_cutis}"/>
-                            <h:outputText value="#{pessoaController.selected.cutis}" title="#{bundle.ViewPessoaTitle_cutis}"/>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_unidade}" for="unidade" style="float: right;"/>
+                                        <p:selectOneMenu id="unidade" value="#{pessoaController.selected.unidade}"  converter="unidadeConverter" disabled="true">
+                                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                                            <f:selectItems value="#{unidadeController.items}"
+                                                           var="unidadeItem"
+                                                           itemValue="#{unidadeItem}"
+                                                           itemLabel="#{unidadeItem.nome}"
+                                                           />
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_nariz}"/>
-                            <h:outputText value="#{pessoaController.selected.nariz}" title="#{bundle.ViewPessoaTitle_nariz}"/>
+                                        </p:selectOneMenu>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_rosto}"/>
-                            <h:outputText value="#{pessoaController.selected.rosto}" title="#{bundle.ViewPessoaTitle_rosto}"/>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_situacaoFuncional}" for="situacaoFuncional" style="float: right;"/>
+                                        <p:selectOneMenu id="situacaoFuncional" value="#{pessoaController.selected.situacaoFuncional}"  converter="situacaoFuncionalConverter" disabled="true">
+                                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                                            <f:selectItems value="#{situacaoFuncionalController.items}"
+                                                           var="situacaoFuncionalItem"
+                                                           itemValue="#{situacaoFuncionalItem}"
+                                                           itemLabel="#{situacaoFuncionalItem.stFuncional}"
+                                                           />
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_vestuario}"/>
-                            <h:outputText value="#{pessoaController.selected.vestuario}" title="#{bundle.ViewPessoaTitle_vestuario}"/>
+                                        </p:selectOneMenu>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_calcado}"/>
-                            <h:outputText value="#{pessoaController.selected.calcado}" title="#{bundle.ViewPessoaTitle_calcado}"/>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_escolaridade}" for="escolaridade" style="float: right;"/>
+                                        <p:selectOneMenu id="escolaridade" value="#{pessoaController.selected.escolaridade}"  converter="escolaridadeConverter" disabled="true">
+                                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                                            <f:selectItems value="#{escolaridadeController.items}"
+                                                           var="escolaridadeItem"
+                                                           itemValue="#{escolaridadeItem}"
+                                                           itemLabel="#{escolaridadeItem.tpEscolaridade}"
+                                                           />
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_cobertura}"/>
-                            <h:outputText value="#{pessoaController.selected.cobertura}" title="#{bundle.ViewPessoaTitle_cobertura}"/>
+                                        </p:selectOneMenu>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_habilidadeProfissional}"/>
-                            <h:outputText value="#{pessoaController.selected.habilidadeProfissional}" title="#{bundle.ViewPessoaTitle_habilidadeProfissional}"/>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_sangue}" for="sangue" style="float: right;"/>
+                                        <p:selectOneMenu id="sangue" value="#{pessoaController.selected.sangue}"  converter="sangueConverter" disabled="true">
+                                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                                            <f:selectItems value="#{sangueController.items}"
+                                                           var="sangueItem"
+                                                           itemValue="#{sangueItem}"
+                                                           itemLabel="#{sangueItem.tpSangue}"
+                                                           />
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_habilidadeEsportiva}"/>
-                            <h:outputText value="#{pessoaController.selected.habilidadeEsportiva}" title="#{bundle.ViewPessoaTitle_habilidadeEsportiva}"/>
+                                        </p:selectOneMenu>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_cabelo}"/>
-                            <h:outputText value="#{pessoaController.selected.cabelo}" title="#{bundle.ViewPessoaTitle_cabelo}"/>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_estadoCivil}" for="estadoCivil" style="float: right;"/>
+                                        <p:selectOneMenu id="estadoCivil" value="#{pessoaController.selected.estadoCivil}"  converter="estadoCivilConverter" disabled="true">
+                                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                                            <f:selectItems value="#{estadoCivilController.items}"
+                                                           var="estadoCivilItem"
+                                                           itemValue="#{estadoCivilItem}"
+                                                           itemLabel="#{estadoCivilItem.tpEstadoCivil}"
+                                                           />
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_barba}"/>
-                            <h:outputText value="#{pessoaController.selected.barba}" title="#{bundle.ViewPessoaTitle_barba}"/>
+                                        </p:selectOneMenu>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_bigode}"/>
-                            <h:outputText value="#{pessoaController.selected.bigode}" title="#{bundle.ViewPessoaTitle_bigode}"/>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_moradia}" for="moradia" style="float: right;"/>
+                                        <p:selectOneMenu id="moradia" value="#{pessoaController.selected.moradia}"  converter="moradiaConverter" disabled="true">
+                                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                                            <f:selectItems value="#{moradiaController.items}"
+                                                           var="moradiaItem"
+                                                           itemValue="#{moradiaItem}"
+                                                           itemLabel="#{moradiaItem.tpMoradia}"
+                                                           />
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_olho}"/>
-                            <h:outputText value="#{pessoaController.selected.olho}" title="#{bundle.ViewPessoaTitle_olho}"/>
+                                        </p:selectOneMenu>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_tituloEleitor}"/>
-                            <h:outputText value="#{pessoaController.selected.tituloEleitor}" title="#{bundle.ViewPessoaTitle_tituloEleitor}"/>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_religiao}" for="religiao" style="float: right;"/>
+                                        <p:selectOneMenu id="religiao" value="#{pessoaController.selected.religiao}"  converter="religiaoConverter" disabled="true">
+                                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                                            <f:selectItems value="#{religiaoController.items}"
+                                                           var="religiaoItem"
+                                                           itemValue="#{religiaoItem}"
+                                                           itemLabel="#{religiaoItem.tpReligiao}"
+                                                           />
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_habilitacao}"/>
-                            <h:outputText value="#{pessoaController.selected.habilitacao}" title="#{bundle.ViewPessoaTitle_habilitacao}"/>
+                                        </p:selectOneMenu>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_informacaoBancaria}"/>
-                            <h:outputText value="#{pessoaController.selected.informacaoBancaria}" title="#{bundle.ViewPessoaTitle_informacaoBancaria}"/>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_graduacao}" for="graduacao" style="float: right;"/>
+                                        <p:selectOneMenu id="graduacao" value="#{pessoaController.selected.graduacao}"  converter="graduacaoConverter" disabled="true">
+                                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                                            <f:selectItems value="#{graduacaoController.items}"
+                                                           var="graduacaoItem"
+                                                           itemValue="#{graduacaoItem}"
+                                                           itemLabel="#{graduacaoItem.tpGraduacao}"
+                                                           />
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_unidade}"/>
-                            <h:outputText value="#{pessoaController.selected.unidade.id}"/>
+                                        </p:selectOneMenu>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_situacaoFuncional}"/>
-                            <h:outputText value="#{pessoaController.selected.situacaoFuncional.id}"/>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_contato}" for="contato" style="float: right;"/>
+                                        <p:selectOneMenu id="contato" value="#{pessoaController.selected.contato}"  converter="contatoConverter" disabled="true">
+                                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                                            <f:selectItems value="#{contatoController.items}"
+                                                           var="contatoItem"
+                                                           itemValue="#{contatoItem}"
+                                                           itemLabel="#{contatoItem.id.toString()}"
+                                                           />
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_escolaridade}"/>
-                            <h:outputText value="#{pessoaController.selected.escolaridade.id}"/>
+                                        </p:selectOneMenu>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_sangue}"/>
-                            <h:outputText value="#{pessoaController.selected.sangue.id}"/>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_endereco}" for="endereco" style="float: right;"/>
+                                        <p:selectOneMenu id="endereco" value="#{pessoaController.selected.endereco}"  converter="enderecoConverter" disabled="true">
+                                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                                            <f:selectItems value="#{enderecoController.items}"
+                                                           var="enderecoItem"
+                                                           itemValue="#{enderecoItem}"
+                                                           itemLabel="#{enderecoItem.id.toString()}"
+                                                           />
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_estadoCivil}"/>
-                            <h:outputText value="#{pessoaController.selected.estadoCivil.id}"/>
+                                        </p:selectOneMenu>
+                                    </h:panelGrid>
+                                </h:panelGroup>
+                            </h:panelGrid>
+                        </p:fieldset>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_moradia}"/>
-                            <h:outputText value="#{pessoaController.selected.moradia.id}"/>
+                        <p:spacer height="25px"/>
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_religiao}"/>
-                            <h:outputText value="#{pessoaController.selected.religiao.id}"/>
+                        <p:fieldset legend="Dados de Identificação Militar">
+                            <h:panelGrid columns="2" style="width: 800px">
+                                <h:panelGroup >
+                                    <h:panelGrid columns="2">
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_habilidadeProfissional}" for="habilidadeProfissional" style="float: right;"/>
+                                        <p:inputText disabled="true" size="50" style="text-transform: uppercase" id="habilidadeProfissional" value="#{pessoaController.selected.habilidadeProfissional}" title="#{bundle.CreatePessoaTitle_habilidadeProfissional}" />
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_graduacao}"/>
-                            <h:outputText value="#{pessoaController.selected.graduacao.id}"/>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_habilidadeEsportiva}" for="habilidadeEsportiva" style="float: right;"/>
+                                        <p:inputText disabled="true" size="50" style="text-transform: uppercase" id="habilidadeEsportiva" value="#{pessoaController.selected.habilidadeEsportiva}" title="#{bundle.CreatePessoaTitle_habilidadeEsportiva}" />
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_contato}"/>
-                            <h:outputText value="#{pessoaController.selected.contato.id}"/>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_altura}" for="altura" style="float: right;" />
+                                        <p:inputText disabled="true" size="30" id="altura" value="#{pessoaController.selected.altura}" title="#{bundle.CreatePessoaTitle_altura}" />
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_endereco}"/>
-                            <h:outputText value="#{pessoaController.selected.endereco.id}"/>
+                                        <p:outputLabel value="#{bundle.ViewPessoaLabel_cutis}" for="cutis" style="float: right;" />
+                                        <p:inputText disabled="true" size="30" style="text-transform: uppercase" id="cutis" value="#{pessoaController.selected.cutis}" title="#{bundle.CreatePessoaTitle_cutis}" />
 
-                            <h:outputText value="#{bundle.ViewPessoaLabel_usuario}"/>
-                            <h:outputText value="#{pessoaController.selected.usuario.id}"/>
-                        </p:panelGrid>
+                                        <p:outputLabel value="#{bundle.CreatePessoaLabel_vestuario}" for="vestuario" style="float: right;" />
+                                        <p:spinner disabled="true" min="33" max="46" id="vestuario" value="#{pessoaController.selected.vestuario}" title="#{bundle.CreatePessoaTitle_vestuario}" />
+
+                                        <p:outputLabel value="#{bundle.CreatePessoaLabel_calcado}" for="calcado" style="float: right;" />
+                                        <p:spinner disabled="true" min="33" max="46" id="calcado" value="#{pessoaController.selected.calcado}" title="#{bundle.CreatePessoaTitle_calcado}"/>
+
+                                        <p:outputLabel value="#{bundle.CreatePessoaLabel_cobertura}" for="cobertura" style="float: right;"/>
+                                        <p:spinner disabled="true" min="33" max="46" id="cobertura" value="#{pessoaController.selected.cobertura}" title="#{bundle.CreatePessoaTitle_cobertura}" />
+                                    </h:panelGrid>
+                                </h:panelGroup>
+                                <h:panelGroup style="float: right">
+                                    <h:panelGrid columns="2">
+                                        <p:outputLabel value="#{bundle.CreatePessoaLabel_boca}" for="boca" style="float: right;" />
+                                        <p:inputText style="text-transform: uppercase" id="boca" value="#{pessoaController.selected.boca}" title="#{bundle.CreatePessoaTitle_boca}" disabled="true"/>
+
+                                        <p:outputLabel value="#{bundle.CreatePessoaLabel_nariz}" for="nariz" style="float: right;" />
+                                        <p:inputText style="text-transform: uppercase" id="nariz" value="#{pessoaController.selected.nariz}" title="#{bundle.CreatePessoaTitle_nariz}" disabled="true"/>
+
+                                        <p:outputLabel value="#{bundle.CreatePessoaLabel_rosto}" for="rosto" style="float: right;" />
+                                        <p:inputText style="text-transform: uppercase" id="rosto" value="#{pessoaController.selected.rosto}" title="#{bundle.CreatePessoaTitle_rosto}" disabled="true"/>
+
+                                        <p:outputLabel value="#{bundle.CreatePessoaLabel_cabelo}" for="cabelo" style="float: right;"/>
+                                        <p:inputText style="text-transform: uppercase" id="cabelo" value="#{pessoaController.selected.cabelo}" title="#{bundle.CreatePessoaTitle_cabelo}" disabled="true"/>
+
+                                        <p:outputLabel value="#{bundle.CreatePessoaLabel_barba}" for="barba" style="float: right;"/>
+                                        <p:inputText style="text-transform: uppercase" id="barba" value="#{pessoaController.selected.barba}" title="#{bundle.CreatePessoaTitle_barba}" disabled="true"/>
+
+                                        <p:outputLabel value="#{bundle.CreatePessoaLabel_bigode}" for="bigode" style="float: right;"/>
+                                        <p:inputText style="text-transform: uppercase" id="bigode" value="#{pessoaController.selected.bigode}" title="#{bundle.CreatePessoaTitle_bigode}" disabled="true"/>
+
+                                        <p:outputLabel value="#{bundle.CreatePessoaLabel_olho}" for="olho" style="float: right;"/>
+                                        <p:inputText style="text-transform: uppercase" id="olho" value="#{pessoaController.selected.olho}" title="#{bundle.CreatePessoaTitle_olho}" disabled="true"/>
+                                    </h:panelGrid>
+                                </h:panelGroup>
+                            </h:panelGrid>
+                        </p:fieldset>
+
+                        <p:accordionPanel multiple="true">
+                            <p:tab title="Movimentações">
+                                Movimentações aqui
+                            </p:tab>
+                            <p:tab title="Dispenças e Licenças">
+                                Dispenças e licenças aqui
+                            </p:tab>
+                        </p:accordionPanel>
+
                     </p:scrollPanel>
-                    <p:commandButton value="#{bundle.Close}" onclick="PessoaViewDialog.hide()"/>
+                    
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PessoaViewDialog.hide()"/>
                 </h:panelGroup>
 
             </h:form>

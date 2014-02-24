@@ -13,219 +13,243 @@
             <h:form id="PessoaEditForm">
 
                 <h:panelGroup id="display">
-                    <p:panelGrid  columns="2" rendered="#{pessoaController.selected != null}">
+                    <p:scrollPanel mode="native" style="height: 50%">
+                        <p:fieldset legend="Dados Pessoais">
+                            <h:panelGrid columns="2" width="600px">
+                                <h:panelGroup>
+                                    <p:watermark value="#{bundle.EditPessoaLabel_nome}" for="nome" />
+                                    <p:inputText size="50" style="text-transform: uppercase" id="nome" value="#{pessoaController.selected.nome}" title="#{bundle.CreatePessoaTitle_nome}" />
 
-                        <h:outputLabel value="#{bundle.EditPessoaLabel_id}" for="id" />
-                        <h:outputText id="id" value="#{pessoaController.selected.id}" />
+                                    <h:panelGrid columns="2" width="300px">
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_nome}" for="nome" />
-                        <p:inputText style="text-transform: uppercase" id="nome" value="#{pessoaController.selected.nome}" title="#{bundle.EditPessoaTitle_nome}" />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_cpf}" for="cpf" style="float: right;"/>
+                                        <p:inputMask mask="999.999.999-99" id="cpf" value="#{pessoaController.selected.cpf}" title="#{bundle.CreatePessoaTitle_cpf}" />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_cpf}" for="cpf" />
-                        <p:inputText id="cpf" value="#{pessoaController.selected.cpf}" title="#{bundle.EditPessoaTitle_cpf}" />
+                                        <p:outputLabel  value="#{bundle.EditPessoaLabel_dataNascimento}" for="dataNascimento" style="float: right;"/>
+                                        <p:calendar id="dataNascimento" pattern="dd/MM/yyyy" value="#{pessoaController.selected.dataNascimento}" title="#{bundle.EditPessoaTitle_dataNascimento}"  showOn="button"/>
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_dataNascimento}" for="dataNascimento" />
-                        <p:calendar id="dataNascimento" pattern="dd/MM/yyyy" value="#{pessoaController.selected.dataNascimento}" title="#{bundle.EditPessoaTitle_dataNascimento}"  showOn="button"/>
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_nomeDeGuerra}" for="nomeDeGuerra" style="float: right;"/>
+                                        <p:inputText style="text-transform: uppercase" id="nomeDeGuerra" value="#{pessoaController.selected.nomeDeGuerra}" title="#{bundle.CreatePessoaTitle_nomeDeGuerra}" />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_nomeDeGuerra}" for="nomeDeGuerra" />
-                        <p:inputText style="text-transform: uppercase" id="nomeDeGuerra" value="#{pessoaController.selected.nomeDeGuerra}" title="#{bundle.EditPessoaTitle_nomeDeGuerra}" />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_nomePai}" for="nomePai" style="float: right;"/>
+                                        <p:inputText style="text-transform: uppercase" id="nomePai" value="#{pessoaController.selected.nomePai}" title="#{bundle.CreatePessoaTitle_nomePai}" />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_nomePai}" for="nomePai" />
-                        <p:inputText style="text-transform: uppercase" id="nomePai" value="#{pessoaController.selected.nomePai}" title="#{bundle.EditPessoaTitle_nomePai}" />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_nomeMae}" for="nomeMae" style="float: right;"/>
+                                        <p:inputText style="text-transform: uppercase" id="nomeMae" value="#{pessoaController.selected.nomeMae}" title="#{bundle.CreatePessoaTitle_nomeMae}" />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_nomeMae}" for="nomeMae" />
-                        <p:inputText style="text-transform: uppercase" id="nomeMae" value="#{pessoaController.selected.nomeMae}" title="#{bundle.EditPessoaTitle_nomeMae}" />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_pisPasep}" for="pisPasep" style="float: right;"/>
+                                        <p:inputText id="pisPasep" value="#{pessoaController.selected.pisPasep}" title="#{bundle.CreatePessoaTitle_pisPasep}" />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_pisPasep}" for="pisPasep" />
-                        <p:inputText id="pisPasep" value="#{pessoaController.selected.pisPasep}" title="#{bundle.EditPessoaTitle_pisPasep}" />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_tipo}" for="tipo" style="float: right;"/>
+                                        <p:inputText id="tipo" value="#{pessoaController.selected.tipoPessoa}" title="#{bundle.CreatePessoaTitle_tipo}" />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_tipo}" for="tipo" />
-                        <p:inputText style="text-transform: uppercase" id="tipo" value="#{pessoaController.selected.tipo}" title="#{bundle.EditPessoaTitle_tipo}" />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_sexo}" for="sexo" style="float: right;"/>
+                                        <p:selectOneRadio id="sexo" value="#{pessoaController.selected.sexo}">
+                                            <f:selectItem itemLabel="Masculino" itemValue="M"/>
+                                            <f:selectItem itemLabel="Feminino" itemValue="F"/>
+                                        </p:selectOneRadio>
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_sexo}" for="sexo" />
-                        <p:inputText style="text-transform: uppercase" id="sexo" value="#{pessoaController.selected.sexo}" title="#{bundle.EditPessoaTitle_sexo}" />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_matricula}" for="matricula" style="float: right;"/>
+                                        <p:inputText id="matricula" value="#{pessoaController.selected.matricula}" title="#{bundle.CreatePessoaTitle_matricula}" />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_matricula}" for="matricula" />
-                        <p:inputText id="matricula" value="#{pessoaController.selected.matricula}" title="#{bundle.EditPessoaTitle_matricula}" />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_rgMilitar}" for="rgMilitar" style="float: right;"/>
+                                        <p:inputText id="rgMilitar" value="#{pessoaController.selected.rgMilitar}" title="#{bundle.CreatePessoaTitle_rgMilitar}" />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_rgMilitar}" for="rgMilitar" />
-                        <p:inputText id="rgMilitar" value="#{pessoaController.selected.rgMilitar}" title="#{bundle.EditPessoaTitle_rgMilitar}" />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_rgCivil}" for="rgCivil" style="float: right;"/>
+                                        <p:inputText id="rgCivil" value="#{pessoaController.selected.rgCivil}" title="#{bundle.CreatePessoaTitle_rgCivil}" />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_rgCivil}" for="rgCivil" />
-                        <p:inputText id="rgCivil" value="#{pessoaController.selected.rgCivil}" title="#{bundle.EditPessoaTitle_rgCivil}" />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_habilitacao}" for="habilitacao" style="float: right;"/>
+                                        <p:inputText id="habilitacao" value="#{pessoaController.selected.habilitacao}" title="#{bundle.CreatePessoaTitle_habilitacao}" />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_altura}" for="altura" />
-                        <p:inputText id="altura" value="#{pessoaController.selected.altura}" title="#{bundle.EditPessoaTitle_altura}" />
+                                    </h:panelGrid>
+                                </h:panelGroup>
+                                <h:panelGroup style="float: right">
+                                    <h:panelGrid columns="2" width="500px">
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_tituloEleitor}" for="tituloEleitor" style="float: right;"/>
+                                        <p:inputText id="tituloEleitor" value="#{pessoaController.selected.tituloEleitor}" title="#{bundle.CreatePessoaTitle_tituloEleitor}" />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_boca}" for="boca" />
-                        <p:inputText style="text-transform: uppercase" id="boca" value="#{pessoaController.selected.boca}" title="#{bundle.EditPessoaTitle_boca}" />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_informacaoBancaria}" for="informacaoBancaria" style="float: right;"/>
+                                        <p:inputText id="informacaoBancaria" value="#{pessoaController.selected.informacaoBancaria}" title="#{bundle.CreatePessoaTitle_informacaoBancaria}" />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_cutis}" for="cutis" />
-                        <p:inputText style="text-transform: uppercase" id="cutis" value="#{pessoaController.selected.cutis}" title="#{bundle.EditPessoaTitle_cutis}" />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_unidade}" for="unidade" style="float: right;"/>
+                                        <p:selectOneMenu id="unidade" value="#{pessoaController.selected.unidade}"  converter="unidadeConverter">
+                                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                                            <f:selectItems value="#{unidadeController.items}"
+                                                           var="unidadeItem"
+                                                           itemValue="#{unidadeItem}"
+                                                           itemLabel="#{unidadeItem.nome}"
+                                                           />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_nariz}" for="nariz" />
-                        <p:inputText style="text-transform: uppercase" id="nariz" value="#{pessoaController.selected.nariz}" title="#{bundle.EditPessoaTitle_nariz}" />
+                                        </p:selectOneMenu>
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_rosto}" for="rosto" />
-                        <p:inputText style="text-transform: uppercase" id="rosto" value="#{pessoaController.selected.rosto}" title="#{bundle.EditPessoaTitle_rosto}" />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_situacaoFuncional}" for="situacaoFuncional" style="float: right;"/>
+                                        <p:selectOneMenu id="situacaoFuncional" value="#{pessoaController.selected.situacaoFuncional}"  converter="situacaoFuncionalConverter">
+                                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                                            <f:selectItems value="#{situacaoFuncionalController.items}"
+                                                           var="situacaoFuncionalItem"
+                                                           itemValue="#{situacaoFuncionalItem}"
+                                                           itemLabel="#{situacaoFuncionalItem.stFuncional}"
+                                                           />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_vestuario}" for="vestuario" />
-                        <p:inputText id="vestuario" value="#{pessoaController.selected.vestuario}" title="#{bundle.EditPessoaTitle_vestuario}" />
+                                        </p:selectOneMenu>
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_calcado}" for="calcado" />
-                        <p:inputText id="calcado" value="#{pessoaController.selected.calcado}" title="#{bundle.EditPessoaTitle_calcado}" />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_escolaridade}" for="escolaridade" style="float: right;"/>
+                                        <p:selectOneMenu id="escolaridade" value="#{pessoaController.selected.escolaridade}"  converter="escolaridadeConverter">
+                                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                                            <f:selectItems value="#{escolaridadeController.items}"
+                                                           var="escolaridadeItem"
+                                                           itemValue="#{escolaridadeItem}"
+                                                           itemLabel="#{escolaridadeItem.tpEscolaridade}"
+                                                           />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_cobertura}" for="cobertura" />
-                        <p:inputText id="cobertura" value="#{pessoaController.selected.cobertura}" title="#{bundle.EditPessoaTitle_cobertura}" />
+                                        </p:selectOneMenu>
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_habilidadeProfissional}" for="habilidadeProfissional" />
-                        <p:inputText style="text-transform: uppercase" id="habilidadeProfissional" value="#{pessoaController.selected.habilidadeProfissional}" title="#{bundle.EditPessoaTitle_habilidadeProfissional}" />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_sangue}" for="sangue" style="float: right;"/>
+                                        <p:selectOneMenu id="sangue" value="#{pessoaController.selected.sangue}"  converter="sangueConverter">
+                                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                                            <f:selectItems value="#{sangueController.items}"
+                                                           var="sangueItem"
+                                                           itemValue="#{sangueItem}"
+                                                           itemLabel="#{sangueItem.tpSangue}"
+                                                           />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_habilidadeEsportiva}" for="habilidadeEsportiva" />
-                        <p:inputText style="text-transform: uppercase" id="habilidadeEsportiva" value="#{pessoaController.selected.habilidadeEsportiva}" title="#{bundle.EditPessoaTitle_habilidadeEsportiva}" />
+                                        </p:selectOneMenu>
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_cabelo}" for="cabelo" />
-                        <p:inputText style="text-transform: uppercase" id="cabelo" value="#{pessoaController.selected.cabelo}" title="#{bundle.EditPessoaTitle_cabelo}" />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_estadoCivil}" for="estadoCivil" style="float: right;"/>
+                                        <p:selectOneMenu id="estadoCivil" value="#{pessoaController.selected.estadoCivil}"  converter="estadoCivilConverter">
+                                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                                            <f:selectItems value="#{estadoCivilController.items}"
+                                                           var="estadoCivilItem"
+                                                           itemValue="#{estadoCivilItem}"
+                                                           itemLabel="#{estadoCivilItem.tpEstadoCivil}"
+                                                           />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_barba}" for="barba" />
-                        <p:inputText style="text-transform: uppercase" id="barba" value="#{pessoaController.selected.barba}" title="#{bundle.EditPessoaTitle_barba}" />
+                                        </p:selectOneMenu>
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_bigode}" for="bigode" />
-                        <p:inputText style="text-transform: uppercase" id="bigode" value="#{pessoaController.selected.bigode}" title="#{bundle.EditPessoaTitle_bigode}" />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_moradia}" for="moradia" style="float: right;"/>
+                                        <p:selectOneMenu id="moradia" value="#{pessoaController.selected.moradia}"  converter="moradiaConverter">
+                                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                                            <f:selectItems value="#{moradiaController.items}"
+                                                           var="moradiaItem"
+                                                           itemValue="#{moradiaItem}"
+                                                           itemLabel="#{moradiaItem.tpMoradia}"
+                                                           />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_olho}" for="olho" />
-                        <p:inputText style="text-transform: uppercase" id="olho" value="#{pessoaController.selected.olho}" title="#{bundle.EditPessoaTitle_olho}" />
+                                        </p:selectOneMenu>
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_tituloEleitor}" for="tituloEleitor" />
-                        <p:inputText id="tituloEleitor" value="#{pessoaController.selected.tituloEleitor}" title="#{bundle.EditPessoaTitle_tituloEleitor}" />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_religiao}" for="religiao" style="float: right;"/>
+                                        <p:selectOneMenu id="religiao" value="#{pessoaController.selected.religiao}"  converter="religiaoConverter">
+                                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                                            <f:selectItems value="#{religiaoController.items}"
+                                                           var="religiaoItem"
+                                                           itemValue="#{religiaoItem}"
+                                                           itemLabel="#{religiaoItem.tpReligiao}"
+                                                           />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_habilitacao}" for="habilitacao" />
-                        <p:inputText id="habilitacao" value="#{pessoaController.selected.habilitacao}" title="#{bundle.EditPessoaTitle_habilitacao}" />
+                                        </p:selectOneMenu>
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_informacaoBancaria}" for="informacaoBancaria" />
-                        <p:inputText id="informacaoBancaria" value="#{pessoaController.selected.informacaoBancaria}" title="#{bundle.EditPessoaTitle_informacaoBancaria}" />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_graduacao}" for="graduacao" style="float: right;"/>
+                                        <p:selectOneMenu id="graduacao" value="#{pessoaController.selected.graduacao}"  converter="graduacaoConverter">
+                                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                                            <f:selectItems value="#{graduacaoController.items}"
+                                                           var="graduacaoItem"
+                                                           itemValue="#{graduacaoItem}"
+                                                           itemLabel="#{graduacaoItem.tpGraduacao}"
+                                                           />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_unidade}" for="unidade" />
-                        <p:selectOneMenu id="unidade" value="#{pessoaController.selected.unidade}"  converter="unidadeConverter">
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{unidadeController.items}"
-                                           var="unidadeItem"
-                                           itemValue="#{unidadeItem}"
-                                           itemLabel="#{unidadeItem.nome}"
-                                           />
+                                        </p:selectOneMenu>
 
-                        </p:selectOneMenu>
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_contato}" for="contato" style="float: right;"/>
+                                        <p:selectOneMenu id="contato" value="#{pessoaController.selected.contato}"  converter="contatoConverter">
+                                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                                            <f:selectItems value="#{contatoController.items}"
+                                                           var="contatoItem"
+                                                           itemValue="#{contatoItem}"
+                                                           itemLabel="#{contatoItem.id.toString()}"
+                                                           />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_situacaoFuncional}" for="situacaoFuncional" />
-                        <p:selectOneMenu id="situacaoFuncional" value="#{pessoaController.selected.situacaoFuncional}"  converter="situacaoFuncionalConverter">
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{situacaoFuncionalController.items}"
-                                           var="situacaoFuncionalItem"
-                                           itemValue="#{situacaoFuncionalItem}"
-                                           itemLabel="#{situacaoFuncionalItem.id.toString()}"
-                                           />
+                                        </p:selectOneMenu>
 
-                        </p:selectOneMenu>
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_endereco}" for="endereco" style="float: right;"/>
+                                        <p:selectOneMenu id="endereco" value="#{pessoaController.selected.endereco}"  converter="enderecoConverter">
+                                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                                            <f:selectItems value="#{enderecoController.items}"
+                                                           var="enderecoItem"
+                                                           itemValue="#{enderecoItem}"
+                                                           itemLabel="#{enderecoItem.id.toString()}"
+                                                           />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_escolaridade}" for="escolaridade" />
-                        <p:selectOneMenu id="escolaridade" value="#{pessoaController.selected.escolaridade}"  converter="escolaridadeConverter">
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{escolaridadeController.items}"
-                                           var="escolaridadeItem"
-                                           itemValue="#{escolaridadeItem}"
-                                           itemLabel="#{escolaridadeItem.id.toString()}"
-                                           />
+                                        </p:selectOneMenu>
+                                    </h:panelGrid>
+                                </h:panelGroup>
+                            </h:panelGrid>
+                        </p:fieldset>
 
-                        </p:selectOneMenu>
+                        <p:spacer height="25px"/>
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_sangue}" for="sangue" />
-                        <p:selectOneMenu id="sangue" value="#{pessoaController.selected.sangue}"  converter="sangueConverter">
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{sangueController.items}"
-                                           var="sangueItem"
-                                           itemValue="#{sangueItem}"
-                                           itemLabel="#{sangueItem.id.toString()}"
-                                           />
+                        <p:fieldset legend="Dados de Identificação Militar">
+                            <h:panelGrid columns="2" style="width: 800px">
+                                <h:panelGroup >
+                                    <h:panelGrid columns="2">
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_habilidadeProfissional}" for="habilidadeProfissional" style="float: right;"/>
+                                        <p:inputText size="50" style="text-transform: uppercase" id="habilidadeProfissional" value="#{pessoaController.selected.habilidadeProfissional}" title="#{bundle.CreatePessoaTitle_habilidadeProfissional}" />
 
-                        </p:selectOneMenu>
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_habilidadeEsportiva}" for="habilidadeEsportiva" style="float: right;"/>
+                                        <p:inputText size="50" style="text-transform: uppercase" id="habilidadeEsportiva" value="#{pessoaController.selected.habilidadeEsportiva}" title="#{bundle.CreatePessoaTitle_habilidadeEsportiva}" />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_estadoCivil}" for="estadoCivil" />
-                        <p:selectOneMenu id="estadoCivil" value="#{pessoaController.selected.estadoCivil}"  converter="estadoCivilConverter">
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{estadoCivilController.items}"
-                                           var="estadoCivilItem"
-                                           itemValue="#{estadoCivilItem}"
-                                           itemLabel="#{estadoCivilItem.id.toString()}"
-                                           />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_altura}" for="altura" style="float: right;" />
+                                        <p:inputText size="30" id="altura" value="#{pessoaController.selected.altura}" title="#{bundle.CreatePessoaTitle_altura}" />
 
-                        </p:selectOneMenu>
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_cutis}" for="cutis" style="float: right;" />
+                                        <p:inputText size="30" style="text-transform: uppercase" id="cutis" value="#{pessoaController.selected.cutis}" title="#{bundle.CreatePessoaTitle_cutis}" />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_moradia}" for="moradia" />
-                        <p:selectOneMenu id="moradia" value="#{pessoaController.selected.moradia}"  converter="moradiaConverter">
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{moradiaController.items}"
-                                           var="moradiaItem"
-                                           itemValue="#{moradiaItem}"
-                                           itemLabel="#{moradiaItem.id.toString()}"
-                                           />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_vestuario}" for="vestuario" style="float: right;" />
+                                        <p:spinner min="33" max="46" id="vestuario" value="#{pessoaController.selected.vestuario}" title="#{bundle.CreatePessoaTitle_vestuario}" />
 
-                        </p:selectOneMenu>
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_calcado}" for="calcado" style="float: right;" />
+                                        <p:spinner min="33" max="46" id="calcado" value="#{pessoaController.selected.calcado}" title="#{bundle.CreatePessoaTitle_calcado}"/>
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_religiao}" for="religiao" />
-                        <p:selectOneMenu id="religiao" value="#{pessoaController.selected.religiao}"  converter="religiaoConverter">
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{religiaoController.items}"
-                                           var="religiaoItem"
-                                           itemValue="#{religiaoItem}"
-                                           itemLabel="#{religiaoItem.id.toString()}"
-                                           />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_cobertura}" for="cobertura" style="float: right;"/>
+                                        <p:spinner min="33" max="46" id="cobertura" value="#{pessoaController.selected.cobertura}" title="#{bundle.CreatePessoaTitle_cobertura}" />
+                                    </h:panelGrid>
+                                </h:panelGroup>
+                                <h:panelGroup style="float: right">
+                                    <h:panelGrid columns="2">
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_boca}" for="boca" style="float: right;" />
+                                        <p:inputText style="text-transform: uppercase" id="boca" value="#{pessoaController.selected.boca}" title="#{bundle.CreatePessoaTitle_boca}" />
 
-                        </p:selectOneMenu>
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_nariz}" for="nariz" style="float: right;" />
+                                        <p:inputText style="text-transform: uppercase" id="nariz" value="#{pessoaController.selected.nariz}" title="#{bundle.CreatePessoaTitle_nariz}" />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_graduacao}" for="graduacao" />
-                        <p:selectOneMenu id="graduacao" value="#{pessoaController.selected.graduacao}"  converter="graduacaoConverter">
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{graduacaoController.items}"
-                                           var="graduacaoItem"
-                                           itemValue="#{graduacaoItem}"
-                                           itemLabel="#{graduacaoItem.id.toString()}"
-                                           />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_rosto}" for="rosto" style="float: right;" />
+                                        <p:inputText style="text-transform: uppercase" id="rosto" value="#{pessoaController.selected.rosto}" title="#{bundle.CreatePessoaTitle_rosto}" />
 
-                        </p:selectOneMenu>
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_cabelo}" for="cabelo" style="float: right;"/>
+                                        <p:inputText style="text-transform: uppercase" id="cabelo" value="#{pessoaController.selected.cabelo}" title="#{bundle.CreatePessoaTitle_cabelo}" />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_contato}" for="contato" />
-                        <p:selectOneMenu id="contato" value="#{pessoaController.selected.contato}"  converter="contatoConverter">
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{contatoController.items}"
-                                           var="contatoItem"
-                                           itemValue="#{contatoItem}"
-                                           itemLabel="#{contatoItem.id.toString()}"
-                                           />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_barba}" for="barba" style="float: right;"/>
+                                        <p:inputText style="text-transform: uppercase" id="barba" value="#{pessoaController.selected.barba}" title="#{bundle.CreatePessoaTitle_barba}" />
 
-                        </p:selectOneMenu>
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_bigode}" for="bigode" style="float: right;"/>
+                                        <p:inputText style="text-transform: uppercase" id="bigode" value="#{pessoaController.selected.bigode}" title="#{bundle.CreatePessoaTitle_bigode}" />
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_endereco}" for="endereco" />
-                        <p:selectOneMenu id="endereco" value="#{pessoaController.selected.endereco}"  converter="enderecoConverter">
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{enderecoController.items}"
-                                           var="enderecoItem"
-                                           itemValue="#{enderecoItem}"
-                                           itemLabel="#{enderecoItem.id.toString()}"
-                                           />
+                                        <p:outputLabel value="#{bundle.EditPessoaLabel_olho}" for="olho" style="float: right;"/>
+                                        <p:inputText style="text-transform: uppercase" id="olho" value="#{pessoaController.selected.olho}" title="#{bundle.CreatePessoaTitle_olho}" />
+                                    </h:panelGrid>
+                                </h:panelGroup>
+                            </h:panelGrid>
+                        </p:fieldset>
 
-                        </p:selectOneMenu>
+                        <p:accordionPanel multiple="true">
+                            <p:tab title="Movimentações">
+                                Movimentações aqui
+                            </p:tab>
+                            <p:tab title="Dispenças e Licenças">
+                                Dispenças e licenças aqui
+                            </p:tab>
+                        </p:accordionPanel>
 
-                        <p:outputLabel value="#{bundle.EditPessoaLabel_usuario}" for="usuario" />
-                        <p:selectOneMenu id="usuario" value="#{pessoaController.selected.usuario}"  converter="usuarioConverter">
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{usuarioController.items}"
-                                           var="usuarioItem"
-                                           itemValue="#{usuarioItem}"
-                                           itemLabel="#{usuarioItem.id.toString()}"
-                                           />
-
-                        </p:selectOneMenu>
-                    </p:panelGrid>
+                    </p:scrollPanel>
                     <p:commandButton actionListener="#{pessoaController.save}" value="#{bundle.Save}" update="display,:PessoaListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PessoaEditDialog);"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="PessoaEditDialog.hide()"/>
                 </h:panelGroup>

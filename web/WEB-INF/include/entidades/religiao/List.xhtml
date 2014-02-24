@@ -11,7 +11,7 @@
         <p:panel header="#{bundle.ListReligiaoTitle}">
 
             <p:dataTable id="datalist" value="#{religiaoController.items}" var="item"
-                         selectionMode="single" selection="#{religiaoController.selected}"
+                         
                          rowKey="#{item.id}"
                          paginator="true"
                          rows="10"
@@ -32,6 +32,9 @@
                         <h:outputText value="#{bundle.ListReligiaoTitle_tpReligiao}"/>
                     </f:facet>
                     <h:outputText value="#{item.tpReligiao}"/>
+                </p:column>
+                <p:column style="width:6%">  
+                    <p:rowEditor />  
                 </p:column>
                 <f:facet name="footer">
                     <div class="footer-section">
