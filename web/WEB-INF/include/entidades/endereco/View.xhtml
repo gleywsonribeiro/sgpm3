@@ -13,26 +13,42 @@
             <h:form id="EnderecoViewForm">
 
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{enderecoController.selected != null}">
+                    <h:panelGrid columns="2" rendered="#{enderecoController.selected != null}">
+                        <h:outputLabel value="#{bundle.ViewAtribuicaoLabel_id}" for="id" style="float: right;"/>
+                        <h:outputText id="id" value="#{enderecoController.selected.id}" />
 
-                        <h:outputText value="#{bundle.ViewEnderecoLabel_id}"/>
-                        <h:outputText value="#{enderecoController.selected.id}" title="#{bundle.ViewEnderecoTitle_id}"/>
+                        <h:outputLabel value="#{bundle.ViewEnderecoLabel_municipio}" for="municipio" style="float: right;"/>
+                        <h:selectOneMenu id="municipio" value="#{enderecoController.selected.municipio}"  converter="municipioConverter" disabled="true">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{municipioController.items}"
+                                           var="municipioItem"
+                                           itemValue="#{municipioItem}"
+                                           itemLabel="#{municipioItem.nome}"
+                                           />
+                            <p:ajax update="bairro"/>
 
-                        <h:outputText value="#{bundle.ViewEnderecoLabel_municipio}"/>
-                        <h:outputText value="#{enderecoController.selected.municipio.nome}" title="#{bundle.ViewEnderecoTitle_municipio}"/>
-                        
-                        <h:outputText value="#{bundle.ViewEnderecoLabel_bairro}"/>
-                        <h:outputText value="#{enderecoController.selected.bairro.nome}" title="#{bundle.ViewEnderecoTitle_bairro}"/>
-                        
-                        <h:outputText value="#{bundle.ViewEnderecoLabel_logradouro}"/>
-                        <h:outputText value="#{enderecoController.selected.logradouro}" title="#{bundle.ViewEnderecoTitle_logradouro}"/>
+                        </h:selectOneMenu>
 
-                        <h:outputText value="#{bundle.ViewEnderecoLabel_cep}"/>
-                        <h:outputText value="#{enderecoController.selected.cep}" title="#{bundle.ViewEnderecoTitle_cep}"/>
+                        <h:outputLabel value="#{bundle.ViewEnderecoLabel_bairro}" for="bairro" style="float: right;"/>
+                        <h:selectOneMenu id="bairro" value="#{enderecoController.selected.bairro}"  converter="bairroConverter" disabled="true">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{enderecoController.selected.municipio.bairros}"
+                                           var="bairroItem"
+                                           itemValue="#{bairroItem}"
+                                           itemLabel="#{bairroItem.nome}"
+                                           />
 
-                        <h:outputText value="#{bundle.ViewEnderecoLabel_numero}"/>
-                        <h:outputText value="#{enderecoController.selected.numero}" title="#{bundle.ViewEnderecoTitle_numero}"/>
-                    </p:panelGrid>
+                        </h:selectOneMenu>
+
+                        <p:outputLabel value="#{bundle.ViewEnderecoLabel_logradouro}" for="logradouro" style="float: right;"/>
+                        <p:inputText style="text-transform: uppercase" id="logradouro" value="#{enderecoController.selected.logradouro}" title="#{bundle.ViewEnderecoTitle_logradouro}" disabled="true"/>
+
+                        <p:outputLabel value="#{bundle.ViewEnderecoLabel_cep}" for="cep" style="float: right;"/>
+                        <p:inputText id="cep" value="#{enderecoController.selected.cep}" title="#{bundle.ViewEnderecoTitle_cep}" disabled="true"/>
+
+                        <p:outputLabel value="#{bundle.ViewEnderecoLabel_numero}" for="numero" style="float: right;"/>
+                        <p:inputText id="numero" value="#{enderecoController.selected.numero}" title="#{bundle.EditEnderecoTitle_numero}" disabled="true"/>
+                    </h:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="EnderecoViewDialog.hide()"/>
                 </h:panelGroup>
 

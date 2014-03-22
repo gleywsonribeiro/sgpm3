@@ -15,10 +15,10 @@
                 <h:panelGroup id="display">
                     <h:panelGrid  columns="2" rendered="#{enderecoController.selected != null}">
 
-                        <h:outputLabel value="#{bundle.EditEnderecoLabel_id}" for="id" />
+                        <h:outputLabel value="#{bundle.EditEnderecoLabel_id}" for="id" style="float: right;"/>
                         <h:outputText id="id" value="#{enderecoController.selected.id}" />
 
-                        <h:outputLabel value="#{bundle.EditEnderecoLabel_municipio}" for="municipio"/>
+                        <h:outputLabel value="#{bundle.EditEnderecoLabel_municipio}" for="municipio" style="float: right;"/>
                         <h:selectOneMenu id="municipio" value="#{enderecoController.selected.municipio}"  converter="municipioConverter">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{municipioController.items}"
@@ -30,7 +30,7 @@
 
                         </h:selectOneMenu>
                         
-                        <h:outputLabel value="#{bundle.EditEnderecoLabel_bairro}" for="bairro"/>
+                        <h:outputLabel value="#{bundle.EditEnderecoLabel_bairro}" for="bairro" style="float: right;"/>
                         <h:selectOneMenu id="bairro" value="#{enderecoController.selected.bairro}"  converter="bairroConverter">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{enderecoController.selected.municipio.bairros}"
@@ -41,13 +41,13 @@
 
                         </h:selectOneMenu>
                         
-                        <p:outputLabel value="#{bundle.EditEnderecoLabel_logradouro}" for="logradouro" />
+                        <p:outputLabel value="#{bundle.EditEnderecoLabel_logradouro}" for="logradouro" style="float: right;"/>
                         <p:inputText style="text-transform: uppercase" id="logradouro" value="#{enderecoController.selected.logradouro}" title="#{bundle.EditEnderecoTitle_logradouro}" />
 
-                        <p:outputLabel value="#{bundle.EditEnderecoLabel_cep}" for="cep" />
+                        <p:outputLabel value="#{bundle.EditEnderecoLabel_cep}" for="cep" style="float: right;"/>
                         <p:inputText id="cep" value="#{enderecoController.selected.cep}" title="#{bundle.EditEnderecoTitle_cep}" />
 
-                        <p:outputLabel value="#{bundle.EditEnderecoLabel_numero}" for="numero" />
+                        <p:outputLabel value="#{bundle.EditEnderecoLabel_numero}" for="numero" style="float: right;"/>
                         <p:inputText id="numero" value="#{enderecoController.selected.numero}" title="#{bundle.EditEnderecoTitle_numero}" />
                     </h:panelGrid>
                     <p:commandButton actionListener="#{enderecoController.save}" value="#{bundle.Save}" update="display,:EnderecoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,EnderecoEditDialog);"/>

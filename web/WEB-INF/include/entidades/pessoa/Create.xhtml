@@ -19,7 +19,7 @@
                                 <h:panelGroup>
                                     <p:watermark value="#{bundle.CreatePessoaLabel_nome}" for="nome" />
                                     <p:inputText size="50" style="text-transform: uppercase" id="nome" value="#{pessoaController.selected.nome}" title="#{bundle.CreatePessoaTitle_nome}" />
-                                    
+
                                     <h:panelGrid columns="2" width="300px">
 
                                         <p:outputLabel value="#{bundle.CreatePessoaLabel_cpf}" for="cpf" style="float: right;"/>
@@ -57,7 +57,7 @@
 
                                         <p:outputLabel value="#{bundle.CreatePessoaLabel_rgCivil}" for="rgCivil" style="float: right;"/>
                                         <p:inputText id="rgCivil" value="#{pessoaController.selected.rgCivil}" title="#{bundle.CreatePessoaTitle_rgCivil}" />
-                                        
+
                                         <p:outputLabel value="#{bundle.CreatePessoaLabel_habilitacao}" for="habilitacao" style="float: right;"/>
                                         <p:inputText id="habilitacao" value="#{pessoaController.selected.habilitacao}" title="#{bundle.CreatePessoaTitle_habilitacao}" />
 
@@ -243,6 +243,9 @@
                         <p:accordionPanel multiple="true">
                             <p:tab title="Movimentações">
                                 Movimentações aqui
+                            </p:tab>
+                            <p:tab title="Atribuições">
+                          
                             </p:tab>
                             <p:tab title="Dispenças e Licenças">
                                 Dispenças e licenças aqui
